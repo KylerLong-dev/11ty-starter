@@ -1,0 +1,26 @@
+---
+title: Blog
+layout: base.njk
+---
+
+<div class="container flow">
+<h2 class="section-title text-center">Recent articles</h2>
+<ul role="list" class="articles_list flow"> 
+
+    {%- for post in collections.post -%}
+      {% include "article-snippet.njk" %}
+    {%- endfor -%}
+
+</ul>
+
+</div>
+
+{# 
+    <ul role="list" class="articles__list flow"><li>
+         <article class="snippet">
+  <img src="/assets/blog/article-1.jpg" alt="This is a test" class="snippet__image">
+  <h3 class="snippet__title"><a href="/blog/my-first-article/">My First Article</a></h3>
+  <p class="snippet__meta">by <span>Kevin Powell</span> on <span>Apr 30, 2021</span></p>
+  <p class="snippet__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusantium sit illo neque rem omnis quaerat, nam similique vitae delectus ad magni vel quo maxime, magnam placeat. Reprehenderit, distinctio aliquam?</p> 
+  <a href="/blog/my-first-article/" class="btn btn--primary">Continue Reading</a>
+#}
