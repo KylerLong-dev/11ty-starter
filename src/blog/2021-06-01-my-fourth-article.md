@@ -1,6 +1,6 @@
 ---
 title: My Fourth Article
-author: Kevin Powell
+author: Kyler Long
 date: 2021-06-01
 image: /assets/blog/article-4.jpg
 imageAlt: This is a test
