@@ -1,4 +1,37 @@
 
+/***Custom Variables***/
+
+:root {
+  /* Primary Colors - Shades of Blue */
+  --primary-color: #3b5998; /* Deep blue */
+  --primary-light: #6a89cc; /* Soft sky blue */
+  --primary-dark: #2a4175; /* Navy blue */
+  --accent-color: #5479d6; /* Muted mid-blue */
+
+  /* Neutral Colors - Shades of White and Gray */
+  --background-color: #f7f9fc; /* Very light gray */
+  --background-alt-color: #e9eef5; /* Slightly darker gray for alternating sections */
+  --surface-color: #ffffff; /* Pure white for cards or containers */
+  --text-color: #4a4a4a; /* Medium gray for readable text */
+  --text-light: #7f8c8d; /* Soft gray for secondary text */
+  --border-color: #d1d1d1; /* Light gray for subtle borders */
+
+  /* Gradients */
+  --hero-gradient: linear-gradient(135deg, #3b5998, #6a89cc);
+
+  /* Shadows */
+  --box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+
+  /* Font Sizes */
+  --font-size-base: 1rem; /* 16px base */
+  --font-size-large: 1.5rem; /* 24px */
+  --font-size-small: 0.75rem; /* 12px */
+
+  /* Spacing */
+  --padding-base: 1rem; /* 16px */
+  --margin-base: 1rem; /* 16px */
+}
+
 /***Modern CSS Reset from https://piccalil.li/blog/a-more-modern-css-reset/***/ 
 
 /* Box sizing rules */
