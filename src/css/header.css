@@ -1,4 +1,78 @@
 .page-header_container {
     background-color: var(--background-color);
     border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: var(--padding-base);
 }
+
+.page-header_nav-list {
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.logo-container, .dark-mode-toggle, .dropdown-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 3rem;
+}
+
+.hamburger-btn {
+    padding: 0;
+}
+
+.dark-mode-toggle, .light-mode-toggle {
+    padding: 0;
+    border: none;
+    background-color: var(--background-color);
+}
+
+.light-mode-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 10;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--primary-dark);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Add active state for when the hamburger is clicked (for animation) */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+
+
+
+
