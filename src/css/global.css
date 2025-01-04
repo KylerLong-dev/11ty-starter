@@ -20,15 +20,16 @@
   --fw-900: 900;
 
   /* Primary Colors - Shades of Blue */
-  --primary-color: #3b5998; /* Deep blue */
-  --primary-light: #6a89cc; /* Soft sky blue */
-  --primary-dark: #2a4175; /* Navy blue */
-  --accent-color: #5479d6; /* Muted mid-blue */
+  --primary-color: #1e40af; /* Deep blue */
+  --primary-light: #60a5fa; /* Soft sky blue */
+  --primary-dark: #172554; /* Navy blue */
+  --accent-color: #bfdbfe; /* Muted mid-blue */
 
   /* Neutral Colors - Shades of White and Gray */
   --background-color: #f7f9fc; /* Very light gray */
   --background-alt-color: #e9eef5; /* Slightly darker gray for alternating sections */
   --surface-color: #ffffff; /* Pure white for cards or containers */
+  --nav-color: #242424;
   --text-color: #4a4a4a; /* Medium gray for readable text */
   --text-light: #7f8c8d; /* Soft gray for secondary text */
   --border-color: #d1d1d1; /* Light gray for subtle borders */
@@ -40,16 +41,22 @@
   --box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
 
   /* Font Sizes */
-  --font-size-base: 1rem; /* 16px base */
-  --font-size-large: 1.5rem; /* 24px */
-  --font-size-small: 0.75rem; /* 12px */
+  --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem); /* 13px - 16px */
+  --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem); /* 31px - 49px */
+  --baseFontsize: clamp(0.875rem, 2vw + 0.5rem, 1.125rem);
 
   /* Spacing */
   --padding-base: 1rem; /* 16px */
   --margin-base: 1rem; /* 16px */
+  --section-paddig: clamp(3.75rem, 7.82vw, 6.25rem) 1rem; /* 60px-100px top and bottom */
+  --header-padding: clamp(.9rem, 1.98vw, 3.4rem) 1rem;
+  --gap-responsive: clamp(1rem, 2vw, 2.2rem); /* Responsive gap 16px-35px */
+  --gap-small: 1rem; /* 16px */
+  --gap-medium: 2rem; /* 35px */ 
+  --gap-large: 3rem; /* 48px */
 }
 
-/* On Larger Screens (>35rem (560px), Font Size Scaling Auto Increases - Responsive Typography*/
+/* On Larger Screens (>35rem (560px), Font Size Scaling Auto Increases - Responsive Typography
 @media (min-width: 35em) {
   :root {
     --fs-300: 1rem;
@@ -59,6 +66,7 @@
     --fs-700: 3rem;
   }
 }
+*/
 
 /***Modern CSS Reset from https://piccalil.li/blog/a-more-modern-css-reset/***/ 
 
@@ -67,6 +75,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* Prevent font size inflation */
@@ -150,5 +160,28 @@ textarea:not([rows]) {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/*** Global CSS Properties Across Site ***/ 
+section {
+  padding: var(--section-paddig);
+}
+
+.cs-button {
+  cursor: pointer;
+  padding: .8rem 2.5rem;
+  border-radius: 50vh;
+  border: none;
+  font-weight: var(--fw-900);
+  font-size: var(--baseFontsize);
+  font-family: var(--ff-heading);
+  color: var(--surface-color);
+  background-color: var(--primary-dark);
+  transition: background-color .3s ease, color .3s ease;
+}
+
+.cs-button:hover {
+  background-color: var(--primary-light);
+  color: var(--nav-color);
 }
 

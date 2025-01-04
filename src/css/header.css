@@ -1,27 +1,48 @@
+.page-header {
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary-dark);
+    padding: var(--header-padding);
+}
+
 .page-header_container {
     background-color: var(--background-color);
-    border-radius: 1rem;
+    border-radius: 1.3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1em;
-    padding: var(--padding-base);
-    
+    gap: var(--gap-responsive);
+    padding:  clamp(1rem, 3vw, 2rem) clamp(1.2rem, 2vw, 1.7rem);
+    max-width: clamp(30rem, 80vw, 90rem);
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(223, 223, 223, 0.2);
+}
+
+.logo {
+    cursor: pointer;
 }
 
 .page-header_nav-list {
-    padding: 0;
-    margin: 0;
-    display: none;
+    display: flex;
+    gap: var(--gap-responsive);
+}
+
+.page-header_nav-list li a {
+    text-decoration: none;
+    font-weight: var(--fw-900);
+    font-size: var(--baseFontsize);
+    font-family: var(--ff-heading);
+    color: var(--nav-color);
+}
+
+.page-header_nav-list li a:hover, .page-header_nav-list li a:active {
+    color: var(--primary-light);
 }
 
 .nav-buttons {
     display: flex;
-    gap: 1em;
-}
-
-.hamburger-btn {
-    padding: 0;
+    gap: 1rem;
 }
 
 .dark-mode-toggle, .light-mode-toggle {
@@ -36,26 +57,43 @@
 
 .moon {
     width: 1.6rem;
+    cursor: pointer;
 }
 
 .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    gap: 5px;
-    background-color: var(--primary-dark);
-    border: none;
-    border-radius: 2px;
-}
-
-.bar {
-    width: 1.2rem;
-    border-bottom: 3px solid var(--surface-color);
+    display: none;
 }
 
 
+@media (max-width: 1023px) {
+    .page-header_nav-container {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        gap: 5px;
+        background-color: var(--primary-dark);
+        border: none;
+        border-radius: 5px;
+    }
+
+    .bar {
+        width: 1.2rem;
+        border-bottom: 3px solid var(--surface-color);
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .nav-buttons .cs-button {
+        display: none;
+    }
+}
 
 
 
