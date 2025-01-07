@@ -4,7 +4,7 @@ document.addEventListener('click', () => {
     hamburger.classList.toggle('active');
 });
 
-//When scrolling down, nav becomes sticky and expands - need to smooth this out
+//Full-width header upon scrolling down with sticky top position
 document.addEventListener("scroll", () => {
     const pageHeader = document.querySelector('.page-header_container');
     const headerNoPadding = document.querySelector('.page-header');

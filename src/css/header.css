@@ -23,6 +23,7 @@
     transition: max-width .5s ease, border-radius .5s ease;
 }
 
+/***full-width and no-padding classes toggle when user scrolls down on page***/
 .page-header_full-width {
    max-width: 100%;
    border-radius: 0;
@@ -31,6 +32,7 @@
 .page-header_no-padding {
     padding: 0;
 }
+/***end full-width/padding toggle section***/
 
 .logo {
     cursor: pointer;

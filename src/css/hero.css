@@ -1,0 +1,8 @@
+.hero {
+    display: flex;
+    background-color: var(--primary-dark);
+}
+
+.hero_cs-button {
+    background-color: var(--primary-light);
+}
