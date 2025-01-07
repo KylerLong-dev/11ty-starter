@@ -3,6 +3,9 @@
     justify-content: center;
     background-color: var(--primary-dark);
     padding: var(--header-padding);
+    transition: padding .5s ease;
+    position: sticky;
+    top: 0;
 }
 
 .page-header_container {
@@ -12,11 +15,21 @@
     align-items: center;
     justify-content: space-between;
     gap: var(--gap-responsive);
-    padding:  clamp(1rem, 3vw, 2rem) clamp(1.2rem, 2vw, 1.7rem);
-    max-width: clamp(30rem, 80vw, 90rem);
+    padding:  clamp(1rem, 3vw, 1.8rem) clamp(1.2rem, 2vw, 1.7rem);
+    max-width: clamp(30rem, 90vw, 90rem);
     width: 100%;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(223, 223, 223, 0.2);
+    transition: max-width .5s ease, border-radius .5s ease;
+}
+
+.page-header_full-width {
+   max-width: 100%;
+   border-radius: 0;
+}
+
+.page-header_no-padding {
+    padding: 0;
 }
 
 .logo {
