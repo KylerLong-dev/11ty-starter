@@ -1,8 +1,29 @@
 .hero {
     display: flex;
+    flex-direction: column;
     background-color: var(--primary-dark);
+    min-height: 35rem;
+    gap: var(--gap-responsive);
+}
+
+.hero .cs-content_text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 30rem;
+}
+
+.topper, .header, .base {
+    color: var(--background-color);
 }
 
 .hero_cs-button {
     background-color: var(--primary-light);
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: .8rem;
 }
