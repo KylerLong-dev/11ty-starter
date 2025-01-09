@@ -5,6 +5,7 @@
     padding: var(--header-padding);
     transition: padding .5s ease;
     position: sticky;
+    z-index: 1000;
     top: 0;
 }
 
@@ -19,7 +20,7 @@
     max-width: clamp(30rem, 90vw, 90rem);
     width: 100%;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(223, 223, 223, 0.2);
+    box-shadow: 0 10px 14px rgba(153, 153, 153, 0.2);
     transition: max-width .5s ease, border-radius .5s ease;
 }
 

@@ -1,11 +1,20 @@
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-dark);
+    z-index: -1;
+}
+
 .hero {
     display: flex;
     flex-direction: column;
-    background-color: var(--primary-dark);
     min-height: 35rem;
     gap: var(--gap-responsive);
     position: relative;
-    z-index: -1;
 }
 
 .hero .cs-content_text {
