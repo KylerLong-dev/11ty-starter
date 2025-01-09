@@ -14,8 +14,8 @@
   --fs-700: 2rem;
 
   /* Font Families */
-  --ff-body: "Roboto", sans-serif;
-  --ff-heading: "Playfair Display", serif;
+  --ff-body: "Georgia, 'Times New Roman', Times, serif";
+  --ff-heading: "Georgia, 'Times New Roman', Times, serif"
 
   /*Font Weights */
   --fw-400: 400;
@@ -185,3 +185,34 @@ section {
   font-size: var(--baseFontSize);
   margin-bottom: clamp(1.75rem, 3.92vw, 2.5rem);
 }
+
+/***Wave Shape Separator***/
+.custom-shape-divider-bottom-1736398064 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1736398064 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 62px;
+}
+
+.custom-shape-divider-bottom-1736398064 .shape-fill {
+  fill: #FFFFFF;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-bottom-1736398064 svg {
+      width: calc(100% + 1.3px);
+      height: 62px;
+  }
+}
+/***End Wave Shape Design***/
