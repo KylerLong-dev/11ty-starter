@@ -5,6 +5,7 @@
     min-height: 35rem;
     gap: var(--gap-responsive);
     position: relative;
+    z-index: -1;
 }
 
 .hero .cs-content_text {
