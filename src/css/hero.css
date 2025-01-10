@@ -17,18 +17,6 @@
     position: relative;
 }
 
-.hero .cs-content_text {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 0 auto;
-    max-width: 30rem;
-}
-
-.topper, .header, .base {
-    color: var(--background-color);
-}
-
 .hero_cs-button {
     background-color: var(--primary-light);
 }
