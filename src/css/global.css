@@ -153,6 +153,22 @@ section {
   padding: var(--section-paddig); 
 }
 
+.cs-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  max-width: 80rem;
+  width: 100%;
+  gap: 1.5rem;
+}
+
+@media (max-width: 916px) {
+  .cs-container {
+    flex-direction: column;
+  }
+}
+
 .cs-button {
   cursor: pointer;
   padding: .8rem 2.2rem;
@@ -209,20 +225,20 @@ section {
 /***End Section Header Styling***/
 
 /***Cards Group***/
-.cs-cards_wrap {
-  max-width: 50rem;
-}
 
 .cs-cards {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-  justify-items: center;
+  grid-template-columns: repeat( auto-fit, minmax(310px, 1fr) );
   gap: var(--gap-responsive);
 }
 
 .cs-cards li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   list-style-type: none;
-  padding: 5rem
+  padding: 5rem;
+  border: 1px solid black;
 }
 /***End Cards Group***/
 

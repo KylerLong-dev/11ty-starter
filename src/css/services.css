@@ -1,5 +1,10 @@
 /* Shared styles for services */
 
 /* Styles for services-preview */
-
+.services_cs-container {
+    margin: auto;
+    max-width: 80rem;
+    width: 100%;
+    gap: 1.5rem;
+}
 /* Styles for services-full */
