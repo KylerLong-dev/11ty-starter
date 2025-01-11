@@ -226,6 +226,7 @@ section {
 
 /***Cards Group***/
 .cs-cards {
+  position: relative;
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(310px, 1fr) );
   gap: clamp(4rem, 2vw, 5.2rem);
@@ -239,7 +240,6 @@ section {
     overflow: none;
   }
 }
-
 /***End Cards Group***/
 
 /***Wave Shape Separator***/
