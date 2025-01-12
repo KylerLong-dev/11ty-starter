@@ -221,25 +221,6 @@ section {
 }
 /***End Section Header Styling***/
 
-/***Cards Group***/
-.cs-cards {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(310px, 1fr) );
-  row-gap: clamp(4rem, 2vw, 5.2rem); /*increased vertical spacing for icons on service cards*/
-  column-gap: var(--gap-responsive);
-  overflow: none;
-  margin-top: clamp(2.5rem, 3.92vw, 3.25rem);
-}
-
-@media (max-width: 350px) {
-  .cs-cards {
-    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-    overflow: none;
-  }
-}
-/***End Cards Group***/
-
 /***Wave Shape Separator***/
 .custom-shape-divider-bottom-1736398064 {
   position: absolute;
