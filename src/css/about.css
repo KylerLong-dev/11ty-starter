@@ -1,0 +1,31 @@
+.about {
+    display: flex;
+    flex-direction: column;
+}
+
+.about_cs-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.about_cs-cards {
+    display: grid;
+    gap: var(--gap-responsive);
+    margin-bottom: clamp(1.75rem, 3.92vw, 2.5rem);
+}
+
+.about_card-contents {
+    list-style-type: none;
+}   
+
+.span_about-icon {
+    display: flex;
+    align-items: center;
+    gap: .625rem;
+}
+
+.about-icon {
+    width: var(--headerFontSize);
+    height: var(--headerFontSize);
+    fill: var(--primary-light);  
+}

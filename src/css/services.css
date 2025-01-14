@@ -5,7 +5,7 @@
     gap: 1.5rem;
 }
 
-.cs-cards .card-contents{
+.services_cs-cards .card-contents{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,7 @@
     background-color: var(--background-alt-color);
   }
 
-.cs-cards {
+.services_cs-cards {
   position: relative;
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(310px, 1fr) );
@@ -30,13 +30,13 @@
 }
 
 @media (max-width: 350px) {
-  .cs-cards {
+  .services_cs-cards {
     grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
     overflow: none;
   }
 }
 
-.card-contents .icon {
+.service-icon {
     max-width: 5rem;
     padding: 1rem;
     border-radius: .8rem;
@@ -66,7 +66,7 @@
     transition: width 0.3s ease; /* Smooth slide-in effect */
 }
 
-.cs-cards .card-contents:hover {
+.services_cs-cards .card-contents:hover {
     cursor: pointer;
 }
 
@@ -79,7 +79,7 @@
     width: 100%;
 }
 
-.card-contents:hover .icon {
+.card-contents:hover .service-icon {
     animation: rotate .6s ease-in-out;
     background-color: var(--primary-light);
     fill: var(--nav-color);
