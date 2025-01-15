@@ -1,11 +1,39 @@
+/*Need to refactor code to include an about-container that includes the about properties below.
+The about section should only be for the padding, don't apply other properties to it. Use the 
+services section as a guide*/
+
+/*gap between image and text needs to have a clamp to make reponsive to screen size*/
+
 .about {
+    margin: 0 auto;
+    max-width: 80rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.about-img_container {
+    display: flex;
+    justify-content: center;
+}
+
+.about-wrap {
+    margin: 0 auto;
 }
 
 .about_cs-container {
     display: flex;
     flex-direction: column;
+}
+
+.about_cs-container .cs-content_text {
+    text-align: left;
+    max-width: 40rem;
+}
+
+.cards_container {
+    max-width: 40rem;
+    margin: 0 auto;
 }
 
 .about_cs-cards {
@@ -16,7 +44,7 @@
 
 .about_card-contents {
     list-style-type: none;
-}   
+}  
 
 .span_about-icon {
     display: flex;
@@ -28,4 +56,13 @@
     width: var(--headerFontSize);
     height: var(--headerFontSize);
     fill: var(--primary-light);  
+}
+
+
+
+@media(min-width: 1023px) {
+    .about {
+        flex-direction: row;
+        gap: 3rem;
+    }
 }
