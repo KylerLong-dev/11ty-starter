@@ -1,9 +1,3 @@
-/*Need to refactor code to include an about-container that includes the about properties below.
-The about section should only be for the padding, don't apply other properties to it. Use the 
-services section as a guide*/
-
-/*gap between image and text needs to have a clamp to make reponsive to screen size*/
-
 .about {
     margin: 0 auto;
     max-width: 80rem;
@@ -21,10 +15,10 @@ services section as a guide*/
 .about-img {
     width: 100%;
     height: auto;
-    max-width: 40rem;
     border-radius: 1rem;
     box-shadow: 0 10px 14px rgba(56, 56, 56, 0.2);
     object-fit: cover;
+    max-width: 40rem;
 }
 
 .about_cs-container {
