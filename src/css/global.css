@@ -166,6 +166,11 @@ section {
   }
 }
 
+.cs-button_link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .cs-button {
   cursor: pointer;
   padding: .8rem 2.2rem;

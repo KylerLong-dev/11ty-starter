@@ -53,6 +53,12 @@
     font-weight: bold;
 }
 
+.service-button_container {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2.5rem, 3.92vw, 3.25rem);
+}
+
 /***Styling for hover effects on cards***/
 .service-link::after {
     content: '';

@@ -1,0 +1,7 @@
+.portfolio {
+    background-color: var(--background-alt-color);
+}
+
+.portfolio .cs-content_text {
+    max-width: 40rem;
+}
