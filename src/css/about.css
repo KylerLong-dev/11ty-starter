@@ -10,6 +10,7 @@ services section as a guide*/
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: clamp(1rem, 2vw, 2.5rem);
 }
 
 .about-img_container {
@@ -17,8 +18,13 @@ services section as a guide*/
     justify-content: center;
 }
 
-.about-wrap {
-    margin: 0 auto;
+.about-img {
+    width: 100%;
+    height: auto;
+    max-width: 40rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 14px rgba(56, 56, 56, 0.2);
+    object-fit: cover;
 }
 
 .about_cs-container {
@@ -58,11 +64,17 @@ services section as a guide*/
     fill: var(--primary-light);  
 }
 
-
-
 @media(min-width: 1023px) {
     .about {
         flex-direction: row;
-        gap: 3rem;
+        justify-content: space-between;
+    }
+}
+
+/*Padding removed at 1312px screen-width when auto horizontal margin reaches 16px width.*/
+@media(min-width: 1312px) {
+    .about {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
