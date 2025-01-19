@@ -10,37 +10,42 @@
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(310px, 1fr) );
     justify-content: center;
-    gap: var(--gap-responsive);
+    border-radius: 1rem;
+    box-shadow: 0 10px 14px rgba(56, 56, 56, 0.2);
+    overflow: hidden;
 }
 
 .portfolio_image-item {
-    background-color: gray;
-    border-radius: 1rem;
+    position: relative;
     width: 100%;
     min-height: 20rem;
-    position: relative;
-    overflow: none;
+    cursor: pointer;
+    overflow: hidden;
 }
 
 .portfolio_image-item img {
     width: 100%;
-    height: auto;
-    transition: background-color .3s ease; 
-}
-
-.portfolio_image-item img:hover {
-    background-color: var(--transp-light-primary);
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
 }
 
 .portfolio_hover-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: opacity .3s ease;
+    background-color: var(--transp-primary-light);
+    transition: opacity .3s ease, transform .3s ease;
     opacity: 0;
 }
 
-.portfolio_image-item:hover .portoflio_hover-box {
+.portfolio_image-item:hover .portfolio_hover-box {
     opacity: 1;
+    transform: scale(1.1);
 }
