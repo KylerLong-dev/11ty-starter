@@ -5,3 +5,42 @@
 .portfolio .cs-content_text {
     max-width: 40rem;
 }
+
+.portfolio_image-group {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(310px, 1fr) );
+    justify-content: center;
+    gap: var(--gap-responsive);
+}
+
+.portfolio_image-item {
+    background-color: gray;
+    border-radius: 1rem;
+    width: 100%;
+    min-height: 20rem;
+    position: relative;
+    overflow: none;
+}
+
+.portfolio_image-item img {
+    width: 100%;
+    height: auto;
+    transition: background-color .3s ease; 
+}
+
+.portfolio_image-item img:hover {
+    background-color: var(--transp-light-primary);
+}
+
+.portfolio_hover-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity .3s ease;
+    opacity: 0;
+}
+
+.portfolio_image-item:hover .portoflio_hover-box {
+    opacity: 1;
+}
