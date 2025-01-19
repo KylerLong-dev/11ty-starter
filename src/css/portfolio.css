@@ -6,9 +6,15 @@
     max-width: 40rem;
 }
 
+.portfolio-container {
+    max-width: 80rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .portfolio_image-group {
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(310px, 1fr) );
+    grid-template-columns: repeat( auto-fit, minmax(350px, 1fr) );
     justify-content: center;
     border-radius: 1rem;
     box-shadow: 0 10px 14px rgba(56, 56, 56, 0.2);
@@ -45,7 +51,78 @@
     opacity: 0;
 }
 
+.portfolio-icon {
+    width: clamp(3.125rem, 5vw, 3.75rem);
+    height: clamp(3.125rem, 5vw, 3.75rem);
+    margin-bottom: clamp(.5rem, 5vw, 1.5rem);
+    transform: rotateY(90deg);
+    transition: transform 0.5s;
+}
+
+.portfolio_hover-box h3 {
+    font-size: var(--topperFontSize);
+    margin-bottom: 0.5rem;
+    max-width: 16.875rem;
+    /*Starting position is down 10px and invisible*/
+    opacity: 0;
+    transform: translateY(0.625rem);
+    margin-bottom: 0.5rem;
+    transition: opacity 0.3s, transform 0.3s ease-out;
+    transition-delay: 0.1s;
+}
+
+.portfolio_hover-box p {
+    font-size: var(--baseFontsize);
+    max-width: 16.875rem;
+    opacity: 0;
+    transform: translateY(0.625rem);
+    transition: opacity 0.3s, transform 0.3s ease-out;
+    transition-delay: 0.2s;
+}
+
+/***Hover Effects***/
 .portfolio_image-item:hover .portfolio_hover-box {
     opacity: 1;
     transform: scale(1.1);
+}
+
+/*Returning to original position*/
+.portfolio_image-item:hover .portfolio_hover-box .portfolio-icon {
+    transform: translateY(0);
+}
+
+.portfolio_image-item:hover .portfolio_hover-box h3 {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.portfolio_image-item:hover .portfolio_hover-box p {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/*Fallback for mobile devices in place of hover*/
+.portfolio_image-item:focus::after {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.portfolio_image-item:focus::after .portfolio_hover-box .portfolio-icon {
+    transform: translateY(0);
+}
+
+.portfolio_image-item:focus::after .portfolio_hover-box h3 {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.portfolio_image-item:focus::after .portfolio_hover-box p {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@media (max-width: 425px) {
+    .portfolio_hover-box h3, .portfolio_hover-box p {
+        max-width: 14rem;
+    }
 }

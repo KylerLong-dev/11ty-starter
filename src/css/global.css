@@ -29,7 +29,7 @@
   --accent-color: #bfdbfe; /* Muted mid-blue */
 
   /* Transparent Colors */ 
-  --transp-primary-light: rgba(96, 165, 250, 0.5); 
+  --transp-primary-light: rgba(96, 165, 250, 0.80); 
 
   /* Neutral Colors - Shades of White and Gray */
   --background-color: #f7f9fc; /* Very light gray */
