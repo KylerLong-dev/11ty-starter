@@ -82,9 +82,11 @@
 }
 
 @media(min-width: 1172px) {
+
     .about-img_container {
         max-width: 38rem;
     }
+        
 }
 
 /*Padding removed at 1312px screen-width when auto horizontal margin reaches 16px width.*/
