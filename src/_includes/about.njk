@@ -1,6 +1,20 @@
 <section class="about">
     <div class="about-img_container">
-        <img class="about-img" src="/assets/images/Lawn-img.jpg" loading="lazy" decoding="async">
+        <picture class="about-img">
+           <!--Mobile Image-->
+           <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/lawn-img.jpg' | resize({ width: 576, height: 432 }) | avif %}" type="image/avif">
+           <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/lawn-img.jpg' | resize({ width: 576, height: 432 }) | webp %}" type="image/webp">
+           <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/lawn-img.jpg' | resize({ width: 576, height: 432 }) | jpeg %}" type="image/jpeg">
+           <!--Tablet Image-->
+           <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/lawn-img.jpg' | resize({ width: 736, height: 552 }) | avif %}" type="image/avif">
+           <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/lawn-img.jpg' | resize({ width: 736, height: 552 }) | webp %}" type="image/webp">
+           <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/lawn-img.jpg' | resize({ width: 736, height: 552 }) | jpeg %}" type="image/jpeg">
+           <!--Desktop Image-->
+           <source media="(min-width: 1024px)" srcset="{% getUrl '/assets/images/lawn-img.jpg' | resize({ width: 1240, height: 1684 }) | avif %}" type="image/avif">
+           <source media="(min-width: 1240px)" srcset="{% getUrl '/assets/images/lawn-img.jpg' | resize({ width: 1240, height: 1684 }) | webp %}" type="image/webp">
+           <source media="(min-width: 1240px)" srcset="{% getUrl '/assets/images/lawn-img.jpg' | resize({ width: 1240, height: 1684 }) | jpeg %}" type="image/jpeg">
+           <img src="{% getUrl '/assets/images/lawn-img.jpg' | resize({ width: 1240, height: 1684 }) | jpeg %}" alt="About Image" width="1240px" height="1684px" loading="lazy" decoding="async" aria-hidden="true">
+        </picture>
     </div>
     <div class="about_cs-container">
         <div class="cs-content_text">

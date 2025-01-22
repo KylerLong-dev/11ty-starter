@@ -1,5 +1,6 @@
 const { DateTime } = require("luxon");
 const eleventyPluginSharpImages = require("@codestitchofficial/eleventy-plugin-sharp-images");
+const eleventyPluginFilesMinifier = require("@codestitchofficial/eleventy-plugin-minify");
 
 module.exports = function(eleventyConfig) {
 
@@ -18,6 +19,9 @@ module.exports = function(eleventyConfig) {
         urlPath: "/assets/images",
         outputDir: "public/assets/images",
     })
+
+    /*HTML Minifier Plugin*/
+    eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 
     return {
         dir: {

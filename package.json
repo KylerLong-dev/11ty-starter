@@ -14,5 +14,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@codestitchofficial/eleventy-plugin-minify": "^1.1.3"
+  }
 }
