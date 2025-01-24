@@ -14,7 +14,7 @@
 
 .portfolio_image-group {
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(350px, 1fr) );
+    grid-template-columns: repeat(auto-fit, minmax(21.875rem, 1fr));    
     gap: var(--gap-responsive);
     justify-content: center;
     overflow: hidden;
@@ -35,11 +35,11 @@
 }
 
 .portfolio-pic img {
+    border-radius: 1rem;
     width: 100%;
     height: 100%;
     object-fit: cover;
     pointer-events: none;
-    overflow: hidden;
 }
 
 .portfolio_hover-box {
@@ -107,7 +107,7 @@
     opacity: 1;
 }
 
-/*Fallback for mobile devices in place of hover*/
+/*Focus fallback for mobile devices in place of hover*/
 .portfolio_image-item:focus::after {
     opacity: 1;
     transform: scale(1.1);
@@ -131,4 +131,9 @@
     .portfolio_hover-box h3, .portfolio_hover-box p {
         max-width: 14rem;
     }
+
+    .portfolio_image-group {
+        grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+    }
+    
 }
