@@ -1,0 +1,50 @@
+<section class="performance">
+    <div class="performance-container">
+
+        <div class="performance-container_text">
+            <div class="cs-content_text">
+                <p class="topper white">Performance/Featured Service</p>
+                <h1 class="header white">MAIN KEYWORDS ENTERED HERE</h1>
+                <p class="base light-gray">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad ipsum temporibus tempore reiciendis quas a, nihil esse aliquam dolorem! Error perspiciatis aliquid voluptatem suscipit sequi eius sed quis sit facilis.</p>
+            </div>
+            <ul class="performance-list">
+                <li class="performance-list_items">
+                    <svg class="performance-icon" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css">  .st0{fill:#ffffff;}  </style> <g> <rect x="56" y="317.484" class="st0" width="80" height="146.516"></rect> <rect x="176" y="237.484" class="st0" width="80" height="226.516"></rect> <rect x="296" y="141.484" class="st0" width="80" height="322.516"></rect> <rect x="416" y="45.484" class="st0" width="80" height="418.516"></rect> <polygon class="st0" points="16,496 16,0 0,0 0,496 0,512 16,512 512,512 512,496 "></polygon> </g> </g></svg>
+                    <p>This is some placeholder text emphasizing a performance measure or key feature of the company/service.</p>
+                </li>
+                <li class="performance-list_items">
+                    <svg class="performance-icon" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css">  .st0{fill:#ffffff;}  </style> <g> <rect x="56" y="317.484" class="st0" width="80" height="146.516"></rect> <rect x="176" y="237.484" class="st0" width="80" height="226.516"></rect> <rect x="296" y="141.484" class="st0" width="80" height="322.516"></rect> <rect x="416" y="45.484" class="st0" width="80" height="418.516"></rect> <polygon class="st0" points="16,496 16,0 0,0 0,496 0,512 16,512 512,512 512,496 "></polygon> </g> </g></svg>
+                    <p>This is some placeholder text emphasizing a performance measure or key feature of the company/service.</p>
+                </li>
+                <li class="performance-list_items">
+                    <svg class="performance-icon" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css">  .st0{fill:#ffffff;}  </style> <g> <rect x="56" y="317.484" class="st0" width="80" height="146.516"></rect> <rect x="176" y="237.484" class="st0" width="80" height="226.516"></rect> <rect x="296" y="141.484" class="st0" width="80" height="322.516"></rect> <rect x="416" y="45.484" class="st0" width="80" height="418.516"></rect> <polygon class="st0" points="16,496 16,0 0,0 0,496 0,512 16,512 512,512 512,496 "></polygon> </g> </g></svg>
+                    <p>This is some placeholder text emphasizing a performance measure or key feature of the company/service.</p>
+                </li>
+            </ul>
+            <button class="cs-button "><a href="#" class="cs-button_link">Get Started Today</a></button>
+        </div>
+        <div class="performance-img_container">
+            <picture class="performance-img">
+                <!--Mobile Image-->
+                <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/real-estate-job.jpg' | resize({ width: 600, height: 900 }) | avif %}" type="image/avif">
+                <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/real-estate-job.jpg' | resize({ width: 600, height: 900 }) | webp %}" type="image/webp">
+                <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/real-estate-job.jpg' | resize({ width: 600, height: 900 }) | jpeg %}" type="image/jpeg">
+                <!--Tablet Image-->
+                <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/real-estate-job.jpg' | resize({ width: 1024, height: 1536 }) | avif %}" type="image/avif">
+                <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/real-estate-job.jpg' | resize({ width: 1024, height: 1536 }) | webp %}" type="image/webp">
+                <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/real-estate-job.jpg' | resize({ width: 1024, height: 1536 }) | jpeg %}" type="image/jpeg">
+                <!--Desktop Image-->
+                <source media="(min-width: 1024px)" srcset="{% getUrl '/assets/images/real-estate-job.jpg' | resize({ width: 1920, height: 2880 }) | avif %}" type="image/avif">
+                <source media="(min-width: 1024px)" srcset="{% getUrl '/assets/images/real-estate-job.jpg' | resize({ width: 1920, height: 2880 }) | webp %}" type="image/webp">
+                <source media="(min-width: 1024px)" srcset="{% getUrl '/assets/images/real-estate-job.jpg' | resize({ width: 1920, height: 2880 }) | jpeg %}" type="image/jpeg">
+                <img src="{% getUrl '/assets/images/real-estate-job.jpg' | resize({ width: 1920, height: 2880 }) | jpeg %}" alt="" width="1920" height="2880" loading="lazy" decoding="async" aria-hidden="true">
+            </picture>
+
+            <div class="caption-container_text">
+                <h3 class="header black">Caption Title Here</h3>
+                <p class="base gray">Projects that combine beauty and functionality for great results.</p>
+            </div>
+        </div>
+
+    </div>
+</section>

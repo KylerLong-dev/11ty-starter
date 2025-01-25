@@ -1,0 +1,102 @@
+.performance {
+    background-color: var(--primary-dark);
+}
+
+.performance-container {
+    display: flex;
+    flex-direction: column-reverse;
+    max-width: 80rem;
+    margin: 0 auto;
+    width: 100%;
+    justify-content: space-between;
+    align-items: start;
+    gap: clamp(3rem, 6vw, 4rem);
+}
+
+.performance-container_text {
+    margin: clamp(2rem, 6vw, 3rem) auto 0 auto;
+}
+
+.performance-container_text .cs-content_text {
+    text-align: left;
+    margin: 0;
+    max-width: 40rem;
+}
+
+.performance-list_items {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: var(--gap-responsive);
+    color: var(--background-color);
+    gap: 2rem;
+    margin-bottom: clamp(2rem, 5vw, 2.5rem);
+    max-width: 40rem;
+}
+
+.performance-icon {
+    width: clamp(3.125rem, 5vw, 3.75rem);
+    height: clamp(3.125rem, 5vw, 3.75rem);
+    color: var(--background-color);
+    min-width: 3.125rem;
+    min-height: 3.125rem;
+}
+
+.performance-container_text .cs-button {
+    background-color: var(--primary-light);
+    color: var(--nav-color);
+}
+
+.performance-container_text .cs-button:hover {
+    background-color: var(--background-color);
+}
+
+.performance-img_container {
+    margin: 0 auto;
+    position: relative;
+}
+
+.performance-img {
+    max-width: 40rem;
+}
+
+.performance-img img {
+    width: 100%;
+    max-height: 25rem;
+    width: 50rem;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+ 
+.caption-container_text {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 10;
+    transform: translate(-50%, 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .3rem;
+    padding: clamp(1.2rem, 3vw, 2.2rem);
+    max-width: clamp(15rem, 50%, 25rem); 
+    width: 100%;
+    border-radius: 1rem;
+    background-color: var(--background-alt-color);
+    box-shadow: 0 10px 14px rgba(143, 143, 143, 0.2);
+}
+
+@media (min-width: 1023px) {
+    .performance-container {
+        flex-direction: row;
+    }
+    
+    .performance-img img {
+        max-height: 32rem;
+    }
+    .performance-container_text {
+        margin: 0 auto;
+    }
+}
+

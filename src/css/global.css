@@ -37,7 +37,7 @@
   --surface-color: #ffffff; /* Pure white for cards or containers */
   --nav-color: #242424;
   --text-color: #4a4a4a; /* Medium gray for readable text */
-  --text-light: #7f8c8d; /* Soft gray for secondary text */
+  --text-light: #c8cccc; /* Soft gray for secondary text */
   --border-color: #d1d1d1; /* Light gray for subtle borders */
 
   /* Shadows */
@@ -192,6 +192,11 @@ section {
   color: var(--nav-color);
 }
 
+.caption-container {
+  display: flex;
+  background-color: var(--background-alt-color);
+}
+
 /***Section Header Styling***/
 .cs-content_text {
   display: flex;
@@ -203,6 +208,10 @@ section {
 
 .gray {
   color: var(--text-color);
+}
+
+.light-gray {
+  color: var(--text-light);
 }
 
 .black {

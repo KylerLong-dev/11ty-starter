@@ -11,18 +11,8 @@ layout: "base.njk"
 
 {% include "portfolio.njk" %}
 
-<section class="featured-posts">
-  <div>
-    <h2>Featured articles</h2>
-    <p>Here is a sample of articles which I feel give you a good idea of what this site is all about.</p>
-    <ul role="list">
+{% include "performance.njk" %}
 
-      {%- for post in collections.featured -%}
-        {% include "article-snippet.njk" %}
-      {%- endfor -%}
-
-    </ul>
-  </div>
-</section> 
-        
+{% include "featured-posts.njk" %}
+  
 

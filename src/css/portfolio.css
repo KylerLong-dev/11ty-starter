@@ -135,5 +135,9 @@
     .portfolio_image-group {
         grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
     }
+
+    .portfolio .cs-content_text {
+        text-align: left;
+    }
     
 }
