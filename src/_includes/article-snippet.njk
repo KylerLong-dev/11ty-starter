@@ -52,9 +52,20 @@
         decoding="async">
     </picture>
     <div class="snippet_text-container">
-      <h3 class="snippet_title">{{ post.data.title }}</h3>
-      <p class="snippet_meta">by <span>{{ post.data.author }}</span> on <span>{{ post.date | postDate }}</span></p>
-      <p class="snippet_body">{{ post.data.description }}</p>
+      <div class="snippet_title-container">
+        <h3 class="snippet_title">{{ post.data.title }}</h3>
+        <svg class="title-icon"></svg>
+      </div>
+      <div class="underline"></div>
+      <div class="snippet_meta-container">
+        <div class="snippet_date-container">
+          <svg class="date-icon"></svg>
+          <p>{{ post.date | postDate }}</p>
+        </div>
+        <div class="snippet_author-container">
+          <p class="snippet_meta">By: {{ post.data.author }}</p>
+        </div>
+      </div>
     </div>
   </a>
 </li>
