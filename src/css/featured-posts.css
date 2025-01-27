@@ -2,3 +2,44 @@
     display: flex;
     flex-direction: column;
 }
+
+.featured-posts_container .cs-content_text h1 {
+    margin-bottom: clamp(1.75rem, 3.92vw, 2.5rem);
+}
+
+.article-list {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(310px, 1fr) );
+    gap: var(--gap-responsive);
+    margin: 0 auto;
+}
+
+.snippet {
+    list-style-type: none;
+}
+
+.snippet a{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-small);
+}
+
+.snippet_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.snippet_text-container {
+    background-color: var(--background-alt-color);
+    border-radius: 1rem;
+}
+
+@media(max-width: 1023px) {
+    .article-list {
+        max-width: 40rem;
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
+}

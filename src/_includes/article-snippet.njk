@@ -1,9 +1,62 @@
-      <li>
-        <article class="snippet">
-          <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt }}" class="snippet_img">
-          <h3 class="snippet_title">{{ post.data.title }}</h3>
-          <p class="snippet_meta">by <span>{{ post.data.author }}</span>on <span> {{ post.date | postDate }}</span></p>
-          <p class="snippet_body">{{ post.data.description }}</p>
-          <a href=" {{ post.url }}" class="btn btn--primary">Continue Reading</a>
-        </article>
-      </li>
+<li class="snippet">
+  <a href="{{ post.url }}">
+    <picture class="snippet_img">
+      <!-- Mobile Image -->
+      <source 
+        media="(max-width: 600px)" 
+        srcset="{% getUrl post.data.image | resize({ width: 600, height: 400 }) | avif %}" 
+        type="image/avif">
+      <source 
+        media="(max-width: 600px)" 
+        srcset="{% getUrl post.data.image | resize({ width: 600, height: 400 }) | webp %}" 
+        type="image/webp">
+      <source 
+        media="(max-width: 600px)" 
+        srcset="{% getUrl post.data.image | resize({ width: 600, height: 400 }) | jpeg %}" 
+        type="image/jpeg">
+
+      <!-- Tablet Image -->
+      <source 
+        media="(max-width: 1024px)" 
+        srcset="{% getUrl post.data.image | resize({ width: 1024, height: 768 }) | avif %}" 
+        type="image/avif">
+      <source 
+        media="(max-width: 1024px)" 
+        srcset="{% getUrl post.data.image | resize({ width: 1024, height: 768 }) | webp %}" 
+        type="image/webp">
+      <source 
+        media="(max-width: 1024px)" 
+        srcset="{% getUrl post.data.image | resize({ width: 1024, height: 768 }) | jpeg %}" 
+        type="image/jpeg">
+
+      <!-- Desktop Image -->
+      <source 
+        media="(min-width: 1024px)" 
+        srcset="{% getUrl post.data.image | resize({ width: 1920, height: 1080 }) | avif %}" 
+        type="image/avif">
+      <source 
+        media="(min-width: 1024px)" 
+        srcset="{% getUrl post.data.image | resize({ width: 1920, height: 1080 }) | webp %}" 
+        type="image/webp">
+      <source 
+        media="(min-width: 1024px)" 
+        srcset="{% getUrl post.data.image | resize({ width: 1920, height: 1080 }) | jpeg %}" 
+        type="image/jpeg">
+
+      <img 
+        src="{% getUrl post.data.image | resize({ width: 1920, height: 1080 }) | jpeg %}" 
+        alt="{{ post.data.imageAlt }}" 
+        width="1920" 
+        height="1080" 
+        loading="lazy" 
+        decoding="async">
+    </picture>
+    <div class="snippet_text-container">
+      <h3 class="snippet_title">{{ post.data.title }}</h3>
+      <p class="snippet_meta">by <span>{{ post.data.author }}</span> on <span>{{ post.date | postDate }}</span></p>
+      <p class="snippet_body">{{ post.data.description }}</p>
+    </div>
+  </a>
+</li>
+
+

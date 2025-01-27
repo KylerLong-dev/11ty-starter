@@ -1,12 +1,15 @@
 <section class="featured-posts">
   <div class="featured-posts_container">
 
-    <ul role="featured-list">
-
+    <div class="cs-content_text">
+            <p class="topper gray">The Blog</p>
+            <h1 class="header black">OUR TOP ARTICLES</h1>
+    </div>
+    <ul class="article-list">
       {%- for post in collections.featured -%}
         {% include "article-snippet.njk" %}
       {%- endfor -%}
-
     </ul>
+    
   </div>
 </section> 
