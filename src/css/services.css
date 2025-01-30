@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+.services_cs-container .cs-content_text {
+  max-width: 40rem;
+}
+
 .services_cs-cards .card-contents{
   position: relative;
   display: flex;

@@ -7,6 +7,10 @@
     margin: 0 auto;
 }
 
+.reviews_container .cs-content_text {
+    max-width: 40rem;
+}
+
 .reviews_list {
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(310px, 1fr) );

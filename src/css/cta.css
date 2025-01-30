@@ -1,0 +1,30 @@
+.cta {
+    background-color: var(--background-alt-color);
+    padding: 0 1rem clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+}
+
+.cta_container {
+    background-color: var(--primary-dark);
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 50rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cta_container .cs-content_text {
+    max-width: 40rem;
+}
+
+.cta_container .cs-button {
+    background-color: var(--primary-light);
+    color: var(--nav-color);
+    max-width: 14rem;
+    transition: background-color 0.3s ease;
+}
+
+.cta_container .cs-button:hover {
+    background-color: var(--background-color);
+}
