@@ -1,0 +1,39 @@
+.site_footer {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    position: relative;
+}
+
+.footer_container {
+    padding: clamp(3.75rem, 7.82vw, 6.25rem) 0 0 0; /*Gives space below wave*/
+}
+
+/***Footer Wave Shape Separator***/
+.footer_custom-shape-divider-bottom-1736398064 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.footer_custom-shape-divider-bottom-1736398064 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 62px;
+}
+
+.footer_custom-shape-divider-bottom-1736398064 .shape-fill {
+    fill: var(--background-alt-color);
+}
+
+/*For mobile devices */
+@media (max-width: 767px) {
+    .footer_custom-shape-divider-bottom-1736398064 svg {
+        width: calc(100% + 1.3px);
+        height: 62px;
+    }
+}
+/***End Wave Shape Design***/

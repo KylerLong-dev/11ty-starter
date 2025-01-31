@@ -149,7 +149,7 @@ textarea:not([rows]) {
 }
 
 /*** Global CSS Properties Across Site ***/ 
-section {
+section,.site_footer {
   padding: var(--section-paddig); 
 }
 
