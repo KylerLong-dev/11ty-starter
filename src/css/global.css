@@ -49,6 +49,8 @@
   --section-paddig: clamp(3.75rem, 7.82vw, 6.25rem) 1rem; /* 60px-100px top and bottom */
   --header-padding: clamp(.9rem, 1.98vw, 3.4rem) 1rem;
   --gap-responsive: clamp(1rem, 2vw, 2.2rem); /* Responsive gap 16px-35px */
+  --gap-responsive-small: clamp(.8rem, 3vw, 1.4rem);
+  --gap-responsive-large: clamp(3rem, 4vw, 5.4rem);
   --gap-small: 1rem; /* 16px */
   --gap-medium: 2rem; /* 35px */ 
   --gap-large: 3rem; /* 48px */
@@ -149,7 +151,7 @@ textarea:not([rows]) {
 }
 
 /*** Global CSS Properties Across Site ***/ 
-section,.site_footer {
+section {
   padding: var(--section-paddig); 
 }
 
