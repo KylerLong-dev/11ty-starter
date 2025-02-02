@@ -53,10 +53,6 @@
     min-height: 3rem;
 }
 
-.underline {
-    border-bottom: 1px solid var(--text-light);
-}
-
 .snippet_meta-container {
     display: flex;
     justify-content: space-between;

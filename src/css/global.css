@@ -19,6 +19,7 @@
 
   /*Font Weights */
   --fw-400: 400;
+  --fw-600: 600;
   --fw-700: 700;
   --fw-900: 900;
 
@@ -169,6 +170,10 @@ section {
   .cs-container {
     flex-direction: column;
   }
+}
+
+.underline {
+  border-bottom: .5px solid var(--text-light);
 }
 
 .cs-button_link {

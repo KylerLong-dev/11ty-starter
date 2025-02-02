@@ -1,15 +1,20 @@
 .site_footer {
     background-color: var(--primary-dark);
-    color: var(--text-light);
+    color: var(--background-color);
     position: relative;
     padding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem 2rem 1rem;
+    font-size: var(--baseFontSize);
+    font-weight: var(--fw-400);
+}
+
+.footer_container .underline {
+    margin-top: clamp(3rem, 4vw, 5.4rem);
 }
 
 .footer_container {
     padding: clamp(3.75rem, 7.82vw, 6.25rem) 0 0 0; /*Gives space below wave*/
     display: flex;
     flex-direction: column;
-    gap: var(--gap-responsive-large);
     max-width: 80rem;
     margin: 0 auto;
 }
@@ -25,12 +30,19 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-responsive-small);
+    font-size: var(--fs-400);
 }
 
+/*Footer Button*/
 .footer_col-1 .cs-button {
     background-color: var(--background-color);
     color: var(--nav-color);
     max-width: 14rem;
+    transition: background-color 0.3s ease;
+}
+
+.footer_col-1 .cs-button:hover {
+    background-color: var(--primary-light);
 }
 
 .footer_container-right {
@@ -45,7 +57,71 @@
 
 .footer_container-right h2 {
     margin-bottom: var(--gap-responsive-small);
+    font-weight: bold;
 }
+
+.footer_links, .footer_contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+/*Footer Quick Links*/
+.footer-link a {
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-size: var(--fs-400);
+}
+
+.footer-link a:hover {
+    color: var(--primary-light);
+}
+
+
+/*Footer Contact Items*/
+.footer_contact-item {
+    display: flex;
+    gap: .8rem;
+}
+
+.footer_contact-item p {
+    font-size: var(--fs-400);
+}
+
+.footer_contact-info .footer_contact-item {
+    transition: color 0.3s ease; 
+}
+
+.footer_contact-info .footer_contact-item:nth-child(2),
+.footer_contact-info .footer_contact-item:nth-child(3) {
+    cursor: pointer;
+}
+
+.footer_contact-info .footer_contact-item:hover {
+    color: var(--primary-light);
+}
+
+/*Footer Contact Icons*/
+.footer_contact-item .icon,
+.footer_contact-item .icon * {
+  stroke: var(--text-light) !important;
+  fill: var(--primary-dark) !important;
+  color: var(--text-light) !important;
+  width: 1.3rem;
+  height: auto;
+}
+
+/* Optional: Handle specific elements in complex SVGs */
+.footer_contact-item .icon [class^="st"] { /* Target classes like "st0" */
+  fill: var(--text-light) !important;
+  stroke: var(--text-light) !important;
+}
+
+.footer_container-bot {
+    margin-top: 1rem;
+}
+
 
 /***Footer Wave Shape Separator***/
 .footer_custom-shape-divider-bottom-1736398064 {
