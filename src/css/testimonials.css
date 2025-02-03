@@ -31,10 +31,6 @@
     min-height: 15rem;
 }
 
-.cs-quote {
-    fill: var(--primary-dark);
-}
-
 .cs-location, .review_text {
     color: var(--text-color);
 }

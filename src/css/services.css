@@ -39,6 +39,7 @@
   }
 }
 
+/*Service Icon Styling*/
 .service-icon {
   max-width: 5rem;
   padding: 1rem;
@@ -49,6 +50,11 @@
   fill: var(--surface-color);
   transition: background-color .6s ease-in-out, fill .6s ease-in-out;
 }
+
+.service-icon .st0 {
+  fill: var(--surface-color);
+}
+/*End Service Icon Styling*/
 
 .service-link {
   position: relative;
@@ -91,6 +97,10 @@
 .card-contents:hover .service-icon {
   animation: rotate .6s ease-in-out;
   background-color: var(--primary-light);
+  fill: var(--nav-color);
+}
+
+.card-contents:hover .service-icon .st0 {
   fill: var(--nav-color);
 }
 

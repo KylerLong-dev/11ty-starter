@@ -37,9 +37,10 @@
 .performance-icon {
     width: clamp(3.125rem, 5vw, 3.75rem);
     height: clamp(3.125rem, 5vw, 3.75rem);
-    color: var(--background-color);
     min-width: 3.125rem;
     min-height: 3.125rem;
+    fill: #ffffff;
+    stroke: #ffffff;
 }
 
 .performance-container_text .cs-button {
