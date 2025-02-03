@@ -39,8 +39,10 @@
     height: clamp(3.125rem, 5vw, 3.75rem);
     min-width: 3.125rem;
     min-height: 3.125rem;
-    fill: #ffffff;
-    stroke: #ffffff;
+}
+
+.performance-icon .st0 {
+    fill: var(--background-color);
 }
 
 .performance-container_text .cs-button {
