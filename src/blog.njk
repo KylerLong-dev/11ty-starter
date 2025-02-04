@@ -3,14 +3,15 @@ title: Blog
 layout: "base.njk"
 ---
 
-<div>
-  <h2>Recent articles</h2>
-  <ul role="list"> 
-
-    {%- for post in collections.post -%}
-      {% include "components/article-snippet.njk" %}
-    {%- endfor -%}
-
-  </ul>
-
-</div>
+{% for post in collections.post %}
+  <article>
+    <div>
+      <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      <figure>
+        <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt }}" loading="lazy">
+        <figcaption></figcaption>
+      </figure>
+      <p class="post-description">{{ post.data.description | safe }}</p>
+    </div>
+  </article>
+{% endfor %}
