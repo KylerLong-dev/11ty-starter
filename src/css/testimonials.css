@@ -1,6 +1,3 @@
-.reviews {
-    background-color: var(--background-alt-color);
-}
 
 .reviews_container {
     max-width: 80rem;
@@ -25,7 +22,7 @@
     justify-content: center;
     gap: var(--gap-responsive);
     text-align: left;
-    background-color: var(--background-color);
+    background-color: var(--background-alt-color);
     border-radius: 1rem;
     padding: clamp(1rem, 5vw, 2rem);
     min-height: 15rem;

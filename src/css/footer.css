@@ -2,7 +2,7 @@
     background-color: var(--primary-dark);
     color: var(--background-color);
     position: relative;
-    padding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem 2rem 1rem;
+    padding: 2rem 1rem;
     font-size: var(--baseFontSize);
     font-weight: var(--fw-400);
 }
@@ -140,7 +140,7 @@
 }
 
 .footer_custom-shape-divider-bottom-1736398064 .shape-fill {
-    fill: var(--background-alt-color);
+    fill: #ffffff;
 }
 
 /*For mobile devices */
