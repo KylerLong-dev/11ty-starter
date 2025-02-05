@@ -156,6 +156,13 @@ section {
   padding: var(--section-paddig); 
 }
 
+.interior_title {
+  color: var(--background-color);
+  margin: 0 auto;
+  font-weight: var(--fw-900);
+  font-size: 4.2rem;
+}
+
 .cs-container {
   display: flex;
   justify-content: space-between;

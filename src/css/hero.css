@@ -12,7 +12,6 @@
 .hero {
     display: flex;
     flex-direction: column;
-    min-height: 35rem;
     gap: var(--gap-responsive);
     position: relative;
 }
