@@ -10,8 +10,52 @@ layout: "base.njk"
     <div class="blog_container-posts">
     {% for post in collections.post %}
       <article class="article-items">
-        <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt }}" loading="lazy">
+        <picture class="article_pic">
+          <!-- Mobile Image -->
+          <source media="(max-width: 600px)" 
+                  srcset="{% getUrl post.data.image | resize({ width: 400 }) | avif %}" 
+                  type="image/avif">
+          <source media="(max-width: 600px)" 
+                  srcset="{% getUrl post.data.image | resize({ width: 400 }) | webp %}" 
+                  type="image/webp">
+          <source media="(max-width: 600px)" 
+                  srcset="{% getUrl post.data.image | resize({ width: 400 }) | jpeg %}" 
+                  type="image/jpeg">
+
+          <!-- Tablet Image -->
+          <source media="(max-width: 1024px)" 
+                  srcset="{% getUrl post.data.image | resize({ width: 700 }) | avif %}" 
+                  type="image/avif">
+          <source media="(max-width: 1024px)" 
+                  srcset="{% getUrl post.data.image | resize({ width: 700 }) | webp %}" 
+                  type="image/webp">
+          <source media="(max-width: 1024px)" 
+                  srcset="{% getUrl post.data.image | resize({ width: 700 }) | jpeg %}" 
+                  type="image/jpeg">
+
+          <!-- Desktop Image -->
+          <source media="(min-width: 1024px)" 
+                  srcset="{% getUrl post.data.image | resize({ width: 1200 }) | avif %}" 
+                  type="image/avif">
+          <source media="(min-width: 1024px)" 
+                  srcset="{% getUrl post.data.image | resize({ width: 1200 }) | webp %}" 
+                  type="image/webp">
+          <source media="(min-width: 1024px)" 
+                  srcset="{% getUrl post.data.image | resize({ width: 1200 }) | jpeg %}" 
+                  type="image/jpeg">
+
+          <img src="{% getUrl post.data.image | resize({ width: 1200 }) | jpeg %}" 
+              alt="{{ post.data.imageAlt }}" 
+              width="1200" 
+              loading="lazy" 
+              decoding="async">
+        </picture>
         <div class="article-item_text">
+          <div class="article_meta">
+            <p>{{ post.data.author }}</p>
+            <div class="separator"></div>
+            <p>{{ post.date | postDate }}</p>
+          </div>
           <h2> {{ post.data.title }}</h2>
           <p class="post-description">{{ post.data.description | safe }}</p>
           <button class="cs-button blog-button"><a class="cs-button_link" href="{{ post.url }}">Continue Reading</a></button>
