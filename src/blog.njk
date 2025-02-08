@@ -63,20 +63,26 @@ layout: "base.njk"
       </article>
     {% endfor %}
     </div>
-    {% for post in collections.featured %}
     <div class="blog_container-side">
-      <div class="side_featured-posts">
-        <h2>Featured Posts</h2>
-        <div class="underline"></div>
-        <div class="post_list">
-                <div class="post_img"></div>
-                <div class="post_meta">
-                        <h3>{{ post.data.title }}</h3>
-                        <p>{{ post.date | postDate }}</p>
-                </div>
-        </div>
+		<div class="featured-posts_header">
+			<h3>FEATURED POSTS</h3>
+			<div class="header_underline"></div>
+		</div>
+		{% for post in collections.featured %}
+		<a href="{{ post.url }}" class="cs-button_link">
+			<div class="side_featured-posts">
+				<div class="featured-post_item">
+					<img src="{% getUrl post.data.image | resize({ width: 70 }) | jpeg %}" alt="{{ post.data.imageAlt }}" width="70" loading="lazy" decoding="async">
+					<div class="post_meta">
+						<h4>{{ post.data.title }}</h4>
+						<p>{{ post.date | postDate }}</p>
+					</div>
+				</div>
+			</div>
+		</a>
+		<div class="underline"></div>
+		{% endfor %}
     </div>
-    {% endfor %}
   </div>
 </section>
 
