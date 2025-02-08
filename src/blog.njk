@@ -63,11 +63,20 @@ layout: "base.njk"
       </article>
     {% endfor %}
     </div>
+    {% for post in collections.featured %}
     <div class="blog_container-side">
       <div class="side_featured-posts">
         <h2>Featured Posts</h2>
-      </div>
+        <div class="underline"></div>
+        <div class="post_list">
+                <div class="post_img"></div>
+                <div class="post_meta">
+                        <h3>{{ post.data.title }}</h3>
+                        <p>{{ post.date | postDate }}</p>
+                </div>
+        </div>
     </div>
+    {% endfor %}
   </div>
 </section>
 

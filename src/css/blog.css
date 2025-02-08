@@ -54,6 +54,11 @@
     background-color: var(--primary-light);
 }
 
+.blog_container-side {
+    display: flex;
+    flex-direction: column;
+}
+
 @media (min-width: 1123px) {
     .blog_container {
         grid-template-columns: 2fr 1fr;
