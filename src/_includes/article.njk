@@ -2,19 +2,82 @@
 layout: "base.njk"
 ---
 
-<article>
-  <div>
-      <h1>
-        {{ title }}
-      </h1>
-      <figure>
-        <img src="{{ image }}" alt="{{ imageAlt }}">
-        <figcaption>
-          <p>By: {{ author }}</p>
-        </figcaption>
-      </figure>
+{% include "interior-hero.njk" %}
 
-    {{ content | safe }}   
+<section class="blog_container">
+    <article class="ind_article">
+        <picture class="article_pic">
+            <!-- Mobile Image -->
+            <source media="(max-width: 600px)" 
+                    srcset="{% getUrl image | resize({ width: 400 }) | avif %}" 
+                    type="image/avif">
+            <source media="(max-width: 600px)" 
+                    srcset="{% getUrl image | resize({ width: 400 }) | webp %}" 
+                    type="image/webp">
+            <source media="(max-width: 600px)" 
+                    srcset="{% getUrl image | resize({ width: 400 }) | jpeg %}" 
+                    type="image/jpeg">
 
-  </div>
-</article>
+            <!-- Tablet Image -->
+            <source media="(max-width: 1024px)" 
+                    srcset="{% getUrl image | resize({ width: 700 }) | avif %}" 
+                    type="image/avif">
+            <source media="(max-width: 1024px)" 
+                    srcset="{% getUrl image | resize({ width: 700 }) | webp %}" 
+                    type="image/webp">
+            <source media="(max-width: 1024px)" 
+                    srcset="{% getUrl image | resize({ width: 700 }) | jpeg %}" 
+                    type="image/jpeg">
+
+            <!-- Desktop Image -->
+            <source media="(min-width: 1024px)" 
+                    srcset="{% getUrl image | resize({ width: 1200 }) | avif %}" 
+                    type="image/avif">
+            <source media="(min-width: 1024px)" 
+                    srcset="{% getUrl image | resize({ width: 1200 }) | webp %}" 
+                    type="image/webp">
+            <source media="(min-width: 1024px)" 
+                    srcset="{% getUrl image | resize({ width: 1200 }) | jpeg %}" 
+                    type="image/jpeg">
+
+            <img src="{% getUrl image | resize({ width: 1200 }) | jpeg %}" alt="{{ imageAlt }}" width="1200" loading="lazy" decoding="async">
+        </picture>
+        <div class="ind_article-header">
+            <h2>{{ title }}</h2>
+            <div class="article_meta">
+                <p>{{ author }}</p>
+                <div class="separator"></div>
+                <p>{{ date | postDate }}</p>
+            </div>
+            <div class="underline"></div>
+        </div>
+
+        {{ content | safe }}
+ 
+    </article>
+
+    <div class="blog_container-side">
+        <div class="featured-posts_header">
+		    <h3>FEATURED POSTS</h3>
+		    <div class="header_underline"></div>
+		</div>
+		{% for post in collections.featured %}
+		<a href="{{ post.url }}" class="cs-button_link">
+			<div class="side_featured-posts">
+				<div class="featured-post_item">
+					<img src="{% getUrl post.data.image | resize({ width: 70 }) | jpeg %}" alt="{{ post.data.imageAlt }}" width="70" loading="lazy" decoding="async">
+					<div class="post_meta">
+						<h4>{{ post.data.title }}</h4>
+						<p>{{ post.date | postDate }}</p>
+					</div>
+				</div>
+			</div>
+		</a>
+		<div class="underline"></div>
+		{% endfor %}
+    </div>
+
+</section>
+
+{% include "cta.njk" %}
+

@@ -1,5 +1,6 @@
 ---
 title: My Fourth Article
+heroTitle: Blog
 author: Kyler Long
 date: 2021-06-01
 image: /assets/blog/article-4.jpg

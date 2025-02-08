@@ -1,5 +1,6 @@
 ---
 title: Blog
+heroTitle: Blog
 layout: "base.njk"
 ---
 
@@ -7,9 +8,12 @@ layout: "base.njk"
 
 <section class="blog">
   <div class="blog_container">
+
+  {# List of Blog Posts Collection for Blog Page #}
     <div class="blog_container-posts">
     {% for post in collections.post %}
       <article class="article-items">
+
         <picture class="article_pic">
           <!-- Mobile Image -->
           <source media="(max-width: 600px)" 
@@ -44,29 +48,30 @@ layout: "base.njk"
                   srcset="{% getUrl post.data.image | resize({ width: 1200 }) | jpeg %}" 
                   type="image/jpeg">
 
-          <img src="{% getUrl post.data.image | resize({ width: 1200 }) | jpeg %}" 
-              alt="{{ post.data.imageAlt }}" 
-              width="1200" 
-              loading="lazy" 
-              decoding="async">
+          <img src="{% getUrl post.data.image | resize({ width: 1200 }) | jpeg %}" alt="{{ post.data.imageAlt }}" width="1200" loading="lazy" decoding="async">
         </picture>
+
         <div class="article-item_text">
-          <div class="article_meta">
-            <p>{{ post.data.author }}</p>
-            <div class="separator"></div>
-            <p>{{ post.date | postDate }}</p>
-          </div>
-          <h2> {{ post.data.title }}</h2>
-          <p class="post-description">{{ post.data.description | safe }}</p>
-          <button class="cs-button blog-button"><a class="cs-button_link" href="{{ post.url }}">Continue Reading</a></button>
+          	<div class="article_meta">
+				<p>{{ post.data.author }}</p>
+				<div class="separator"></div>
+				<p>{{ post.date | postDate }}</p>
+          	</div>
+          	<h2>{{ post.data.title }}</h2>
+          	<p class="post-description">{{ post.data.description | safe }}</p>
+          	<button class="cs-button blog-button"><a class="cs-button_link" href="{{ post.url }}">Continue Reading</a></button>
         </div>
+
       </article>
     {% endfor %}
     </div>
+    {# End List of Blog Posts Collection for Blog Page #}
+
+    {# Sidebar #}
     <div class="blog_container-side">
-		<div class="featured-posts_header">
-			<h3>FEATURED POSTS</h3>
-			<div class="header_underline"></div>
+        <div class="featured-posts_header">
+		    <h3>FEATURED POSTS</h3>
+		    <div class="header_underline"></div>
 		</div>
 		{% for post in collections.featured %}
 		<a href="{{ post.url }}" class="cs-button_link">
@@ -84,6 +89,7 @@ layout: "base.njk"
 		{% endfor %}
     </div>
   </div>
+
 </section>
 
 {% include "cta.njk" %}

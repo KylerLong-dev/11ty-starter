@@ -1,5 +1,6 @@
 ---
 title: My Second Article
+heroTitle: Blog
 author: Kyler Long
 date: 2021-05-15
 tags: ["post", "featured"]
