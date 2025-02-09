@@ -1,0 +1,42 @@
+.contact-container {
+    display: flex;
+}
+
+.contact-container .cs-content_text {
+    max-width: 35em;
+    text-align: left;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-info_list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-responsive);
+    list-style-type: none;
+}
+
+.contact_list-item {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-responsive);
+}
+
+.contact-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; 
+    height: 50px;   
+    border: 1px solid var(--text-color);
+    border-radius: 50%; 
+    padding: .7rem;
+}
+
+.cs-column p {
+    color: var(--text-color);
+}
+

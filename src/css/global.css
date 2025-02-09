@@ -156,6 +156,12 @@ section {
   padding: var(--section-paddig); 
 }
 
+.cs-column {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
 .interior_title {
   color: var(--background-color);
   margin: 0 auto;
