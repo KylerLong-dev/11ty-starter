@@ -1,10 +1,15 @@
 .contact-container {
     display: flex;
+    flex-direction: column;
+    gap: var(--gap-responsive-large);
+    max-width: 35rem;
+    margin: 0 auto;
 }
 
 .contact-container .cs-content_text {
-    max-width: 35em;
     text-align: left;
+    max-width: 40rem;
+    margin: 0;
 }
 
 .contact-info {
@@ -31,12 +36,104 @@
     align-items: center;
     width: 50px; 
     height: 50px;   
-    border: 1px solid var(--text-color);
+    border: 1px solid #767676;
     border-radius: 50%; 
     padding: .7rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact-icon:hover {
+    transform: scale(1.1);
 }
 
 .cs-column p {
     color: var(--text-color);
+    transition: color 0.3s ease;
 }
+
+.cs-column p:hover {
+    color: var(--primary-light);
+}
+
+/*** CS FORM ***/
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    .cs-form {
+      width: 100%;
+      max-width: 39.375rem;
+      padding: clamp(1.5rem, 5.18vw, 3rem) clamp(1rem, 4vw, 3rem);
+      box-sizing: border-box;
+      background-color: var(--background-alt-color);
+      border-radius: 1rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 0 auto;
+    }
+  
+    /* Form header */
+    .cs-h3 {
+      font-size: clamp(1.25rem, 3vw, 2.4375rem);
+      line-height: 1.2em;
+      font-weight: 700;
+      margin: 0 0 0.25rem 0;
+      color: var(--headerColor);
+    }
+  
+    /* Form labels */
+    .cs-label {
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      width: 100%;
+      color: var(--headerColor);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+  
+    /* Input fields */
+    .cs-input {
+      font-size: 1rem;
+      width: 100%;
+      height: 3.5rem;
+      padding: 0;
+      padding-left: 1.5rem;
+      color: var(--headerColor);
+      background-color: #f7f7f7;
+      border-radius: 0.5rem;
+      border: none;
+      box-sizing: border-box;
+    }
+    .cs-input::placeholder {
+      color: #7d799c;
+      opacity: 0.6;
+    }
+  
+    /* Textarea field */
+    .cs-textarea {
+      min-height: 7.5rem;
+      padding-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-family: inherit;
+    }
+}
+
+  /* Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+    /* On desktop, adjust the form width */
+    .cs-form {
+        width: 46%;
+        max-width: 36.125rem;
+    }
+
+    .contact-container {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 80rem;
+    }
+  }
+  
 

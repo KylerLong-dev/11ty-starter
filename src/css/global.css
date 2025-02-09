@@ -162,6 +162,10 @@ section {
   gap: .5rem;
 }
 
+.cs-pointer {
+  cursor: pointer;
+}
+
 .interior_title {
   color: var(--background-color);
   margin: 0 auto;
