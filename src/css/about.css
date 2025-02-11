@@ -1,3 +1,5 @@
+/*** About Section CSS ***/
+
 .about {
     margin: 0 auto;
     max-width: 80rem;
@@ -92,5 +94,68 @@
     .about {
         padding-left: 0;
         padding-right: 0;
+    }
+}
+
+/*** About-Page CSS ***/
+
+.about-page_wrap {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.about-page_container1 {
+    display: flex;
+    flex-direction: column;
+    gap: 3.25rem;
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+.about-page_images {
+    position: relative; /* Ensures children with position absolute are contained */
+}
+
+.about-page_images .icon {
+    width: 12rem;
+    height: 12rem;
+    fill: var(--primary-dark);
+    position: absolute;
+    top: -4rem;
+    left: -1.5rem;
+    z-index: 2;
+}
+
+.about-page_img1 img {
+    border-radius: 1rem;
+    height: auto;
+    max-height: 28rem;
+    overflow: hidden;
+    object-fit: cover; 
+    position: relative;
+    z-index: 1;
+}
+
+.about-page_text .cs-content_text {
+    text-align: left;
+    max-width: 40rem;
+}
+
+@media(min-width: 1023px) {
+    .about-page_container1 {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 80rem;
+    }
+
+    .about-page_img1 img {
+        max-width: 33rem;
+        max-height: none;
+    }
+}
+
+@media(min-width: 1127px) {
+    .about-page_img1 img {
+        max-height: 40rem;
     }
 }
