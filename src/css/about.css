@@ -99,6 +99,7 @@
 
 /*** About-Page CSS ***/
 
+/*About Section 1*/
 .about-page_wrap {
     max-width: 80rem;
     margin: 0 auto;
@@ -141,6 +142,65 @@
     max-width: 40rem;
 }
 
+/*Working Process Section*/
+
+.about-page_process {
+    background-color: var(--background-alt-color);
+}
+
+.about-page_process-container {
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+.about-page_process-container .about-page_header {
+    max-width: 40rem;
+}
+
+.about-page_header h1 {
+    font-size: var(--headerFontSize);
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.about-page_header p {
+    font-size: var(--topperFontSize);
+    margin-bottom: .25rem;
+}
+
+.about-page_process-container .about-page_description {
+    max-width: 40rem;
+}
+
+/*about-page_cards*/
+.about-cards_list {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(310px, 1fr) );
+    gap: var(--gap-responsive);
+    justify-content: center;
+}
+
+.about-cards_item {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-responsive);
+    text-align: left;
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    border-radius: 1rem;
+    padding: clamp(1rem, 5vw, 2rem);
+    min-height: 15rem;
+}
+
+/*adjusted spacing for CTA on about page*/
+.cta-margin {
+    padding-top: clamp(3.75rem, 7.82vw, 6.25rem);
+    padding-bottom: 0;
+}
+
+
+
 @media(min-width: 1023px) {
     .about-page_container1 {
         flex-direction: row;
@@ -152,10 +212,27 @@
         max-width: 33rem;
         max-height: none;
     }
+
+    .about-page_process-container {
+        max-width: 80rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: var(--gap-responsive-large);
+    }
+
+    .about-page_description p{
+        max-width: 40rem;
+    }
+
 }
 
 @media(min-width: 1127px) {
     .about-page_img1 img {
         max-height: 40rem;
+    }
+
+    .about-page_description p {
+        max-width: 50rem;
     }
 }
