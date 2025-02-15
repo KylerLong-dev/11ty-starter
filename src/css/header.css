@@ -2,32 +2,33 @@
     display: flex;
     justify-content: center;
     background-color: var(--primary-dark);
-    padding: var(--header-padding);
-    transition: padding .5s ease;
-    position: sticky;
-    z-index: 1000;
-    top: 0;
+    padding: 0rem 1rem clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+    transition: padding .3s ease;
 }
 
 .page-header_container {
+    position: fixed;
+    top: 1.5rem;
+    z-index: 1000;
     background-color: var(--background-color);
-    border-radius: 1.3rem;
+    border-radius: clamp(.8rem, .5vw, 1.3rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--gap-responsive);
-    padding:  clamp(1rem, 3vw, 1.8rem) clamp(1.2rem, 2vw, 1.7rem);
-    max-width: clamp(30rem, 90vw, 90rem);
+    padding:  clamp(.8rem, 3vw, 1.5rem) clamp(1.2rem, 2vw, 1.7rem);
+    max-width: clamp(15rem, 90vw, 90rem);
     width: 100%;
     overflow: hidden;
     box-shadow: 0 10px 14px rgba(153, 153, 153, 0.2);
-    transition: max-width .5s ease, border-radius .5s ease;
+    transition: top 0.3s ease, max-width .3s ease, border-radius .3s ease; 
 }
 
 /***full-width and no-padding classes toggle when user scrolls down on page***/
 .page-header_full-width {
    max-width: 100%;
    border-radius: 0;
+   top: 0;
 }
 
 .page-header_no-padding {
@@ -45,11 +46,10 @@
 }
 
 .page-header_nav-list li a {
-    text-decoration: none;
-    font-weight: var(--fw-900);
-    font-size: var(--baseFontsize);
-    font-family: var(--ff-heading);
-    color: var(--nav-color);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: clamp(0.65rem, 2vw + 0.5rem, .85rem);
+    color: var(--headerColor);
 }
 
 .page-header_nav-list li a:hover, .page-header_nav-list li a:active {
@@ -72,7 +72,7 @@
 }
 
 .moon {
-    width: 1.6rem;
+    width: 1.5rem;
     cursor: pointer;
 }
 
@@ -100,12 +100,10 @@
 
     .bar {
         width: 1.2rem;
-        border-bottom: 3px solid var(--surface-color);
+        border-bottom: 3px solid var(--bodyTextColorWhite);
         border-radius: 5px;
     }
-}
 
-@media (max-width: 1199px) {
     .nav-buttons .cs-button {
         display: none;
     }

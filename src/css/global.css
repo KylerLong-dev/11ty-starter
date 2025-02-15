@@ -17,7 +17,7 @@
   /* Neutral Colors - Shades of White and Gray */
   --background-color: #f7f9fc; 
   --background-alt-color: #e9eef5; 
-  --bodyTextColor: #565368;
+  --bodyTextColor: #403e4d;
   --bodyTextColorLightGray: #c4bfec;
   --bodyTextColorWhite: #FAFBFC;
   --headerColor: #1a1a1a;
@@ -26,9 +26,8 @@
   --box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 
   /* Spacing */
-  /* Spacing */
   --section-paddig: clamp(3.75rem, 7.82vw, 6.25rem) 1rem; /* 60px-100px top and bottom */
-  --header-padding: clamp(.9rem, 1.98vw, 3.4rem) 1rem;
+  --header-padding: clamp(.9rem, 1.98vw, 3.2rem) 1rem;
   --gap-responsive: clamp(1rem, 2vw, 2.2rem); /* Responsive gap 16px-35px */
   --gap-responsive-small: clamp(.8rem, 3vw, 1.4rem);
   --gap-responsive-large: clamp(3rem, 4vw, 5.4rem);
@@ -117,8 +116,12 @@ h6 {
 p,
 li,
 a {
-  font-size: 1rem;
+  font-size: var(--baseFontsize);
   font-weight: 400;
+}
+
+li a {
+  text-decoration: none;
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -215,6 +218,7 @@ section {
 @media (max-width: 916px) {
   .cs-container {
     flex-direction: column;
+    margin-top: clamp(3.75rem, 7.82vw, 7.25rem);
   }
 }
 
@@ -286,7 +290,6 @@ section {
 }
 
 .cs-content_text .base {
-  font-size: var(--baseFontSize);
   margin-bottom: clamp(1.75rem, 3.92vw, 2.5rem);
   font-weight: 400;
 }
