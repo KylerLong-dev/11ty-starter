@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     background-color: var(--primary-dark);
-    padding: var(--header-padding);
+    padding: clamp(.9rem, 1.95vw, 3.2rem) 1rem;
     transition: padding .5s ease;
     position: sticky;
     z-index: 1000;
@@ -46,10 +46,9 @@
 
 .page-header_nav-list li a {
     text-decoration: none;
-    font-weight: var(--fw-900);
+    font-weight: 900;
     font-size: var(--baseFontsize);
-    font-family: var(--ff-heading);
-    color: var(--nav-color);
+    color: var(--text-dark);
 }
 
 .page-header_nav-list li a:hover, .page-header_nav-list li a:active {
