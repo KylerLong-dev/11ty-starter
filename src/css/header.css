@@ -52,7 +52,8 @@
     color: var(--headerColor);
 }
 
-.page-header_nav-list li a:hover, .page-header_nav-list li a:active {
+.page-header_nav-list li a:hover, 
+.page-header_nav-list li a.active {
     color: var(--primary-light);
 }
 

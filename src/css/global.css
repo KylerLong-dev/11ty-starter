@@ -200,7 +200,7 @@ section {
 .interior_title {
   color: var(--background-color);
   margin: 0 auto;
-  font-weight: var(--fw-900);
+  font-weight: 700;
   font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
   text-transform: uppercase;
 }
