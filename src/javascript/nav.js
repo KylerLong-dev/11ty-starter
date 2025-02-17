@@ -1,8 +1,10 @@
-
+/***Start Hamburger Toggle Menu***/
 document.addEventListener('click', () => {
     const hamburger = document.querySelector('.hamburger');
     hamburger.classList.toggle('active');
 });
+/***End Hamburger Toggle Menu***/
+
 
 /***Start Full-width Navigation When Scrolling ***/
 document.addEventListener("scroll", () => {
@@ -17,12 +19,10 @@ document.addEventListener("scroll", () => {
         headerNoPadding.classList.remove("page-header_no-padding");
     }
 });
-
 /*** End Full-width Navigation When Scrolling ***/
 
 
-
-//Current page receives active css style
+/*** Start Current page receives active css style ***/
 document.addEventListener("DOMContentLoaded", function () {
     let currentPath = window.location.pathname;
 
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
+/*** End Current page receives active css style ***/
 
 
 

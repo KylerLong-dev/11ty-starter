@@ -59,7 +59,6 @@
 
 .nav-buttons {
     display: flex;
-    gap: 1rem;
 }
 
 .dark-mode-toggle, .light-mode-toggle {

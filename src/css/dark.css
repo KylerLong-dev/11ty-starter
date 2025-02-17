@@ -70,8 +70,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 1.5625rem;
-      height: 1.5625rem;
+      width: 1.4625rem;
+      height: 1.4625rem;
       pointer-events: none;
     }
     #dark-mode-toggle .cs-moon {
@@ -96,7 +96,7 @@
       top: auto;
       right: auto;
       transform: none;
-      margin-left: 1.875rem;
+      margin-left: .7rem;
       margin-bottom: 0rem;
     }
 
