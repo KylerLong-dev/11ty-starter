@@ -3,7 +3,7 @@
     justify-content: center;
     background-color: var(--primary-dark);
     padding: 0rem 1rem clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
-    transition: padding .3s ease;
+    transition: padding .5s ease;
 }
 
 .page-header_container {
@@ -21,7 +21,7 @@
     width: 100%;
     overflow: hidden;
     box-shadow: 0 10px 14px rgba(153, 153, 153, 0.2);
-    transition: top 0.3s ease, max-width .3s ease, border-radius .3s ease; 
+    transition: max-width .5s ease, border-radius .5s ease, top .5s ease;
 }
 
 /***full-width and no-padding classes toggle when user scrolls down on page***/
@@ -70,11 +70,6 @@
 
 .light-mode-toggle {
     display: none;
-}
-
-.moon {
-    width: 1.5rem;
-    cursor: pointer;
 }
 
 .hamburger {

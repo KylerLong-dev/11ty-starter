@@ -4,25 +4,25 @@ document.addEventListener('click', () => {
     hamburger.classList.toggle('active');
 });
 
-//Remove max-width on navigation when scrolling down
-let lastScroll = 0;
-window.addEventListener("scroll", () => {
-    if (Math.abs(window.scrollY - lastScroll) > 5) { // Prevent tiny scroll jumps
-        const pageHeader = document.querySelector(".page-header_container");
-        const headerNoPadding = document.querySelector(".page-header");
+/***Start Full-width Navigation When Scrolling ***/
+document.addEventListener("scroll", () => {
+    const pageHeader = document.querySelector('.page-header_container');
+    const headerNoPadding = document.querySelector('.page-header');
 
-        if (window.scrollY > 0) {
-            pageHeader.classList.add("page-header_full-width");
-            headerNoPadding.classList.add("page-header_no-padding");
-        } else {
-            pageHeader.classList.remove("page-header_full-width");
-            headerNoPadding.classList.remove("page-header_no-padding");
-        }
-        lastScroll = window.scrollY;
+    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+        pageHeader.classList.add("page-header_full-width");
+        headerNoPadding.classList.add("page-header_no-padding");
+    } else {
+        pageHeader.classList.remove("page-header_full-width");
+        headerNoPadding.classList.remove("page-header_no-padding");
     }
 });
 
-//current page receives active css style
+/*** End Full-width Navigation When Scrolling ***/
+
+
+
+//Current page receives active css style
 document.addEventListener("DOMContentLoaded", function () {
     let currentPath = window.location.pathname;
 

@@ -4,6 +4,7 @@
 <---      Core Dark Styles      -->
 <--- -------------------------- -*/
 /* Mobile */
+
 @media only screen and (min-width: 0rem) {
     :root {
       --dark: #0c032a;
@@ -13,9 +14,6 @@
     }
     body.dark-mode {
       background-color: var(--dark);
-    }
-    body.dark-mode {
-        background-color: var(--dark);
     }
     body.dark-mode p,
     body.dark-mode li,
@@ -42,6 +40,7 @@
   <---      Dark Mode Toggle      -->
   <--- -------------------------- -*/
   /* Mobile */
+
   @media only screen and (min-width: 0rem) {
     body.dark-mode #dark-mode-toggle .cs-sun {
       transform: translate(-50%, -50%);
