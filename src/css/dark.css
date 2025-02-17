@@ -7,9 +7,9 @@
 
 @media only screen and (min-width: 0rem) {
     :root {
-      --dark: #0c032a;
-      --medium: #282828;
-      --accent: #404040;
+      --dark: #082032;
+      --medium: #2c394b;
+      --accent: #334756;
       --bodyTextColorWhite: #fafbfc;
     }
     body.dark-mode {
