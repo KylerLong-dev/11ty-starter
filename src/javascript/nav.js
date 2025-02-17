@@ -8,7 +8,7 @@ document.addEventListener('click', () => {
 
 /***Start Full-width Navigation When Scrolling ***/
 document.addEventListener("scroll", () => {
-    const pageHeader = document.querySelector('.page-header_container');
+    const pageHeader = document.querySelector('.page-header_nav');
     const headerNoPadding = document.querySelector('.page-header');
 
     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {

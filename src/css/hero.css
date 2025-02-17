@@ -14,6 +14,8 @@
     flex-direction: column;
     gap: var(--gap-responsive);
     position: relative;
+    background-color: var(--primary-dark);
+    padding: clamp(11.25rem, 23.82vw, 18.75rem) 1rem clamp(3.75rem, 7.82vw, 6.25rem);
 }
 
 .hero_cs-button {
@@ -32,10 +34,26 @@
     align-items: center;
 }
 
-.hero-img {
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 80rem;
     width: 100%;
-    height: auto;
-    max-width: 26rem;
+    gap: 1.5rem;
+  }
+
+@media(max-width: 768px){
+    .hero-img {
+        max-height: 32rem;
+    }
+}
+  
+@media (max-width: 916px) {
+    .hero-container {
+        flex-direction: column;
+    }
 }
 
 @media(min-width: 1023px) {
@@ -57,6 +75,6 @@
     }
 
     .hero-img {
-        max-width: 40rem;
+        max-height: 38rem;
     }
 }

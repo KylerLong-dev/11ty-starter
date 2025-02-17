@@ -204,23 +204,6 @@ section {
   text-transform: uppercase;
 }
 
-.cs-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto;
-  max-width: 80rem;
-  width: 100%;
-  gap: 1.5rem;
-}
-
-@media (max-width: 916px) {
-  .cs-container {
-    flex-direction: column;
-    margin-top: clamp(3.75rem, 7.82vw, 7.25rem);
-  }
-}
-
 .underline {
   border-bottom: .6px solid var(--bodyTextColor);
 }
@@ -235,11 +218,14 @@ section {
   padding: .8rem 2.2rem;
   border-radius: 50vh;
   border: none;
-  font-size: var(--baseFontsize);
-  font-weight: 700;
   background-color: var(--primary-dark);
   color: var(--bodyTextColorWhite);
   transition: background-color .3s ease, color .3s ease;
+}
+
+.cs-button a {
+  font-weight: 700;
+  font-size: var(--baseFontsize);
 }
 
 .cs-button:hover {
