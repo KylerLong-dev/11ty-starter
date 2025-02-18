@@ -7,14 +7,18 @@
 
 @media only screen and (min-width: 0rem) {
     :root {
-      --dark: #082032;
-      --medium: #2c394b;
-      --accent: #334756;
+      --nav-darkmode: #0c111e;
+      --primary-darkmode: #0e1932; 
+      --dark: #081832;
+      --medium: #2c314b;
+      --accent: #333d56;
       --bodyTextColorWhite: #fafbfc;
     }
+
     body.dark-mode {
       background-color: var(--dark);
     }
+
     body.dark-mode p,
     body.dark-mode li,
     body.dark-mode h1,
@@ -25,6 +29,40 @@
     body.dark-mode h6{
       color: var(--bodyTextColorWhite);
     }
+
+    /*Nav dark mode*/
+    body.dark-mode .page-header_nav {
+      background-color: var(--nav-darkmode);
+    }
+    body.dark-mode .nav-item {
+      color: var(--bodyTextColorWhite);
+    }
+    body.dark-mode .logo {
+      fill: #fff;
+    }
+
+    /*Hero dark mode*/
+    body.dark-mode .hero {
+      background-color: var(--primary-darkmode);
+    }
+    body.dark-mode .cs-button {
+      background-color: var(--background-color);
+      color: var(--primary-darkmode);
+      box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
+    }
+    body.dark-mode .cs-button:hover {
+      background-color: var(--primary-light);
+    }
+    body.dark-mode .about-button {
+      background-color: var(--primary-darkmode);
+      color: var(--bodyTextColorWhite);
+      box-shadow: none;
+    }
+    body.dark-mode .about-button:hover {
+      color: var(--headerColor);
+    }
+
+
     body.dark-mode .light {
       display: none;
     }
@@ -35,6 +73,7 @@
       /* class used to hide elements that only need to be seen when dark mode is enabled */
       display: none;
     }
+
   }
   /*-- -------------------------- -->
   <---      Dark Mode Toggle      -->

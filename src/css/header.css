@@ -17,7 +17,7 @@
     max-width: clamp(15rem, 90vw, 90rem);
     width: 100%;
     overflow: hidden;
-    box-shadow: 0 10px 14px rgba(153, 153, 153, 0.2);
+    box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
     transition: max-width .5s ease, border-radius .5s ease, top .5s ease;
 }
 
