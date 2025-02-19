@@ -186,6 +186,20 @@ section {
   padding: var(--section-paddig); 
 }
 
+/*background-colors*/
+.services, 
+.about, 
+.reviews, 
+.cta, 
+.about-page, 
+.portfolio-page {
+  background-color: var(--background-color);
+}
+
+.footer_custom-shape-divider-bottom-1736398064 .shape-fill {
+  fill: var(--background-color);
+}
+
 .cs-column {
   display: flex;
   flex-direction: column;

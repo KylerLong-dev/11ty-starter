@@ -1,6 +1,6 @@
 /*** About Section CSS ***/
 
-.about {
+.about-container {
     margin: 0 auto;
     max-width: 80rem;
     width: 100%;
@@ -68,7 +68,7 @@
 }
 
 @media(min-width: 1023px) {
-    .about {
+    .about-container {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -91,7 +91,7 @@
 
 /*Padding removed at 1312px screen-width when auto horizontal margin reaches 16px width.*/
 @media(min-width: 1312px) {
-    .about {
+    .about-container {
         padding-left: 0;
         padding-right: 0;
     }

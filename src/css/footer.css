@@ -4,7 +4,6 @@
     position: relative;
     padding: 2rem 1rem;
     font-size: var(--baseFontSize);
-    font-weight: var(--fw-400);
 }
 
 .footer_container .underline {
@@ -137,10 +136,6 @@
     display: block;
     width: calc(100% + 1.3px);
     height: 62px;
-}
-
-.footer_custom-shape-divider-bottom-1736398064 .shape-fill {
-    fill: #ffffff;
 }
 
 /*For mobile devices */
