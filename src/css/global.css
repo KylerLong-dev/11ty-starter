@@ -299,7 +299,7 @@ section {
 }
 
 .custom-shape-divider-bottom-1736398064 .shape-fill {
-  fill: #FFFFFF;
+  fill: var(--background-color);
 }
 
 /*For mobile devices */

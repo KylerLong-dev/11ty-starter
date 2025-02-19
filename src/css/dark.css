@@ -8,15 +8,45 @@
 @media only screen and (min-width: 0rem) {
     :root {
       --nav-darkmode: #0c111e;
-      --primary-darkmode: #0e1932; 
-      --dark: #081832;
-      --medium: #2c314b;
-      --accent: #333d56;
+      --primary-darkmode: #0b162d; 
+      --dark: #040d1b;
+      --medium: #141b3a;
+      --accent: #263f81;
       --bodyTextColorWhite: #fafbfc;
     }
 
-    body.dark-mode {
+    /*Section background-colors*/
+    body.dark-mode .services,
+    body.dark-mode .about,
+    body.dark-mode .reviews,
+    body.dark-mode .cta {
       background-color: var(--dark);
+    }
+
+    body.dark-mode .portfolio, 
+    body.dark-mode .featured-posts {
+      background-color: var(--nav-darkmode);
+    }
+
+    body.dark-mode .performance,
+    body.dark-mode .hero,
+    body.dark-mode .site_footer,
+    body.dark-mode .cta_container,
+    body.dark-mode .review_item {
+      background-color: var(--primary-darkmode);
+    }
+
+    body.dark-mode .topper {
+      color: var(--primary-light);
+    }
+
+    body.dark-mode .custom-shape-divider-bottom-1736398064 .shape-fill,
+    body.dark-mode .footer_custom-shape-divider-bottom-1736398064 .shape-fill {
+      fill: var(--dark);
+    }
+
+    body.dark-mode .services_cs-cards .card-contents {
+      background-color: var(--primary-darkmode);
     }
 
     body.dark-mode p,
@@ -42,9 +72,6 @@
     }
 
     /*Hero dark mode*/
-    body.dark-mode .hero {
-      background-color: var(--primary-darkmode);
-    }
     body.dark-mode .cs-button {
       background-color: var(--background-color);
       color: var(--primary-darkmode);
@@ -60,6 +87,25 @@
     }
     body.dark-mode .about-button:hover {
       color: var(--headerColor);
+    }
+
+    /*Services dark mode*/
+    body.dark-mode .service-icon {
+      background-color: var(--accent);
+    }
+    body.dark-mode .service-link {
+      color: var(--bodyTextColorWhite); 
+    }
+    body.dark-mode .service-link::after {
+      background-color: var(--background-color);
+    }
+    body.dark-mode .service-icon {
+      fill: var(--bodyTextColorWhite);
+    }
+
+    /*Reviews dark mode*/
+    body.dark-mode .review_item svg {
+      fill: var(--bodyTextColorWhite);
     }
 
 
