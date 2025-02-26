@@ -19,7 +19,7 @@
   --background-color: #f7f9fc; 
   --background-alt-color: #e9eef5; 
   --bodyTextColor: #403e4d;
-  --bodyTextColorLightGray: #c4bfec;
+  --bodyTextColorLightGray: #cecaf0;
   --bodyTextColorWhite: #FAFBFC;
   --headerColor: #1a1a1a;
 
@@ -225,7 +225,7 @@ section {
 }
 
 .underline {
-  border-bottom: .6px solid var(--bodyTextColor);
+  border-bottom: .8px solid var(--bodyTextColor);
 }
 
 .cs-button_link {

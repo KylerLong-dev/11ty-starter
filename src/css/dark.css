@@ -24,7 +24,8 @@
     }
 
     body.dark-mode .portfolio, 
-    body.dark-mode .featured-posts {
+    body.dark-mode .featured-posts,
+    body.dark-mode .caption-container_text {
       background-color: var(--nav-darkmode);
     }
 
@@ -108,6 +109,16 @@
       fill: var(--bodyTextColorWhite);
     }
 
+    /*About dark mode*/
+    body.dark-mode .about-img_container {
+      box-shadow: 0 10px 14px rgba(153, 153, 153, 0.3);
+    }
+
+    /*Portfolio dark mode*/
+    body.dark-mode .portfolio_hover-box p,
+    body.dark-mode .portfolio_hover-box h3 {
+      color: var(--headerColor);
+    }
 
     body.dark-mode .light {
       display: none;
@@ -118,6 +129,42 @@
     .dark {
       /* class used to hide elements that only need to be seen when dark mode is enabled */
       display: none;
+    }
+
+    /*Featured posts dark mode*/
+    body.dark-mode .snippet_text-container {
+      background-color: var(--primary-darkmode);
+    }
+
+    body.dark-mode .title-icon path {
+      fill: var(--background-color);
+    }
+
+    body.dark-mode .date-icon path {
+      stroke: var(--primary-light);
+    }
+    /*hover effects*/
+    body.dark-mode .snippet:hover .snippet_title,
+    body.dark-mode .snippet:focus .snippet_title,
+    body.dark-mode .snippet:active .snippet_title {
+        color: var(--primary-darkmode);
+    }
+    
+    body.dark-mode .snippet:hover .snippet_text-container,
+    body.dark-mode .snippet:focus .snippet_text-container,
+    body.dark-mode .snippet:active .snippet_text-container {
+    background-color: var(--background-color);
+   }
+
+   body.dark-mode .snippet:hover .snippet_date-container p,
+   body.dark-mode .snippet:hover .snippet_author-container p {
+    color: var(--primary-darkmode);
+   }
+    
+    body.dark-mode .snippet:hover .title-icon path,
+    body.dark-mode .snippet:focus .title-icon path,
+    body.dark-mode .snippet:active .title-icon path {
+        fill: var(--primary-darkmode);
     }
 
   }

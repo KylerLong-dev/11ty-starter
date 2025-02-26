@@ -41,7 +41,7 @@
 }
 
 .snippet_text-container {
-    background-color: #ffffff;
+    background-color: var(--background-color);
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
@@ -74,17 +74,33 @@
     transition: stroke 0.3s ease;
 }
 
+.date-icon path {
+    stroke: var(--primary-light);
+}
+
 .title-icon {
     max-width: clamp(1.8rem, 5vw, 2.5rem);
     height: clamp(1.8rem, 5vw, 2.5rem);
     transition: transform 0.3s ease, fill 0.3s ease;
 }
 
+.snippet_title {
+    text-transform: uppercase;
+    color: var(--headerColor);
+}
+
 /*Hover Effects*/
+
 .snippet:hover .title-icon,
 .snippet:focus .title-icon,
 .snippet:active .title-icon {
     transform: rotate(45deg);
+}
+
+.snippet:hover .snippet_title,
+.snippet:focus .snippet_title,
+.snippet:active .snippet_title {
+    color: var(--background-color);
 }
 
 .snippet:hover .snippet_text-container,
@@ -98,12 +114,6 @@
 .snippet:focus .title-icon path,
 .snippet:active .title-icon path {
     fill: var(--background-color);
-}
-
-.snippet:hover .date-icon path,
-.snippet:focus .date-icon path,
-.snippet:active .date-icon path {
-    stroke: var(--background-color);
 }
 
 /*Hover Fallback Effects*/
