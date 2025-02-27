@@ -1,3 +1,7 @@
+.blog {
+    background-color: var(--background-color);
+}
+
 .blog_container {
     width: 100%;
     margin: 0 auto;
@@ -17,7 +21,8 @@
     display: flex;
     flex-direction: column;
     background-color: var(--background-alt-color);
-    border-radius: 0 0 .5rem .5rem;
+    overflow: hidden;
+    border-radius: .5rem;
 }   
 
 .article_pic img, .ind-article_pic img {
@@ -69,7 +74,7 @@
     flex-direction: column;
     gap: var(--gap-responsive-small);
     margin: 0 auto;
-    padding: clamp(1rem, 2vw, 2rem);
+    padding: clamp(.8rem, 1.8vw, 1.8rem);
     border-radius: .5rem;
     background-color: var(--background-alt-color);
 }
@@ -79,7 +84,7 @@
     margin: 0 auto;
     margin-top: 1rem;
     margin-bottom: .3rem;
-    border-bottom: 2px solid var(--text-color);
+    border-bottom: 2px solid var(--bodyTextColor);
 }
 
 .blog_container-side .underline:last-child {
@@ -99,12 +104,13 @@
 
 /*Book Hover on Featured Posts*/
 .book-icon {
-    width: clamp(20px, 2vw, 30px);
-    height: clamp(20px, 2vw, 30px);
+    width: clamp(20px, 2vw, 25px);
+    height: clamp(20px, 2vw, 25px);
     opacity: 0;
     transform: translateX(-10px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     align-self: center;
+    stroke: var(--bodyTextColor);
 }
 
 .featured-post_item:hover .book-icon {
@@ -124,10 +130,12 @@
 }
 
 .post_meta p {
-    color: var(--text-color);
+    color: var(--bodyTextColor);
 }
 
 /*Individual Blog Post*/ 
+
+
 .ind_article-header {
     display: flex;
     flex-direction: column;
@@ -140,7 +148,7 @@
 }
 
 .article_meta p {
-    color: var(--text-color);
+    color: var(--bodyTextColor);
 }
 
 .article-content p {
@@ -149,7 +157,7 @@
 
 @media (min-width: 1023px) {
     .blog_container {
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 2.05fr .95fr;
     }
 }
 

@@ -52,7 +52,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--transp-primary-light);
+    background-color: rgba(96, 165, 250, 0.8);
     transition: opacity .3s ease, transform .3s ease;
     opacity: 0;
 }
@@ -79,6 +79,7 @@
 
 .portfolio_hover-box p {
     font-size: var(--baseFontsize);
+    color: var(--headerColor);
     max-width: 16.875rem;
     opacity: 0;
     transform: translateY(0.625rem);
@@ -143,9 +144,6 @@
 }
 
 /*** Portfolio Page CSS ***/
-.portfolio-page {
-    background-color: #fff;
-}
 
 .portfolio-page .cs-content_text {
     max-width: 40rem;

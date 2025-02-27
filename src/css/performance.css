@@ -47,7 +47,7 @@
 
 .performance-container_text .cs-button {
     background-color: var(--primary-light);
-    color: var(--nav-color);
+    color: var(--headerColor);
 }
 
 .performance-container_text .cs-button:hover {
