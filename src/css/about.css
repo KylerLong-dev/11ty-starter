@@ -235,7 +235,7 @@
     gap: var(--gap-responsive-small);
     text-align: left;
     background-color: var(--primary-dark);
-    color: var(--text-light);
+    color: var(--bodyTextColorWhite);
     border-radius: 1rem;
     padding: clamp(1rem, 5vw, 2rem);
     min-height: 15rem;
@@ -258,6 +258,7 @@
 .cta-margin {
     padding-top: clamp(3.75rem, 7.82vw, 6.25rem);
     padding-bottom: 0;
+    background-color: var(--background-color);
 }
 
 @media(min-width: 1023px) {

@@ -19,13 +19,19 @@
     body.dark-mode .services,
     body.dark-mode .about,
     body.dark-mode .reviews,
-    body.dark-mode .cta {
+    body.dark-mode .cta,
+    body.dark-mode .cta-margin,
+    body.dark-mode .about-page,
+    body.dark-mode .portfolio-page,
+    body.dark-mode .blog,
+    body.dark-mode .contact-1 {
       background-color: var(--dark);
     }
 
     body.dark-mode .portfolio, 
     body.dark-mode .featured-posts,
-    body.dark-mode .caption-container_text {
+    body.dark-mode .caption-container_text,
+    body.dark-mode .about-page_process {
       background-color: var(--nav-darkmode);
     }
 
@@ -33,11 +39,16 @@
     body.dark-mode .hero,
     body.dark-mode .site_footer,
     body.dark-mode .cta_container,
-    body.dark-mode .review_item {
+    body.dark-mode .review_item,
+    body.dark-mode .about-cards_item,
+    body.dark-mode .article-items,
+    body.dark-mode .blog_container-side,
+    body.dark-mode .cs-form {
       background-color: var(--primary-darkmode);
     }
 
-    body.dark-mode .topper {
+    body.dark-mode .topper,
+    body.dark-mode .about-cards_item h3 {
       color: var(--primary-light);
     }
 
@@ -49,7 +60,8 @@
     body.dark-mode .services_cs-cards .card-contents {
       background-color: var(--primary-darkmode);
     }
-
+    
+    body.dark-mode .cs-label,
     body.dark-mode p,
     body.dark-mode li,
     body.dark-mode h1,
@@ -70,6 +82,9 @@
     }
     body.dark-mode .logo {
       fill: #fff;
+    }
+    body.dark-mode .book-icon {
+      stroke: var(--bodyTextColorWhite);
     }
 
     /*Hero dark mode*/
@@ -165,6 +180,26 @@
     body.dark-mode .snippet:focus .title-icon path,
     body.dark-mode .snippet:active .title-icon path {
         fill: var(--primary-darkmode);
+    }
+
+    /*Footer*/ 
+
+    /* Dark mode default styles - just reset these to be visible */
+    body.dark-mode .footer_contact-item .icon,
+    body.dark-mode .footer_contact-item .icon * {
+      stroke: var(--bodyTextColorLightGray) !important;
+    }
+
+    /* Text hover effect with increased specificity */
+    body.dark-mode .footer_contact-info .footer_contact-item:hover {
+      color: var(--primary-light) !important;
+    }
+
+    /* Additional hover targeting for any nested text elements */
+    body.dark-mode .footer_contact-info .footer_contact-item:hover span,
+    body.dark-mode .footer_contact-info .footer_contact-item:hover p,
+    body.dark-mode .footer_contact-info .footer_contact-item:hover div:not(.icon) {
+      color: var(--primary-light) !important;
     }
 
   }

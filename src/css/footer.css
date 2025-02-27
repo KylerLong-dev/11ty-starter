@@ -29,13 +29,16 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-responsive-small);
-    font-size: var(--fs-400);
+}
+
+.footer_col-1 .logo {
+    width: 10rem;
 }
 
 /*Footer Button*/
 .footer_col-1 .cs-button {
     background-color: var(--background-color);
-    color: var(--nav-color);
+    color: var(--headerColor);
     max-width: 14rem;
     transition: background-color 0.3s ease;
 }
@@ -48,6 +51,12 @@
     display: flex;
     gap: var(--gap-responsive-large);
     flex-direction: column;
+}
+
+.footer_col-2 h2, .footer_col-3 h2 {
+    color: var(--background-color);
+    font-size: clamp(1.1rem, 2.2vw + 0.5rem, 1.4rem);
+    text-transform: uppercase;
 }
 
 .footer_contact-info, .footer_links {
@@ -70,7 +79,6 @@
     text-decoration: none;
     cursor: pointer;
     transition: color 0.3s ease;
-    font-size: var(--fs-400);
 }
 
 .footer-link a:hover {
@@ -82,10 +90,6 @@
 .footer_contact-item {
     display: flex;
     gap: .8rem;
-}
-
-.footer_contact-item p {
-    font-size: var(--fs-400);
 }
 
 .footer_contact-info .footer_contact-item {
@@ -104,17 +108,17 @@
 /*Footer Contact Icons*/
 .footer_contact-item .icon,
 .footer_contact-item .icon * {
-  stroke: var(--text-light) !important;
+  stroke: var(--bodyTextColorLightGray) !important;
   fill: var(--primary-dark) !important;
-  color: var(--text-light) !important;
+  color: var(--bodyTextColorLightGray) !important;
   width: 1.3rem;
   height: auto;
 }
 
 /* Optional: Handle specific elements in complex SVGs */
 .footer_contact-item .icon [class^="st"] { /* Target classes like "st0" */
-  fill: var(--text-light) !important;
-  stroke: var(--text-light) !important;
+  fill: var(--bodyTextColorLightGray) !important;
+  stroke: var(--bodyTextColorLightGray) !important;
 }
 
 .footer_container-bot {

@@ -113,6 +113,7 @@ h6 {
   color: var(--headerColor);
   font-weight: 900;
 }
+
 p,
 li,
 a {
@@ -283,18 +284,18 @@ section {
   color: var(--bodyTextColorWhite);
 }
 
-.cs-content_text .topper {
+.topper {
   font-size: var(--topperFontSize);
   font-weight: 700;
   margin-bottom: .25rem;
 }
 
-.cs-content_text .header {
+.header {
   font-size: var(--headerFontSize);
   margin-bottom: 1rem;
 }
 
-.cs-content_text .base {
+.base {
   margin-bottom: clamp(1.75rem, 3.92vw, 2.5rem);
   font-weight: 400;
 }

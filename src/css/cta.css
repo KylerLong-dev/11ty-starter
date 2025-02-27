@@ -19,7 +19,7 @@
 
 .cta_container .cs-button {
     background-color: var(--primary-light);
-    color: var(--nav-color);
+    color: var(--headerColor);
     max-width: 14rem;
     transition: background-color 0.3s ease;
 }
