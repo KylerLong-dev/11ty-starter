@@ -5,25 +5,20 @@
   /* Font Sizes */
   --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem); /* 13px - 16px */
   --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem); /* 31px - 49px */
-  --baseFontsize: clamp(0.875rem, 2vw + 0.5rem, 1.125rem);
+  --baseFontSize: clamp(0.875rem, 2vw + 0.5rem, 1.125rem);
+  --subTextSize: clamp(0.75rem, 1.4vw, 0.95rem); /* 11.2px - 14.4px */
 
-  /* Primary Colors */
-  --primary-color: #1e40af; 
+  /* Primary Colors - Shades of Blue */
+  --primary-color: #1e40af;
   --primary-light: #60a5fa;
   --primary-dark: #172554; 
   --accent-color: #bfdbfe; 
 
   /* Neutral Colors - Shades of White and Gray */
-  --background-color: #f7f9fc; /* Very light gray */
-  --background-alt-color: #e9eef5; /* Slightly darker gray for alternating sections */
-  --surface-color: #ffffff; /* Pure white for cards or containers */
-  --border-color: #d1d1d1; /* Light gray for subtle borders */
-
-  --text-dark: #242424; /*Dark grey for navigation text */
-  --text-color: #474747; /* Medium gray for readable text */
-  --text-light: #c8cccc; /* Soft gray for secondary text */
-
-  --bodyTextColor: #4E4B66;
+  --background-color: #f7f9fc; 
+  --background-alt-color: #e9eef5; 
+  --bodyTextColor: #403e4d;
+  --bodyTextColorLightGray: #cecaf0;
   --bodyTextColorWhite: #FAFBFC;
   --headerColor: #1a1a1a;
 
@@ -32,14 +27,41 @@
 
   /* Spacing */
   --section-paddig: clamp(3.75rem, 7.82vw, 6.25rem) 1rem; /* 60px-100px top and bottom */
+  --header-padding: clamp(.9rem, 1.98vw, 3.2rem) 1rem;
   --gap-responsive: clamp(1rem, 2vw, 2.2rem); /* Responsive gap 16px-35px */
   --gap-responsive-small: clamp(.8rem, 3vw, 1.4rem);
   --gap-responsive-large: clamp(3rem, 4vw, 5.4rem);
 }
 
+/* roboto-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/roboto-v47-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* roboto-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/roboto-v47-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* roboto-900 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 900;
+  src: url('assets/fonts/roboto-v47-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
 /***Modern CSS Reset from https://piccalil.li/blog/a-more-modern-css-reset/***/ 
 
 /* Box sizing rules */
+
 *,
 *::before,
 *::after {
@@ -53,6 +75,13 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+}
+
+body,
+html {
+  font-size: 100%;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: var(--bodyTextColor);
 }
 
 /* Remove default margin in favour of better control in authored CSS */
@@ -71,6 +100,28 @@ ol[role='list'] {
 body {
   min-height: 100vh;
   line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: var(--headerColor);
+  font-weight: 900;
+}
+
+p,
+li,
+a {
+  font-size: var(--baseFontSize);
+  font-weight: 400;
+}
+
+li a {
+  text-decoration: none;
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -136,6 +187,25 @@ section {
   padding: var(--section-paddig); 
 }
 
+/*background-colors*/
+.services, 
+.about, 
+.reviews, 
+.cta, 
+.about-page, 
+.portfolio-page {
+  background-color: var(--background-color);
+}
+
+.footer_custom-shape-divider-bottom-1736398064 .shape-fill {
+  fill: var(--background-color);
+}
+/*end background-colors*/
+
+.cs-subtext {
+  font-size: var(--subTextSize);
+}
+
 .cs-column {
   display: flex;
   flex-direction: column;
@@ -149,29 +219,13 @@ section {
 .interior_title {
   color: var(--background-color);
   margin: 0 auto;
-  font-weight: var(--fw-900);
+  font-weight: 700;
   font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
   text-transform: uppercase;
 }
 
-.cs-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto;
-  max-width: 80rem;
-  width: 100%;
-  gap: 1.5rem;
-}
-
-@media (max-width: 916px) {
-  .cs-container {
-    flex-direction: column;
-  }
-}
-
 .underline {
-  border-bottom: .5px solid var(--text-light);
+  border-bottom: .8px solid var(--bodyTextColor);
 }
 
 .cs-button_link {
@@ -184,17 +238,19 @@ section {
   padding: .8rem 2.2rem;
   border-radius: 50vh;
   border: none;
-  font-weight: var(--fw-900);
-  font-size: var(--baseFontsize);
-  font-family: var(--ff-heading);
-  color: var(--surface-color);
   background-color: var(--primary-dark);
+  color: var(--bodyTextColorWhite);
   transition: background-color .3s ease, color .3s ease;
+}
+
+.cs-button a {
+  font-weight: 700;
+  font-size: var(--baseFontSize);
 }
 
 .cs-button:hover {
   background-color: var(--primary-light);
-  color: var(--nav-color);
+  color: var(--headerColor);
 }
 
 .caption-container {
@@ -212,34 +268,35 @@ section {
 }
 
 .gray {
-  color: var(--text-color);
+  color: var(--bodyTextColor);
 }
 
 .light-gray {
-  color: var(--text-light);
+  color: var(--bodyTextColorLightGray);
 }
 
 .black {
-  color: var(--nav-color)
+  color: var(--headerColor);
 }
 
 .white {
-  color: var(--background-color);
+  color: var(--bodyTextColorWhite);
 }
 
-.cs-content_text .topper {
+.topper {
   font-size: var(--topperFontSize);
+  font-weight: 700;
   margin-bottom: .25rem;
 }
 
-.cs-content_text .header {
+.header {
   font-size: var(--headerFontSize);
   margin-bottom: 1rem;
 }
 
-.cs-content_text .base {
-  font-size: var(--baseFontSize);
+.base {
   margin-bottom: clamp(1.75rem, 3.92vw, 2.5rem);
+  font-weight: 400;
 }
 /***End Section Header Styling***/
 
@@ -262,7 +319,7 @@ section {
 }
 
 .custom-shape-divider-bottom-1736398064 .shape-fill {
-  fill: #FFFFFF;
+  fill: var(--background-color);
 }
 
 /*For mobile devices */

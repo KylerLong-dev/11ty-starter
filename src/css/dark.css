@@ -1,0 +1,274 @@
+/*CSS for Dark Mode Toggle
+
+/*-- -------------------------- -->
+<---      Core Dark Styles      -->
+<--- -------------------------- -*/
+/* Mobile */
+
+@media only screen and (min-width: 0rem) {
+    :root {
+      --nav-darkmode: #0c111e;
+      --primary-darkmode: #0b162d; 
+      --dark: #040d1b;
+      --medium: #141b3a;
+      --accent: #263f81;
+      --bodyTextColorWhite: #fafbfc;
+    }
+
+    /*Section background-colors*/
+    body.dark-mode .services,
+    body.dark-mode .about,
+    body.dark-mode .reviews,
+    body.dark-mode .cta,
+    body.dark-mode .cta-margin,
+    body.dark-mode .about-page,
+    body.dark-mode .portfolio-page,
+    body.dark-mode .blog,
+    body.dark-mode .contact-1 {
+      background-color: var(--dark);
+    }
+
+    body.dark-mode .portfolio, 
+    body.dark-mode .featured-posts,
+    body.dark-mode .caption-container_text,
+    body.dark-mode .about-page_process {
+      background-color: var(--nav-darkmode);
+    }
+
+    body.dark-mode .performance,
+    body.dark-mode .hero,
+    body.dark-mode .site_footer,
+    body.dark-mode .cta_container,
+    body.dark-mode .review_item,
+    body.dark-mode .about-cards_item,
+    body.dark-mode .article-items,
+    body.dark-mode .blog_container-side,
+    body.dark-mode .cs-form {
+      background-color: var(--primary-darkmode);
+    }
+
+    body.dark-mode .topper,
+    body.dark-mode .about-cards_item h3 {
+      color: var(--primary-light);
+    }
+
+    body.dark-mode .custom-shape-divider-bottom-1736398064 .shape-fill,
+    body.dark-mode .footer_custom-shape-divider-bottom-1736398064 .shape-fill {
+      fill: var(--dark);
+    }
+
+    body.dark-mode .services_cs-cards .card-contents {
+      background-color: var(--primary-darkmode);
+    }
+    
+    body.dark-mode .cs-label,
+    body.dark-mode p,
+    body.dark-mode li,
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode h4,
+    body.dark-mode h5,
+    body.dark-mode h6{
+      color: var(--bodyTextColorWhite);
+    }
+
+    /*Nav dark mode*/
+    body.dark-mode .page-header_nav {
+      background-color: var(--nav-darkmode);
+    }
+    body.dark-mode .nav-item {
+      color: var(--bodyTextColorWhite);
+    }
+    body.dark-mode .logo {
+      fill: #fff;
+    }
+    body.dark-mode .book-icon {
+      stroke: var(--bodyTextColorWhite);
+    }
+
+    /*Hero dark mode*/
+    body.dark-mode .cs-button {
+      background-color: var(--background-color);
+      color: var(--primary-darkmode);
+      box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
+    }
+    body.dark-mode .cs-button:hover {
+      background-color: var(--primary-light);
+    }
+    body.dark-mode .about-button {
+      background-color: var(--primary-darkmode);
+      color: var(--bodyTextColorWhite);
+      box-shadow: none;
+    }
+    body.dark-mode .about-button:hover {
+      color: var(--headerColor);
+    }
+
+    /*Services dark mode*/
+    body.dark-mode .service-icon {
+      background-color: var(--accent);
+    }
+    body.dark-mode .service-link {
+      color: var(--bodyTextColorWhite); 
+    }
+    body.dark-mode .service-link::after {
+      background-color: var(--background-color);
+    }
+    body.dark-mode .service-icon {
+      fill: var(--bodyTextColorWhite);
+    }
+
+    /*Reviews dark mode*/
+    body.dark-mode .review_item svg {
+      fill: var(--bodyTextColorWhite);
+    }
+
+    /*About dark mode*/
+    body.dark-mode .about-img_container {
+      box-shadow: 0 10px 14px rgba(153, 153, 153, 0.3);
+    }
+
+    /*Portfolio dark mode*/
+    body.dark-mode .portfolio_hover-box p,
+    body.dark-mode .portfolio_hover-box h3 {
+      color: var(--headerColor);
+    }
+
+    body.dark-mode .light {
+      display: none;
+    }
+    body.dark-mode .dark {
+      display: block !important;
+    }
+    .dark {
+      /* class used to hide elements that only need to be seen when dark mode is enabled */
+      display: none;
+    }
+
+    /*Featured posts dark mode*/
+    body.dark-mode .snippet_text-container {
+      background-color: var(--primary-darkmode);
+    }
+
+    body.dark-mode .title-icon path {
+      fill: var(--background-color);
+    }
+
+    body.dark-mode .date-icon path {
+      stroke: var(--primary-light);
+    }
+    /*hover effects*/
+    body.dark-mode .snippet:hover .snippet_title,
+    body.dark-mode .snippet:focus .snippet_title,
+    body.dark-mode .snippet:active .snippet_title {
+        color: var(--primary-darkmode);
+    }
+    
+    body.dark-mode .snippet:hover .snippet_text-container,
+    body.dark-mode .snippet:focus .snippet_text-container,
+    body.dark-mode .snippet:active .snippet_text-container {
+    background-color: var(--background-color);
+   }
+
+   body.dark-mode .snippet:hover .snippet_date-container p,
+   body.dark-mode .snippet:hover .snippet_author-container p {
+    color: var(--primary-darkmode);
+   }
+    
+    body.dark-mode .snippet:hover .title-icon path,
+    body.dark-mode .snippet:focus .title-icon path,
+    body.dark-mode .snippet:active .title-icon path {
+        fill: var(--primary-darkmode);
+    }
+
+    /*Footer*/ 
+
+    /* Dark mode default styles - just reset these to be visible */
+    body.dark-mode .footer_contact-item .icon,
+    body.dark-mode .footer_contact-item .icon * {
+      stroke: var(--bodyTextColorLightGray) !important;
+    }
+
+    /* Text hover effect with increased specificity */
+    body.dark-mode .footer_contact-info .footer_contact-item:hover {
+      color: var(--primary-light) !important;
+    }
+
+    /* Additional hover targeting for any nested text elements */
+    body.dark-mode .footer_contact-info .footer_contact-item:hover span,
+    body.dark-mode .footer_contact-info .footer_contact-item:hover p,
+    body.dark-mode .footer_contact-info .footer_contact-item:hover div:not(.icon) {
+      color: var(--primary-light) !important;
+    }
+
+  }
+  /*-- -------------------------- -->
+  <---      Dark Mode Toggle      -->
+  <--- -------------------------- -*/
+  /* Mobile */
+
+  @media only screen and (min-width: 0rem) {
+    body.dark-mode #dark-mode-toggle .cs-sun {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+    body.dark-mode #dark-mode-toggle .cs-moon {
+      transform: translate(-50%, -150%);
+      opacity: 0;
+    }
+    #dark-mode-toggle {
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 3.75rem;
+      width: 3rem;
+      height: 3rem;
+      background: transparent;
+      border: none;
+      overflow: hidden;
+      padding: 0;
+      cursor: pointer;
+    }
+    #dark-mode-toggle img,
+    #dark-mode-toggle svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1.4625rem;
+      height: 1.4625rem;
+      pointer-events: none;
+    }
+    #dark-mode-toggle .cs-moon {
+      z-index: 2;
+      transition: transform 0.3s,
+                  opacity 0.3s,
+                  fill 0.3s;
+      fill: #000;
+    }
+    #dark-mode-toggle .cs-sun {
+      z-index: 1;
+      transform: translate(-50%, 100%);
+      opacity: 0;
+      transition: transform 0.3s,
+                  opacity 0.3s;
+    }
+  }
+  /* Desktop */
+  @media only screen and (min-width: 64rem) {
+    #dark-mode-toggle {
+      position: relative;
+      top: auto;
+      right: auto;
+      transform: none;
+      margin-left: .7rem;
+      margin-bottom: 0rem;
+    }
+
+    #dark-mode-toggle .cs-moon {
+      /* change to whatever you need it to be */
+      fill: var(--headerColor);
+    }
+  }

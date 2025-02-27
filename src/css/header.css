@@ -1,33 +1,31 @@
-.page-header {
+.page-header_wrap {
     display: flex;
     justify-content: center;
-    background-color: var(--primary-dark);
-    padding: clamp(.9rem, 1.95vw, 3.2rem) 1rem;
-    transition: padding .5s ease;
-    position: sticky;
-    z-index: 1000;
-    top: 0;
 }
 
-.page-header_container {
+.page-header_nav {
+    position: fixed;
+    top: 1.5rem;
+    z-index: 1000;
     background-color: var(--background-color);
-    border-radius: 1.3rem;
+    border-radius: clamp(.8rem, .5vw, 1.3rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--gap-responsive);
-    padding:  clamp(1rem, 3vw, 1.8rem) clamp(1.2rem, 2vw, 1.7rem);
-    max-width: clamp(30rem, 90vw, 90rem);
+    padding:  clamp(.8rem, 3vw, 1.5rem) clamp(1.2rem, 2vw, 1.7rem);
+    max-width: clamp(15rem, 90vw, 90rem);
     width: 100%;
     overflow: hidden;
-    box-shadow: 0 10px 14px rgba(153, 153, 153, 0.2);
-    transition: max-width .5s ease, border-radius .5s ease;
+    box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
+    transition: max-width .5s ease, border-radius .5s ease, top .5s ease;
 }
 
 /***full-width and no-padding classes toggle when user scrolls down on page***/
 .page-header_full-width {
    max-width: 100%;
    border-radius: 0;
+   top: 0;
 }
 
 .page-header_no-padding {
@@ -45,19 +43,19 @@
 }
 
 .page-header_nav-list li a {
-    text-decoration: none;
-    font-weight: 900;
-    font-size: var(--baseFontsize);
-    color: var(--text-dark);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: clamp(0.65rem, 2vw + 0.5rem, .85rem);
+    color: var(--headerColor);
 }
 
-.page-header_nav-list li a:hover, .page-header_nav-list li a:active {
+.page-header_nav-list li a:hover, 
+.page-header_nav-list li a.active {
     color: var(--primary-light);
 }
 
 .nav-buttons {
     display: flex;
-    gap: 1rem;
 }
 
 .dark-mode-toggle, .light-mode-toggle {
@@ -70,15 +68,9 @@
     display: none;
 }
 
-.moon {
-    width: 1.6rem;
-    cursor: pointer;
-}
-
 .hamburger {
     display: none;
 }
-
 
 @media (max-width: 1023px) {
     .page-header_nav-container {
@@ -99,12 +91,10 @@
 
     .bar {
         width: 1.2rem;
-        border-bottom: 3px solid var(--surface-color);
+        border-bottom: 3px solid var(--bodyTextColorWhite);
         border-radius: 5px;
     }
-}
 
-@media (max-width: 1199px) {
     .nav-buttons .cs-button {
         display: none;
     }

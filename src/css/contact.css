@@ -1,3 +1,7 @@
+.contact-1 {
+  background-color: var(--background-color);
+}
+
 .contact-container {
     display: flex;
     flex-direction: column;
@@ -53,6 +57,11 @@
 
 .cs-column p:hover {
     color: var(--primary-light);
+}
+
+.form-button {
+  font-weight: 700;
+  font-size: var(--baseFontSize);
 }
 
 /*** CS FORM ***/

@@ -1,17 +1,35 @@
-<section class="hero">
-    <div class="cs-container">
+<section class="hero">    
+    <div class="hero-container">
         <div class="cs-content_text">
-            <p class="topper white">ONE LINE ABOUT WHAT THEY DO</p>
-            <h1 class="header white">MAIN KEYWORDS ENTERED HERE</h1>
-            <p class="base white">About 3 lines of a description going into more depth about what the client does and services they offer.</p>
+            <p class="topper white hero-topper">ONE LINE ABOUT WHAT THEY DO</p>
+            <h1 class="header white hero-header">MAIN KEYWORDS ENTERED HERE</h1>
+            <p class="base white hero-base">About 3 lines of a description going into more depth about what the client does and services they offer.</p>
             <div class="hero-buttons">
-                <button class="cs-button hero_cs-button">Get Started</button>
-                <button class="cs-button about-button">About Us</button>
+                <button class="cs-button hero_cs-button"><a href="/contact-page" class="cs-button_link">Get Started</a></button>
+                <button class="cs-button about-button"><a href="/about-page" class="cs-button_link">About Us</a></button>
             </div>
         </div>
-        <div class="hero-img_wrap">
-            <img src="/assets/images/hero-img.png" alt="This is the hero image" class="hero-img">
-        </div>
+        
+        <picture class="hero-img_wrap">
+            <!-- Mobile Image -->
+            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/hero-img.png' | resize({ width: 600 }) | avif %}" type="image/avif">
+            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/hero-img.png' | resize({ width: 600 }) | webp %}" type="image/webp">
+            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/hero-img.png' | resize({ width: 600 }) | jpeg %}" type="image/jpeg">
+
+            <!-- Tablet Image -->
+            <source media="(max-width: 800px)" srcset="{% getUrl '/assets/images/hero-img.png' | resize({ width: 800 }) | avif %}" type="image/avif">
+            <source media="(max-width: 800px)" srcset="{% getUrl '/assets/images/hero-img.png' | resize({ width: 800 }) | webp %}" type="image/webp">
+            <source media="(max-width: 800px)" srcset="{% getUrl '/assets/images/hero-img.png' | resize({ width: 800 }) | jpeg %}" type="image/jpeg">
+
+            <!-- Desktop Image -->
+            <source media="(min-width: 800px)" srcset="{% getUrl '/assets/images/hero-img.png' | resize({ width: 800 }) | avif %}" type="image/avif">
+            <source media="(min-width: 800px)" srcset="{% getUrl '/assets/images/hero-img.png' | resize({ width: 800 }) | webp %}" type="image/webp">
+            <source media="(min-width: 800px)" srcset="{% getUrl '/assets/images/hero-img.png' | resize({ width: 800 }) | jpeg %}" type="image/jpeg">
+
+            <!-- Fallback Image -->
+            <img class="hero-img" src="{% getUrl '/assets/images/hero-img.png' | resize({ width: 800 }) | jpeg %}" alt="Hero image" decoding="async" aria-hidden="true">
+        </picture>
+
         <div class="custom-shape-divider-bottom-1736398064">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
