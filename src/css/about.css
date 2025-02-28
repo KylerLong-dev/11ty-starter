@@ -181,6 +181,10 @@
     max-width: 40rem;
 }
 
+.about-page_text .cs-button {
+    font-weight: 700;
+}
+
 /*Working Process Section*/
 
 .about-page_process {
