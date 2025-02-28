@@ -38,7 +38,7 @@
     width: clamp(3.125rem, 5vw, 3.75rem);
     height: clamp(3.125rem, 5vw, 3.75rem);
     min-width: 3.125rem;
-    min-height: 3.125rem;
+    max-height: 2rem;
 }
 
 .performance-icon .st0 {
@@ -82,13 +82,22 @@
     justify-content: center;
     align-items: center;
     gap: .3rem;
-    padding: clamp(1.2rem, 3vw, 2.2rem);
-    max-width: clamp(15rem, 50%, 25rem); 
+    padding: clamp(.6rem, 2.5vw, 1.2rem);
+    max-width: clamp(15rem, 50%, 25rem);
     width: 100%;
     border-radius: 1rem;
     background-color: var(--background-alt-color);
-    box-shadow: 0 10px 14px rgba(143, 143, 143, 0.2);
 }
+
+.caption-container_text h3 {
+    font-size: clamp(0.975rem, 3vw + 0.5rem, 1.225rem);
+    text-transform: uppercase;
+}
+
+.caption-container_text p, .caption-container_text h3 {
+    margin: 0;
+}
+
 
 @media (min-width: 1023px) {
     .performance-container {
