@@ -151,6 +151,25 @@
 }
 /***End Wave Shape Design***/
 
+@media(max-width: 767px) {
+    .footer_container {
+        max-width: 40rem;
+    }
+    .footer_container-right {
+        gap: var(--gap-responsive-large);
+    }
+}
+
+@media(min-width: 768px) {
+    .footer_container-right {
+        flex-direction: row;
+        gap: clamp(9rem, 5vw, 14rem);
+    }
+    .footer_col-1 {
+        max-width: 35rem;
+    }
+}
+
 @media(min-width: 1023px) {
     .footer_container-top {
         flex-direction: row; 
@@ -160,19 +179,9 @@
     .footer_col-1 {
         max-width: 30rem;
     }
-}
 
-@media(min-width: 768px) {
     .footer_container-right {
-        flex-direction: row;
-    }
-    .footer_col-1 {
-        max-width: 35rem;
+        gap: var(--gap-responsive-large);
     }
 }
 
-@media(max-width: 767px) {
-    .footer_container {
-        max-width: 40rem;
-    }
-}

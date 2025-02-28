@@ -68,37 +68,128 @@
     display: none;
 }
 
+/* Hamburger Menu Styles - Full Screen Version */
+
+/* Hamburger Button Styles */
 .hamburger {
     display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Higher than the nav container */
+    position: relative;
 }
 
-@media (max-width: 1023px) {
-    .page-header_nav-container {
-        display: none;
-    }
+.bar {
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--logo-color, #000);
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
 
+/* Styles for when hamburger is active (X state) */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 1023px) {
     .hamburger {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 10px;
-        gap: 5px;
-        background-color: var(--primary-dark);
-        border: none;
+        background-color: var(--primary-dark, #002147);
         border-radius: 5px;
+        padding: 10px;
+        position: relative;
+        z-index: 1001;
     }
-
+    
     .bar {
         width: 1.2rem;
-        border-bottom: 3px solid var(--bodyTextColorWhite);
-        border-radius: 5px;
+        height: 3px;
+        background-color: var(--bodyTextColorWhite, #fff);
+        margin: 2px 0;
+        border-bottom: none; /* Remove the border styling */
+    }
+    
+    /* Full screen overlay menu */
+    .page-header_nav-container {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--background-color, #fff);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .page-header_nav-container.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .page-header_nav-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        padding: 0 20px;
+    }
+    
+    .page-header_nav-list li {
+        margin: 15px 0;
+        width: 100%;
+    }
+    
+    .page-header_nav-list li a {
+        display: block;
+        font-size: 1.5rem;
+        padding: 10px 0;
+        transition: color 0.3s ease;
+    }
+    
+    /* Keep the dark mode toggle and logo visible */
+    .page-header_nav.active .logo-container,
+    .page-header_nav.active .nav-buttons {
+        position: relative;
+        z-index: 1002;
     }
 
     .nav-buttons .cs-button {
         display: none;
     }
 }
+
+
+
+
+
+
+
+
+  
 
 
 

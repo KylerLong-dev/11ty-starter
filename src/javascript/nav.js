@@ -1,9 +1,38 @@
-/***Start Hamburger Toggle Menu***/
-document.addEventListener('click', () => {
+// Start Hamburger Toggle Menu
+document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
-    hamburger.classList.toggle('active');
+    const navContainer = document.querySelector('.page-header_nav-container');
+    
+    // Toggle menu when hamburger is clicked
+    hamburger.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent event from bubbling up
+        hamburger.classList.toggle('active');
+        navContainer.classList.toggle('active');
+        
+        // Add/remove overflow hidden to body to prevent scrolling when menu is open
+        if (navContainer.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        
+        // Toggle aria-expanded for accessibility
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+        hamburger.setAttribute('aria-expanded', !expanded);
+    });
+    
+    // Close menu when a nav item is clicked
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navContainer.classList.remove('active');
+            document.body.style.overflow = '';
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
 });
-/***End Hamburger Toggle Menu***/
+// End Hamburger Toggle Menu
 
 
 /***Start Full-width Navigation When Scrolling ***/
