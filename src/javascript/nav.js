@@ -1,52 +1,56 @@
-// Start Hamburger Toggle Menu
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navContainer = document.querySelector('.page-header_nav-container');
+// Mobile Navigation Toggle
+document.addEventListener("DOMContentLoaded", function() {
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".page-header_nav-list");
+  const navContainer = document.querySelector(".page-header_nav-container");
+  const pageHeader = document.querySelector(".page-header_nav");
+  
+  hamburger.addEventListener("click", function() {
+      const isExpanded = hamburger.getAttribute("aria-expanded") === "true";
     
-    // Toggle menu when hamburger is clicked
-    hamburger.addEventListener('click', (event) => {
-        event.stopPropagation(); // Prevent event from bubbling up
-        hamburger.classList.toggle('active');
-        navContainer.classList.toggle('active');
-        
-        // Add/remove overflow hidden to body to prevent scrolling when menu is open
-        if (navContainer.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-        
-        // Toggle aria-expanded for accessibility
-        const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-        hamburger.setAttribute('aria-expanded', !expanded);
-    });
+      // Toggle aria-expanded
+      hamburger.setAttribute("aria-expanded", !isExpanded);
     
-    // Close menu when a nav item is clicked
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navContainer.classList.remove('active');
-            document.body.style.overflow = '';
-            hamburger.setAttribute('aria-expanded', 'false');
-        });
-    });
-});
-// End Hamburger Toggle Menu
+      // Toggle the menu visibility
+      navMenu.classList.toggle("active");
+    
+      // Toggle menu container visibility
+      navContainer.classList.toggle("active");
+    
+      // Add an "open" class to animate the bars
+      hamburger.classList.toggle("open");
 
+      // Toggle an expanded class on the header for slight expansion
+      pageHeader.classList.toggle("nav-expanded");
+
+  });
+});
+
+// End Hamburger Toggle Menu
 
 /***Start Full-width Navigation When Scrolling ***/
 document.addEventListener("scroll", () => {
-    const pageHeader = document.querySelector('.page-header_nav');
-    const headerNoPadding = document.querySelector('.page-header');
+  const pageHeader = document.querySelector('.page-header_nav');
+  const navContainer = document.querySelector('.page-header_nav-container');
+  const headerElement = document.querySelector('.page-header');
 
-    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-        pageHeader.classList.add("page-header_full-width");
-        headerNoPadding.classList.add("page-header_no-padding");
-    } else {
-        pageHeader.classList.remove("page-header_full-width");
-        headerNoPadding.classList.remove("page-header_no-padding");
-    }
+  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+      pageHeader.classList.add("page-header_full-width");
+      headerElement.classList.add("page-header_no-padding");
+      
+      // If the mobile menu is open, ensure it matches the full width
+      if (navContainer && navContainer.classList.contains('active')) {
+          navContainer.classList.add("container-full-width");
+      }
+  } else {
+      pageHeader.classList.remove("page-header_full-width");
+      headerElement.classList.remove("page-header_no-padding");
+      
+      // Remove full width class from container if it exists
+      if (navContainer) {
+          navContainer.classList.remove("container-full-width");
+      }
+  }
 });
 /*** End Full-width Navigation When Scrolling ***/
 

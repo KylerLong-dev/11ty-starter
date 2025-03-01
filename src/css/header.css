@@ -16,14 +16,14 @@
     padding:  clamp(.8rem, 3vw, 1.5rem) clamp(1.2rem, 2vw, 1.7rem);
     max-width: clamp(15rem, 90vw, 90rem);
     width: 100%;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
+    box-shadow: 0 4px 15px rgba(134, 134, 134, 0.3);
     transition: max-width .5s ease, border-radius .5s ease, top .5s ease;
+    overflow: visible; 
 }
 
 /***full-width and no-padding classes toggle when user scrolls down on page***/
 .page-header_full-width {
-   max-width: 100%;
+   max-width: 100% !important;
    border-radius: 0;
    top: 0;
 }
@@ -31,11 +31,13 @@
 .page-header_no-padding {
     padding: 0;
 }
+
 /***end full-width/padding toggle section***/
 
 .logo {
     cursor: pointer;
 }
+
 
 .page-header_nav-list {
     display: flex;
@@ -68,119 +70,115 @@
     display: none;
 }
 
-/* Hamburger Menu Styles - Full Screen Version */
-
-/* Hamburger Button Styles */
 .hamburger {
     display: none;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1001; /* Higher than the nav container */
-    position: relative;
 }
 
-.bar {
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
-    background-color: var(--logo-color, #000);
-    transition: all 0.3s ease-in-out;
-    border-radius: 2px;
-}
-
-/* Styles for when hamburger is active (X state) */
-.hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Mobile Navigation Styles */
 @media (max-width: 1023px) {
-    .hamburger {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--primary-dark, #002147);
-        border-radius: 5px;
-        padding: 10px;
-        position: relative;
-        z-index: 1001;
-    }
-    
-    .bar {
-        width: 1.2rem;
-        height: 3px;
-        background-color: var(--bodyTextColorWhite, #fff);
-        margin: 2px 0;
-        border-bottom: none; /* Remove the border styling */
-    }
-    
-    /* Full screen overlay menu */
     .page-header_nav-container {
-        display: flex;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: var(--background-color, #fff);
-        z-index: 1000;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+      display: none;
     }
     
+    /* When the dropdown is activated (hamburger clicked) */
     .page-header_nav-container.active {
+      display: flex;
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      background: var(--background-color);
+      z-index: 2; /* Just below the header */
+      border-bottom-right-radius: clamp(.8rem, .5vw, 1.3rem);
+      border-bottom-left-radius: clamp(.8rem, .5vw, 1.3rem);
+      /* Default centering in mobile mode */
+      left: 50%;
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    /* When the header is full-width (scrolled) override the horizontal centering */
+    .page-header_nav.page-header_full-width .page-header_nav-container.active {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    /* (Optional) If you have a nav list inside that also needs a transition, add rules here.
+       But if those are defined elsewhere for full-width, keep them separate. */
+    .page-header_nav-list.active {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      align-items: center;
+      /* Add any desired transitions for the nav list items if needed */
+    }
+    
+    /* Dropdown item animation (staggered) */
+    .page-header_nav-list.active li {
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInDown 0.4s forwards;
+    }
+    .page-header_nav-list.active li:nth-child(1) { animation-delay: 0.1s; }
+    .page-header_nav-list.active li:nth-child(2) { animation-delay: 0.2s; }
+    .page-header_nav-list.active li:nth-child(3) { animation-delay: 0.3s; }
+    .page-header_nav-list.active li:nth-child(4) { animation-delay: 0.4s; }
+    .page-header_nav-list.active li:nth-child(5) { animation-delay: 0.5s; }
+    .page-header_nav-list.active li:nth-child(6) { animation-delay: 0.6s; }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
         opacity: 1;
-        visibility: visible;
+        transform: translateY(0);
+      }
     }
     
-    .page-header_nav-list {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        width: 100%;
-        padding: 0 20px;
+    /* Hamburger menu rules */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      gap: 5px;
+      background-color: var(--primary-dark);
+      border: none;
+      border-radius: 5px;
+    }
+    .bar {
+      width: 1.2rem;
+      border-bottom: 3px solid var(--bodyTextColorWhite);
+      border-radius: 5px;
+    }
+    .hamburger.open .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.open .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
     }
     
-    .page-header_nav-list li {
-        margin: 15px 0;
-        width: 100%;
-    }
-    
-    .page-header_nav-list li a {
-        display: block;
-        font-size: 1.5rem;
-        padding: 10px 0;
-        transition: color 0.3s ease;
-    }
-    
-    /* Keep the dark mode toggle and logo visible */
-    .page-header_nav.active .logo-container,
-    .page-header_nav.active .nav-buttons {
-        position: relative;
-        z-index: 1002;
-    }
-
     .nav-buttons .cs-button {
-        display: none;
+      display: none;
     }
-}
+  }
+  
+
+
+
+
+
+
+
+
+
+
 
 
 
