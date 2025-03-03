@@ -89,14 +89,24 @@
       opacity: 0;
       transition: opacity .3s ease, max-height .9s ease;
       max-height: 0;
+      /* Position fixed to prevent sliding from sides */
+      position: absolute;
+      width: 100%;
+      top: 100%;
+      /* Center the container same way as header */
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .container-full-width {
       width: 100% !important;
       max-width: 100% !important;
       border-radius: 0 !important;
-      left: 0 !important;
-      transform: none !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      transition: width .5s ease, max-width .5s ease;
   }
     
     /* When the dropdown is activated (hamburger clicked) */
@@ -111,22 +121,23 @@
       border-bottom-right-radius: clamp(.8rem, .5vw, 1.3rem);
       border-bottom-left-radius: clamp(.8rem, .5vw, 1.3rem);
       /* Default centering in mobile mode */
-      left: 50%;
-      transform: translateX(-50%) translateY(0);
       max-height: 30rem;
+      transition: opacity .3s ease, max-height .9s ease, width .5s ease, max-width .5s ease;
+
     }
 
     /* Explicitly set width for the dropdown container */
     .page-header_nav.nav-expanded .page-header_nav-container.active {
-      width: clamp(15rem, 90vw, 90rem); /* Match the width before expansion */
+      width: 100%; /* Match the parent width */
       max-width: clamp(15rem, 90vw, 90rem);
+      transition: max-height .9s ease, width .5s ease, max-width .5s ease;
     }
     
     /* When the header is full-width (scrolled) override the horizontal centering */
-    
     .page-header_nav.page-header_full-width .page-header_nav-container.active {
       width: 100%;
       max-width: 100%;
+      transition: width .5s ease, max-width .5s ease;
     }
 
     .page-header_nav-list {
