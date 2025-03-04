@@ -80,9 +80,19 @@
 
 @media (max-width: 1023px) {
 
-    .page-header_nav {
-      justify-content: space-between;
-    }
+  .page-header_nav {
+    justify-content: space-between;
+  }
+  .nav-shadow {
+    position: absolute;
+    left: 0;
+    top: 100%; /* Position right below the nav */
+    width: 100%;
+    height: 10px; /* Height of the shadow area */
+    background: linear-gradient(to bottom, rgba(75, 75, 75, 0.3), transparent);
+    pointer-events: none;
+    z-index: 99999; /* Make sure it doesn't interfere with other elements */
+  }
 
     .page-header_nav-container {
       visibility: hidden;
@@ -98,6 +108,7 @@
       right: 0;
       margin-left: auto;
       margin-right: auto;
+      z-index: 1;
     }
 
     .container-full-width {
@@ -115,21 +126,20 @@
       opacity: 1;
       position: absolute;
       top: 100%;
-      width: 100%;
+      /*width: 100%;*/
       background: var(--background-color);
-      z-index: 2; /* Just below the header */
+      z-index: 1; /* Just below the header */
       border-bottom-right-radius: clamp(.8rem, .5vw, 1.3rem);
       border-bottom-left-radius: clamp(.8rem, .5vw, 1.3rem);
       /* Default centering in mobile mode */
       max-height: 30rem;
       transition: opacity .3s ease, max-height .9s ease, width .5s ease, max-width .5s ease;
-
     }
 
     /* Explicitly set width for the dropdown container */
     .page-header_nav.nav-expanded .page-header_nav-container.active {
       width: 100%; /* Match the parent width */
-      max-width: clamp(15rem, 90vw, 90rem);
+      max-width: clamp(15rem, 88vw, 90rem);
       transition: max-height .9s ease, width .5s ease, max-width .5s ease;
     }
     
@@ -137,7 +147,7 @@
     .page-header_nav.page-header_full-width .page-header_nav-container.active {
       width: 100%;
       max-width: 100%;
-      transition: width .5s ease, max-width .5s ease;
+      transition: max-height .9s ease, width .5s ease, max-width .5s ease;
     }
 
     .page-header_nav-list {
@@ -220,9 +230,12 @@
     }
   }
   
-
-
-
+  @media(max-width: 495px) {
+    /* Explicitly set width for the dropdown container */
+    .page-header_nav.nav-expanded .page-header_nav-container.active {
+      max-width: clamp(13rem, 85vw, 88rem);
+    }
+  }
 
 
 
