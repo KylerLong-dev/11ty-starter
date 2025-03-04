@@ -80,19 +80,30 @@
 
 @media (max-width: 1023px) {
 
-  .page-header_nav {
-    justify-content: space-between;
-  }
-  .nav-shadow {
-    position: absolute;
-    left: 0;
-    top: 100%; /* Position right below the nav */
-    width: 100%;
-    height: 10px; /* Height of the shadow area */
-    background: linear-gradient(to bottom, rgba(75, 75, 75, 0.3), transparent);
-    pointer-events: none;
-    z-index: 99999; /* Make sure it doesn't interfere with other elements */
-  }
+    .page-header_nav {
+      justify-content: space-between;
+    }
+    
+    .nav-shadow {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      top: 100%; /* Position right below the nav */
+      width: 100%;
+      max-width: clamp(15rem, 88vw, 90rem);
+      height: 15px; /* Increased height for more shadow area */
+      background: linear-gradient(to bottom, rgba(196, 196, 196, 0.4), transparent);
+      pointer-events: none;
+      z-index: 99999; /* Make sure it doesn't interfere with other elements */
+      transition: max-width .5s ease; 
+    }
+
+    .page-header_full-width .nav-shadow {
+      max-width: 100%;
+      width: 100%;
+    }
 
     .page-header_nav-container {
       visibility: hidden;
@@ -234,6 +245,14 @@
     /* Explicitly set width for the dropdown container */
     .page-header_nav.nav-expanded .page-header_nav-container.active {
       max-width: clamp(13rem, 85vw, 88rem);
+    }
+
+    .nav-shadow {
+      max-width: clamp(13rem, 85vw, 88rem);
+    }
+
+    .page-header_full-width .nav-shadow {
+      max-width: 100%;
     }
   }
 
