@@ -5,25 +5,40 @@ document.addEventListener("DOMContentLoaded", function() {
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".page-header_nav-list");
     const navContainer = document.querySelector(".page-header_nav-container");
-    const pageHeader = document.querySelector(".page-header_nav"); // Add this line
-    
+    const pageHeader = document.querySelector(".page-header_nav");
+  
     hamburger.addEventListener("click", function() {
-        const isExpanded = hamburger.getAttribute("aria-expanded") === "true";
+      const isExpanded = hamburger.getAttribute("aria-expanded") === "true";
       
-        // Toggle aria-expanded
-        hamburger.setAttribute("aria-expanded", !isExpanded);
+      // Toggle aria-expanded
+      hamburger.setAttribute("aria-expanded", !isExpanded);
       
-        // Toggle the menu visibility
-        navMenu.classList.toggle("active");
+      // If menu is open, trigger closing animation
+      if (navMenu.classList.contains("active")) {
+        // First, add closing class to both elements
+        navMenu.classList.add("closing");
+        navContainer.classList.add("closing");
+        
+        // Important: Keep the active class during animation
+        // This ensures the slide animation completes properly
+        
+        // Use a timeout that matches your animation duration (700ms)
+        setTimeout(function() {
+          navMenu.classList.remove("active", "closing");
+          navContainer.classList.remove("active", "closing");
+        }, 500);
+      } else {
+        // If menu is not open, open it with fadeInDown animation
+        navMenu.classList.add("active");
+        navContainer.classList.add("active");
+        // Ensure closing class is removed if present
+        navMenu.classList.remove("closing");
+        navContainer.classList.remove("closing");
+      }
       
-        // Toggle menu container visibility
-        navContainer.classList.toggle("active");
-      
-        // Add an "open" class to animate the bars
-        hamburger.classList.toggle("open");
-
-        // Toggle an expanded class on the header for slight expansion
-        pageHeader.classList.toggle("nav-expanded"); // Add this line
+      // Toggle hamburger "open" state and header expanded class
+      hamburger.classList.toggle("open");
+      pageHeader.classList.toggle("nav-expanded");
     });
 });
   

@@ -78,6 +78,11 @@
   max-width: calc(clamp(15rem, 90vw, 90rem) + 20px); /* adjust as needed */
 }
 
+.nav-shadow {
+  display: none !important;
+}
+
+
 @media (max-width: 1023px) {
 
     .page-header_nav {
@@ -85,6 +90,7 @@
     }
     
     .nav-shadow {
+      display: block !important;
       position: absolute;
       left: 0;
       right: 0;
@@ -97,19 +103,36 @@
       background: linear-gradient(to bottom, rgba(196, 196, 196, 0.4), transparent);
       pointer-events: none;
       z-index: 99999; /* Make sure it doesn't interfere with other elements */
-      transition: max-width .5s ease; 
+      transition: max-width .3s ease, visibility .3s ease;
+      opacity: 0;
+      visibility: hidden;
     }
+
+    /* Show shadow only when dropdown is active */
+    .page-header_nav-container.active + .nav-shadow,
+    .page-header_nav-container.active ~ .nav-shadow {
+      opacity: 1;
+      visibility: visible;
+  }
 
     .page-header_full-width .nav-shadow {
       max-width: 100%;
       width: 100%;
     }
 
+    @keyframes slideDown {
+      from { max-height: 0; }
+      to { max-height: 30rem; }
+    }
+    
+    @keyframes slideUp {
+      from { max-height: 30rem; }
+      to { max-height: 0; }
+    }
+
     .page-header_nav-container {
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity .3s ease, max-height .9s ease;
-      max-height: 0;
+      visibility: visible;
+      transition: opacity .3s ease;
       /* Position fixed to prevent sliding from sides */
       position: absolute;
       width: 100%;
@@ -120,6 +143,18 @@
       margin-left: auto;
       margin-right: auto;
       z-index: 1;
+      overflow: hidden;
+      /*Initial State*/ 
+      opacity: 0;
+      max-height: 0;
+    }
+
+    .page-header_nav-container.active {
+      animation: slideDown 0.7s forwards;
+    }
+    .page-header_nav-container.closing {
+      max-width: clamp(15rem, 88vw, 90rem);
+      animation: slideUp 0.5s forwards;
     }
 
     .container-full-width {
@@ -128,68 +163,79 @@
       border-radius: 0 !important;
       margin-left: auto !important;
       margin-right: auto !important;
-      transition: width .5s ease, max-width .5s ease;
+      transition: width .3s ease, max-width .3s ease;
   }
     
     /* When the dropdown is activated (hamburger clicked) */
     .page-header_nav-container.active {
-      visibility: visible;
       opacity: 1;
-      position: absolute;
-      top: 100%;
-      /*width: 100%;*/
       background: var(--background-color);
       z-index: 1; /* Just below the header */
       border-bottom-right-radius: clamp(.8rem, .5vw, 1.3rem);
       border-bottom-left-radius: clamp(.8rem, .5vw, 1.3rem);
       /* Default centering in mobile mode */
       max-height: 30rem;
-      transition: opacity .3s ease, max-height .9s ease, width .5s ease, max-width .5s ease;
+      transition: opacity .3s ease, width .3s ease, max-width .3s ease;
     }
 
     /* Explicitly set width for the dropdown container */
     .page-header_nav.nav-expanded .page-header_nav-container.active {
       width: 100%; /* Match the parent width */
       max-width: clamp(15rem, 88vw, 90rem);
-      transition: max-height .9s ease, width .5s ease, max-width .5s ease;
+      transition: width .3s ease, max-width .3s ease;
     }
     
     /* When the header is full-width (scrolled) override the horizontal centering */
     .page-header_nav.page-header_full-width .page-header_nav-container.active {
       width: 100%;
       max-width: 100%;
-      transition: max-height .9s ease, width .5s ease, max-width .5s ease;
+      transition: width .3s ease, max-width .3s ease;
     }
 
     .page-header_nav-list {
-      display: none;
-    }
+      display: flex; /* Keep it in the layout */
+      opacity: 0;
+      pointer-events: none; /* prevent interaction when hidden */
+      transition: opacity 0.3s ease;    }
     
-    /* (Optional) If you have a nav list inside that also needs a transition, add rules here.
-       But if those are defined elsewhere for full-width, keep them separate. */
     .page-header_nav-list.active {
       display: flex;
       flex-direction: column;
+      opacity: 1;
+      pointer-events: auto;
       width: 100%;
       gap: 1rem;
       margin-top: 1.5rem;
       margin-bottom: 1.5rem;
       align-items: center;
-      /* Add any desired transitions for the nav list items if needed */
     }
     
     /* Dropdown item animation (staggered) */
     .page-header_nav-list.active li {
       opacity: 0;
       transform: translateY(-20px);
-      animation: fadeInDown 0.4s forwards;
+      animation: fadeInDown 0.3s forwards;
     }
+
+    .page-header_nav-list.closing li {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeOutUp 0.3s forwards;
+    }
+
     .page-header_nav-list.active li:nth-child(1) { animation-delay: 0.05s; }
     .page-header_nav-list.active li:nth-child(2) { animation-delay: 0.1s; }
     .page-header_nav-list.active li:nth-child(3) { animation-delay: 0.15s; }
     .page-header_nav-list.active li:nth-child(4) { animation-delay: 0.2s; }
     .page-header_nav-list.active li:nth-child(5) { animation-delay: 0.25s; }
     .page-header_nav-list.active li:nth-child(6) { animation-delay: 0.3s; }
+
+    .page-header_nav-list.closing li:nth-child(6) { animation-delay: 0.05s; }
+    .page-header_nav-list.closing li:nth-child(5) { animation-delay: 0.1s; }
+    .page-header_nav-list.closing li:nth-child(4) { animation-delay: 0.15s; }
+    .page-header_nav-list.closing li:nth-child(3) { animation-delay: 0.2s; }
+    .page-header_nav-list.closing li:nth-child(2) { animation-delay: 0.25s; }
+    .page-header_nav-list.closing li:nth-child(1) { animation-delay: 0.3s; }
     
     @keyframes fadeInDown {
       from {
@@ -199,6 +245,16 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+    @keyframes fadeOutUp {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-20px);
       }
     }
     
@@ -247,12 +303,23 @@
       max-width: clamp(13rem, 85vw, 88rem);
     }
 
+    /* When the header is full-width (scrolled) override the horizontal centering */
+    .page-header_nav.page-header_full-width .page-header_nav-container.active {
+      width: 100%;
+      max-width: 100%;
+      transition: width .3s ease, max-width .3s ease;
+    }
+
     .nav-shadow {
       max-width: clamp(13rem, 85vw, 88rem);
     }
 
     .page-header_full-width .nav-shadow {
       max-width: 100%;
+    }
+
+    .page-header_nav-container.closing {
+      max-width: clamp(13rem, 85vw, 88rem);
     }
   }
 
