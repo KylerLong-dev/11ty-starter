@@ -21,7 +21,7 @@ layout: "base.njk"
                     </picture>
                     <div class="cs-column">
                         <h2>Phone</h2>
-                        <p class="cs-pointer">(111) 867-5309</p>
+                        <p class="cs-pointer">{{ client.phoneFormatted }}</p>
                     </div>
                 </li>
                 <li class="contact_list-item">
@@ -30,7 +30,7 @@ layout: "base.njk"
                     </picture>
                     <div class="cs-column">
                         <h2>Email</h2>
-                        <p class="cs-pointer">Click to Email</p>
+                        <p class="cs-pointer">{{ client.email }}</p>
                     </div>
                 </li>
                 <li class="contact_list-item">
@@ -39,7 +39,7 @@ layout: "base.njk"
                     </picture>
                     <div class="cs-column">
                         <h2>Areas Served</h2>
-                        <p>USA</p>
+                        <p>{{ client.address.country }}</p>
                     </div>
                 </li>
             </ul>
