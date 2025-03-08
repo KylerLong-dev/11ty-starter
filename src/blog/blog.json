@@ -1,4 +1,4 @@
 {
-    "layout": "article.njk",
+    "layout": "sections/article.njk",
     "tags": "post"
 }

@@ -26,13 +26,13 @@
 </head>
 <body>
 
-    {% include "header.njk" %}
+    {% include "layout/header.njk" %}
 
     <main>
         {{ content | safe }} 
     </main>  
 
-    {% include "footer.njk" %}
+    {% include "layout/footer.njk" %}
 
     <script>
     if (window.netlifyIdentity) {
