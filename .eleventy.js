@@ -1,6 +1,7 @@
 const { DateTime } = require("luxon");
 const eleventyPluginSharpImages = require("@codestitchofficial/eleventy-plugin-sharp-images");
 const eleventyPluginFilesMinifier = require("@codestitchofficial/eleventy-plugin-minify");
+const CleanCSS = require("clean-css");
 
 module.exports = function(eleventyConfig) {
 
@@ -22,6 +23,14 @@ module.exports = function(eleventyConfig) {
 
     /*HTML Minifier Plugin*/
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
+
+    /*CSS Minifier Plugin*/ 
+    eleventyConfig.addTransform("cssmin", function(content, outputPath) {
+        if (outputPath && outputPath.endsWith(".css")) {
+          return new CleanCSS({}).minify(content).styles;
+        }
+        return content;
+      });
 
     return {
         dir: {

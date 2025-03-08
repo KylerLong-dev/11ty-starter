@@ -2,6 +2,7 @@
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@codestitchofficial/eleventy-plugin-sharp-images": "^1.0.7",
+    "clean-css": "^5.3.3",
     "netlify-plugin-cache": "^1.0.3"
   },
   "name": "11ty-starter",
