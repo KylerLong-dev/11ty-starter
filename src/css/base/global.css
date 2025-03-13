@@ -35,27 +35,27 @@
 
 /* roboto-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: url('assets/fonts/roboto-v47-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/assets/fonts/roboto-v29-latin-regular.woff2') format('woff2');
 }
-/* roboto-700 - latin */
+
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: url('assets/fonts/roboto-v47-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/assets/fonts/roboto-v29-latin-700.woff2') format('woff2');
 }
-/* roboto-900 - latin */
+
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 900;
-  src: url('assets/fonts/roboto-v47-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/assets/fonts/roboto-v29-latin-900.woff2') format('woff2');
 }
 
 /***Modern CSS Reset from https://piccalil.li/blog/a-more-modern-css-reset/***/ 
@@ -226,11 +226,6 @@ section {
 
 .underline {
   border-bottom: .8px solid var(--bodyTextColor);
-}
-
-.cs-button_link {
-  text-decoration: none;
-  color: inherit;
 }
 
 .cs-button {
