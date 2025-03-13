@@ -54,13 +54,13 @@ permalink: /blog/
 
         <div class="article-item_text">
           	<div class="article_meta">
-				<p>{{ post.data.author }}</p>
-				<div class="separator"></div>
-				<p>{{ post.date | postDate }}</p>
+                        <p>{{ post.data.author }}</p>
+                        <div class="separator"></div>
+                        <p>{{ post.date | postDate }}</p>
           	</div>
           	<h2>{{ post.data.title }}</h2>
           	<p class="post-description">{{ post.data.description | safe }}</p>
-          	<button class="cs-button blog-button"><a class="cs-button_link" href="{{ post.url }}">Continue Reading</a></button>
+          	<a  class="cs-button" href="{{ post.url }}">Continue Reading</a>
         </div>
 
       </article>

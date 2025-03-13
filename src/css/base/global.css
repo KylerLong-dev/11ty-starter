@@ -234,8 +234,9 @@ section {
 }
 
 .cs-button {
+  display: inline-block;
   cursor: pointer;
-  padding: .8rem 2.2rem;
+  padding: .6rem 2.2rem;
   border-radius: 50vh;
   border: none;
   background-color: var(--primary-dark);
