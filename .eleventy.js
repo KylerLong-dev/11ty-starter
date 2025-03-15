@@ -16,11 +16,19 @@ module.exports = function(eleventyConfig) {
     });
 
     /*Image Optimization Plugin*/
+    
+    // Optimize main website images
     eleventyConfig.addPlugin(eleventyPluginSharpImages, {
         urlPath: "/assets/images",
         outputDir: "public/assets/images",
-    })
-
+    });
+    
+    // Optimize blog images
+    eleventyConfig.addPlugin(eleventyPluginSharpImages, {
+        urlPath: "/assets/blog",
+        outputDir: "public/assets/blog",
+    });
+  
     /*HTML Minifier Plugin*/
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 
