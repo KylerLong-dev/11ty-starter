@@ -63,7 +63,7 @@ layout: "layout/base.njk"
                         <div class="header_underline"></div>
                         </div>
                         {% for post in collections.featured %}
-                        <a href="{{ post.url }}" class="cs-button_link">
+                        <a href="{{ post.url }}" class="cs-link">
                                 <div class="side_featured-posts">
                                         <div class="featured-post_item">
                                                 <img src="{% getUrl post.data.image | resize({ width: 70 }) | jpeg %}" alt="{{ post.data.imageAlt }}" width="70" loading="lazy" decoding="async">

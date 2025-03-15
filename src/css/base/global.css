@@ -228,6 +228,10 @@ section {
   border-bottom: .8px solid var(--bodyTextColor);
 }
 
+.cs-link {
+  text-decoration: none;
+}
+
 .cs-button {
   display: inline-block;
   cursor: pointer;
