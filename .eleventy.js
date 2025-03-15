@@ -26,6 +26,10 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPlugin(eleventyPluginSharpImages, {
         urlPath: "/assets/blog",  // Keep the URL path the same
         outputDir: "public/assets/blog", // Store optimized images where they are expected
+        directories: {
+            input: "./public/assets/blog",  // Add this line to target CMS uploads
+            output: "./public/assets/blog"
+        }
     });
     
   
