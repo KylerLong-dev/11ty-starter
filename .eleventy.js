@@ -23,11 +23,11 @@ module.exports = function(eleventyConfig) {
         outputDir: "public/assets/images",
     });
     
-    // Optimize blog images
     eleventyConfig.addPlugin(eleventyPluginSharpImages, {
-        urlPath: "/assets/blog",
-        outputDir: "public/assets/blog",
+        urlPath: "/assets/blog",  // Keep the URL path the same
+        outputDir: "public/assets/blog", // Store optimized images where they are expected
     });
+    
   
     /*HTML Minifier Plugin*/
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
