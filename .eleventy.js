@@ -16,7 +16,6 @@ module.exports = function(eleventyConfig) {
     });
 
     /*Image Optimization Plugin*/
-    
     // Optimize main website images
     eleventyConfig.addPlugin(eleventyPluginSharpImages, {
         urlPath: "/assets/images",
@@ -26,12 +25,8 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPlugin(eleventyPluginSharpImages, {
         urlPath: "/assets/blog",  // Keep the URL path the same
         outputDir: "public/assets/blog", // Store optimized images where they are expected
-        directories: {
-            input: "./public/assets/blog",  // Add this line to target CMS uploads
-            output: "./public/assets/blog"
-        }
     });
-    
+
   
     /*HTML Minifier Plugin*/
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
