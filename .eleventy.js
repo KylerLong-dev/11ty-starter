@@ -15,6 +15,16 @@ module.exports = function(eleventyConfig) {
         return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
     });
 
+    /*Create collection of blog posts*/
+    eleventyConfig.addCollection("post", function(collectionApi) {
+        return collectionApi.getFilteredByTag("post");
+      });
+
+    /*Shortcode to ensure images optimized from blog*/
+    eleventyConfig.addShortcode("getUrl", function(url) {
+        return url;
+    });
+
     /*Image Optimization Plugin*/
     // Optimize main website images
     eleventyConfig.addPlugin(eleventyPluginSharpImages, {
