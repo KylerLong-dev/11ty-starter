@@ -7,8 +7,7 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy("src/javascript");
-    //eleventyConfig.addPassthroughCopy("./src/assets");
-    eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+    eleventyConfig.addPassthroughCopy("./src/assets");
     eleventyConfig.addPassthroughCopy("./src/admin");
 
     /*Fixes the way dates are displayed with blog entries*/
@@ -25,7 +24,7 @@ module.exports = function(eleventyConfig) {
     
     eleventyConfig.addPlugin(eleventyPluginSharpImages, {
         urlPath: "/assets/blog",  // Keep the URL path the same
-        outputDir: "src/assets/blog", // Store optimized images where they are expected
+        outputDir: "public/assets/blog", // Store optimized images where they are expected
     });
 
   
