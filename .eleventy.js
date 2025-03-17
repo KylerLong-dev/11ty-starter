@@ -33,6 +33,7 @@ module.exports = function(eleventyConfig) {
     });
     
     eleventyConfig.addPlugin(eleventyPluginSharpImages, {
+        inputDir: "./public/assets/blog", // Add this line - path to where images are uploaded
         urlPath: "/assets/blog",  // Keep the URL path the same
         outputDir: "public/assets/blog", // Store optimized images where they are expected
     });
