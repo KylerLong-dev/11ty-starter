@@ -5,8 +5,8 @@ author: Kyler Long
 date: 2025-03-16T20:09:00.000Z
 tags:
   - post
-image: /assets/blog/pexels-karolina-grabowska-4870798-1-.jpg
-imageAlt: Watering the lawn
+image: /assets/blog/construction-img.jpg
+imageAlt: Construction
 ---
 Lorem ipsum dolor sit amet. Aut quis tenetur et doloremque itaque id obcaecati ipsa in velit minima. Sit itaque consequatur cum iste molestiae ea facilis exercitationem! Est error beatae rem pariatur nisi aut omnis doloribus. Qui neque vitae vel quos dolorem et facilis nemo et iusto velit sit fugiat voluptatem et quaerat quis. 
 
