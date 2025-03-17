@@ -2,7 +2,7 @@ const { DateTime } = require("luxon");
 const eleventyPluginSharpImages = require("@codestitchofficial/eleventy-plugin-sharp-images");
 const eleventyPluginFilesMinifier = require("@codestitchofficial/eleventy-plugin-minify");
 const CleanCSS = require("clean-css");
-const markdownIt = require("markdown-it");
+const cheerio = require('cheerio');
 
 module.exports = function(eleventyConfig) {
 
@@ -34,72 +34,63 @@ module.exports = function(eleventyConfig) {
     });
     
     eleventyConfig.addPlugin(eleventyPluginSharpImages, {
-        inputDir: "./public/assets/blog", // Add this line - path to where images are uploaded
+        inputDir: "./src/assets/blog", // Add this line - path to where images are uploaded
         urlPath: "/assets/blog",  // Keep the URL path the same
         outputDir: "public/assets/blog", // Store optimized images where they are expected
     });
 
-    // Custom markdown renderer
-    let markdownLibrary = markdownIt({
-        html: true,
-        breaks: true,
-        linkify: true
-    }).use(require('markdown-it-replace-link'), {
-        replaceLink: function(link, env) {
-        // We'll handle the link replacement in the image renderer
-        return link;
+    /*Hook to transform blog content img into optimized picture element*/
+    eleventyConfig.addTransform("contentImages", function(content, outputPath) {
+        if(outputPath && outputPath.endsWith(".njk")) {
+          const $ = cheerio.load(content);
+          
+          // Find all images in blog content
+          $('.article-content img').each(function() {
+            const img = $(this);
+            const src = img.attr('src');
+            const alt = img.attr('alt') || '';
+            
+            if (src && src.startsWith('/assets/blog/')) {
+              // Create picture element with responsive images
+              const pictureSrc = src.replace(/\.[^/.]+$/, ""); // Remove extension
+              img.replaceWith(`
+                <picture class="article-image">
+                  <!-- Mobile Image -->
+                  <source media="(max-width: 600px)" 
+                          srcset="${pictureSrc}.avif" 
+                          type="image/avif">
+                  <source media="(max-width: 600px)" 
+                          srcset="${pictureSrc}.webp" 
+                          type="image/webp">
+                  <source media="(max-width: 600px)" 
+                          srcset="${pictureSrc}.jpeg" 
+                          type="image/jpeg">
+      
+                  <!-- Desktop Image -->
+                  <source media="(min-width: 601px)" 
+                          srcset="${pictureSrc}.avif" 
+                          type="image/avif">
+                  <source media="(min-width: 601px)" 
+                          srcset="${pictureSrc}.webp" 
+                          type="image/webp">
+                  <source media="(min-width: 601px)" 
+                          srcset="${pictureSrc}.jpeg" 
+                          type="image/jpeg">
+      
+                  <img src="${src}" 
+                       alt="${alt}" 
+                       loading="lazy"
+                       decoding="async"
+                       width="800">
+                </picture>
+              `);
+            }
+          });
+          
+          return $.html();
         }
-    });
-  
-    // This is the key part - it transforms the image rendering
-    markdownLibrary.renderer.rules.image = function(tokens, idx, options, env, self) {
-        const token = tokens[idx];
-        const srcIndex = token.attrIndex('src');
-        const src = token.attrs[srcIndex][1];
-        const alt = token.content || '';
-    
-    // Only process images from your blog media folder that are in the content
-    // Featured images are handled by your template and won't be processed here
-    // because they're not directly inserted into the Markdown content
-    if (src.startsWith('/assets/blog/')) {
-      // Generate responsive image markup using your Sharp plugin syntax
-      return `<picture class="content-image">
-        <!-- Mobile Image -->
-        <source media="(max-width: 600px)" 
-                srcset="{% getUrl '${src}' | resize({ width: 400 }) | avif %}" 
-                type="image/avif">
-        <source media="(max-width: 600px)" 
-                srcset="{% getUrl '${src}' | resize({ width: 400 }) | webp %}" 
-                type="image/webp">
-        <source media="(max-width: 600px)" 
-                srcset="{% getUrl '${src}' | resize({ width: 400 }) | jpeg %}" 
-                type="image/jpeg">
-
-        <!-- Desktop Image -->
-        <source media="(min-width: 601px)" 
-                srcset="{% getUrl '${src}' | resize({ width: 800 }) | avif %}" 
-                type="image/avif">
-        <source media="(min-width: 601px)" 
-                srcset="{% getUrl '${src}' | resize({ width: 800 }) | webp %}" 
-                type="image/webp">
-        <source media="(min-width: 601px)" 
-                srcset="{% getUrl '${src}' | resize({ width: 800 }) | jpeg %}" 
-                type="image/jpeg">
-
-        <img src="{% getUrl '${src}' | resize({ width: 800 }) | jpeg %}" 
-             alt="${alt}" 
-             loading="lazy"
-             decoding="async"
-             width="800">
-      </picture>`;
-    }
-    
-    // For other images, use default rendering
-    return self.renderToken(tokens, idx, options);
-  };
-  
-    // Replace standard markdown renderer
-    eleventyConfig.setLibrary("md", markdownLibrary);
+        return content;
+      });
   
     /*HTML Minifier Plugin*/
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);

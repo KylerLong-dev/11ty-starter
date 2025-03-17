@@ -18,6 +18,6 @@
   "license": "ISC",
   "devDependencies": {
     "@codestitchofficial/eleventy-plugin-minify": "^1.1.3",
-    "markdown-it-replace-link": "^1.2.2"
+    "cheerio": "^1.0.0"
   }
 }

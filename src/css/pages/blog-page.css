@@ -154,6 +154,18 @@
     margin-bottom: 1rem;
 }
 
+.article-image {
+    display: block;
+    max-width: 100%;
+}
+
+.article-image img {
+    display: block;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
 @media (min-width: 1023px) {
     .blog_container {
         grid-template-columns: 2.05fr .95fr;
