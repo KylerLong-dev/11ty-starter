@@ -1,6 +1,5 @@
 ---
 title: My Third Article
-heroTitle: Blog
 author: Kyler Long
 date: 2021-05-28
 tags: ['post', 'featured']

@@ -1,6 +1,5 @@
 ---
 title: My Fifth Article
-heroTitle: Blog
 author: Kyler Long
 image: /assets/blog/article-5.jpg
 imageAlt: This is a test

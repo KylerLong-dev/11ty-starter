@@ -1,6 +1,5 @@
 ---
 title: My Fifth Article
-heroTitle: Blog
 author: Kyler Long
 date: 2021-06-15
 tags: ["post", "featured"]
