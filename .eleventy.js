@@ -45,59 +45,57 @@ module.exports = function(eleventyConfig) {
 
     /*Hook to transform blog content img into optimized picture element*/
     eleventyConfig.addTransform("contentImages", function(content, outputPath) {
-      // Only process relevant files
-      if(outputPath && outputPath.endsWith(".njk")) {
-        // Add a debug log
-        console.log("Processing:", outputPath);
-        
-        // Simple string replacement approach
-        // Look for image tags with blog paths
-        const blogImageRegex = /<img[^>]*src="\/assets\/blog\/([^"]+)"[^>]*>/g;
-        
-        // Replace with picture elements
-        content = content.replace(blogImageRegex, function(match, imagePath) {
-          // Extract alt text if present
-          const altMatch = match.match(/alt="([^"]*)"/);
-          const alt = altMatch ? altMatch[1] : '';
-          
-          // Remove extension from path
-          const basePath = imagePath.replace(/\.[^/.]+$/, "");
-          
-          return `<picture class="article-image">
-            <!-- Mobile Image -->
-            <source media="(max-width: 600px)" 
-                    srcset="/assets/blog/${basePath}.avif" 
-                    type="image/avif">
-            <source media="(max-width: 600px)" 
-                    srcset="/assets/blog/${basePath}.webp" 
-                    type="image/webp">
-            <source media="(max-width: 600px)" 
-                    srcset="/assets/blog/${basePath}.jpeg" 
-                    type="image/jpeg">
-    
-            <!-- Desktop Image -->
-            <source media="(min-width: 601px)" 
-                    srcset="/assets/blog/${basePath}.avif" 
-                    type="image/avif">
-            <source media="(min-width: 601px)" 
-                    srcset="/assets/blog/${basePath}.webp" 
-                    type="image/webp">
-            <source media="(min-width: 601px)" 
-                    srcset="/assets/blog/${basePath}.jpeg" 
-                    type="image/jpeg">
-    
-            <img src="/assets/blog/${imagePath}" 
-                 alt="${alt}" 
-                 loading="lazy"
-                 decoding="async"
-                 width="800">
-          </picture>`;
-        });
-        
+      // Only process when outputPath exists and is HTML
+      if (!outputPath || !outputPath.endsWith(".html")) {
         return content;
       }
+            
+      // Look for image tags with blog paths using a regex
+      const blogImageRegex = /<img[^>]*src="\/assets\/blog\/([^"]+)"[^>]*>/g;
+      
+      // Replace with picture elements
+      content = content.replace(blogImageRegex, function(match, imagePath) {
+        // Extract alt text if present
+        const altMatch = match.match(/alt="([^"]*)"/);
+        const alt = altMatch ? altMatch[1] : '';
+        
+        // Remove extension from path
+        const basePath = imagePath.replace(/\.[^/.]+$/, "");
+        
+        return `<picture class="article-image">
+          <!-- Mobile Image -->
+          <source media="(max-width: 600px)" 
+                  srcset="/assets/blog/${basePath}.avif" 
+                  type="image/avif">
+          <source media="(max-width: 600px)" 
+                  srcset="/assets/blog/${basePath}.webp" 
+                  type="image/webp">
+          <source media="(max-width: 600px)" 
+                  srcset="/assets/blog/${basePath}.jpeg" 
+                  type="image/jpeg">
+      
+          <!-- Desktop Image -->
+          <source media="(min-width: 601px)" 
+                  srcset="/assets/blog/${basePath}.avif" 
+                  type="image/avif">
+          <source media="(min-width: 601px)" 
+                  srcset="/assets/blog/${basePath}.webp" 
+                  type="image/webp">
+          <source media="(min-width: 601px)" 
+                  srcset="/assets/blog/${basePath}.jpeg" 
+                  type="image/jpeg">
+      
+          <img src="/assets/blog/${imagePath}" 
+               alt="${alt}" 
+               loading="lazy"
+               decoding="async"
+               width="800">
+        </picture>`;
+      });
+      
       return content;
     });
+    
     
     /*HTML Minifier Plugin*/
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
