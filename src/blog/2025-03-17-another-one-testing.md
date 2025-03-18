@@ -12,6 +12,6 @@ Lorem ipsum dolor sit amet. Aut quis tenetur et doloremque itaque id obcaecati i
 
 Aut alias cumque in architecto quisquam quo numquam laboriosam et fuga soluta qui tempora soluta sed velit quibusdam. Et illo minus ut autem explicabo sit repellat molestias. Qui tenetur neque nam ipsa nisi id dignissimos nemo ut soluta reprehenderit et sunt accusamus qui atque facilis sit accusamus optio. Sit quis voluptate quo laborum odit aut nobis iure sit quas corrupti ad placeat cumque ab illo assumenda. 
 
-![computer](/assets/blog/computer-svgrepo-com.svg "Computer Icon")
+![computer](/assets/blog/pexels-expect-best-79873-323780.jpg "Computer Icon")
 
 Et consequatur enim aut internos error hic dignissimos dolorum! Est quia repellendus ut quisquam placeat et omnis earum vel quam libero qui neque repellat et magnam tenetur et numquam reprehenderit.
