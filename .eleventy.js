@@ -2,7 +2,7 @@ const { DateTime } = require("luxon");
 const eleventyPluginSharpImages = require("@codestitchofficial/eleventy-plugin-sharp-images");
 const eleventyPluginFilesMinifier = require("@codestitchofficial/eleventy-plugin-minify");
 const CleanCSS = require("clean-css");
-const markdownIt = require("markdown-it"); // Add this line
+const markdownIt = require("markdown-it"); 
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/css");
