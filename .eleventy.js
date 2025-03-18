@@ -2,10 +2,9 @@ const { DateTime } = require("luxon");
 const eleventyPluginSharpImages = require("@codestitchofficial/eleventy-plugin-sharp-images");
 const eleventyPluginFilesMinifier = require("@codestitchofficial/eleventy-plugin-minify");
 const CleanCSS = require("clean-css");
-const cheerio = require('cheerio');
+const markdownIt = require("markdown-it"); // Add this line
 
 module.exports = function(eleventyConfig) {
-
     eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy("src/javascript");
     eleventyConfig.addPassthroughCopy("src/assets");
@@ -19,12 +18,49 @@ module.exports = function(eleventyConfig) {
     /*Create collection of blog posts*/
     eleventyConfig.addCollection("post", function(collectionApi) {
         return collectionApi.getFilteredByTag("post");
-      });
+    });
 
     /*Shortcode to ensure images optimized from blog*/
     eleventyConfig.addShortcode("getUrl", function(url) {
         return url;
     });
+
+    // Add markdown customization for blog images
+    const md = markdownIt({
+        html: true,
+        breaks: true,
+        linkify: true
+    });
+
+    // Customize the image renderer
+    const defaultImageRenderer = md.renderer.rules.image;
+    md.renderer.rules.image = function(tokens, idx, options, env, self) {
+        const token = tokens[idx];
+        const srcIndex = token.attrIndex('src');
+        const src = token.attrs[srcIndex][1];
+        
+        // Only process blog images
+        if (src && src.startsWith('/assets/blog/')) {
+            const alt = token.content || '';
+            const pictureSrc = src.replace(/\.[^/.]+$/, "");
+            
+            return `<picture class="article-image">
+                <source media="(max-width: 600px)" srcset="${pictureSrc}.avif" type="image/avif">
+                <source media="(max-width: 600px)" srcset="${pictureSrc}.webp" type="image/webp">
+                <source media="(max-width: 600px)" srcset="${pictureSrc}.jpeg" type="image/jpeg">
+                <source media="(min-width: 601px)" srcset="${pictureSrc}.avif" type="image/avif">
+                <source media="(min-width: 601px)" srcset="${pictureSrc}.webp" type="image/webp">
+                <source media="(min-width: 601px)" srcset="${pictureSrc}.jpeg" type="image/jpeg">
+                <img src="${src}" alt="${alt}" loading="lazy" decoding="async" width="800">
+            </picture>`;
+        }
+        
+        // Fall back to default rendering
+        return defaultImageRenderer(tokens, idx, options, env, self);
+    };
+
+    // Set up your markdown library
+    eleventyConfig.setLibrary("md", md);
 
     /*Image Optimization Plugin*/
     // Optimize main website images
@@ -34,79 +70,25 @@ module.exports = function(eleventyConfig) {
     });
     
     eleventyConfig.addPlugin(eleventyPluginSharpImages, {
-      inputDir: "./src/assets/blog",
-      urlPath: "/assets/blog",
-      outputDir: "public/assets/blog",
-      sharpOptions: {
-          // Force creation of different formats
-          formats: ["avif", "webp", "jpeg"]
-      }
-  });
-
-    /*Hook to transform blog content img into optimized picture element*/
-    eleventyConfig.addTransform("contentImages", function(content, outputPath) {
-      // Only process when outputPath exists and is HTML
-      if (!outputPath || !outputPath.endsWith(".html")) {
-        return content;
-      }
-            
-      // Look for image tags with blog paths using a regex
-      const blogImageRegex = /<img[^>]*src="\/assets\/blog\/([^"]+)"[^>]*>/g;
-      
-      // Replace with picture elements
-      content = content.replace(blogImageRegex, function(match, imagePath) {
-        // Extract alt text if present
-        const altMatch = match.match(/alt="([^"]*)"/);
-        const alt = altMatch ? altMatch[1] : '';
-        
-        // Remove extension from path
-        const basePath = imagePath.replace(/\.[^/.]+$/, "");
-        
-        return `<picture class="article-image">
-          <!-- Mobile Image -->
-          <source media="(max-width: 600px)" 
-                  srcset="/assets/blog/${basePath}.avif" 
-                  type="image/avif">
-          <source media="(max-width: 600px)" 
-                  srcset="/assets/blog/${basePath}.webp" 
-                  type="image/webp">
-          <source media="(max-width: 600px)" 
-                  srcset="/assets/blog/${basePath}.jpeg" 
-                  type="image/jpeg">
-      
-          <!-- Desktop Image -->
-          <source media="(min-width: 601px)" 
-                  srcset="/assets/blog/${basePath}.avif" 
-                  type="image/avif">
-          <source media="(min-width: 601px)" 
-                  srcset="/assets/blog/${basePath}.webp" 
-                  type="image/webp">
-          <source media="(min-width: 601px)" 
-                  srcset="/assets/blog/${basePath}.jpeg" 
-                  type="image/jpeg">
-      
-          <img src="/assets/blog/${imagePath}" 
-               alt="${alt}" 
-               loading="lazy"
-               decoding="async"
-               width="800">
-        </picture>`;
-      });
-      
-      return content;
+        inputDir: "./src/assets/blog",
+        urlPath: "/assets/blog",
+        outputDir: "public/assets/blog",
+        sharpOptions: {
+            // Force creation of different formats
+            formats: ["avif", "webp", "jpeg"]
+        }
     });
-    
-    
+
     /*HTML Minifier Plugin*/
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 
     /*CSS Minifier Plugin*/ 
     eleventyConfig.addTransform("cssmin", function(content, outputPath) {
         if (outputPath && outputPath.endsWith(".css")) {
-          return new CleanCSS({}).minify(content).styles;
+            return new CleanCSS({}).minify(content).styles;
         }
         return content;
-      });
+    });
 
     return {
         dir: {
