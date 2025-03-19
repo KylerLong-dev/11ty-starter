@@ -6,8 +6,9 @@ const markdownIt = require("markdown-it");
 
 // Helper function to process an image URL for a given width and format.
 // Replace this placeholder logic with your actual optimization pipeline.
+
 function getOptimizedImageUrl(src, { width, format }) {
-  // For demonstration, we append query parameters.
+    // For demonstration, we append query parameters.
   // In your setup, this should trigger the resize and format conversion.
   return `${src}?w=${width}&fmt=${format}`;
 }
@@ -33,15 +34,45 @@ module.exports = function(eleventyConfig) {
       return url;
   });
 
-  // Set up markdown-it with HTML support and other options.
-  const md = markdownIt({
-      html: true,
-      breaks: true,
-      linkify: true
-  });
+    /*Image Optimization Plugin*/
+    // Optimize main website images.
+    eleventyConfig.addPlugin(eleventyPluginSharpImages, {
+        urlPath: "/assets/images",
+        outputDir: "public/assets/images",
+    });
+
+    // Optimize blog images (this plugin will process images from the src folder).
+    eleventyConfig.addPlugin(eleventyPluginSharpImages, {
+        inputDir: "./src/assets/blog",
+        urlPath: "/assets/blog",
+        outputDir: "public/assets/blog",
+        sharpOptions: {
+            // Create different formats.
+            formats: ["avif", "webp", "jpeg"],
+            widths: [400, 700, 1200], // Explicitly specify all widths
+            // Compression settings for each format:
+            jpeg: { quality: 75 },
+            webp: { quality: 50 },
+            avif: { quality: 50 }
+        },
+
+        // This ensures the output filenames match what your HTML expects
+        filenameFormat: (id, src, width, format) => {
+            // Extract the base filename without extension
+            const filename = src.split('/').pop().split('.')[0];
+            return `${filename}-${width}.${format}`;
+        }
+    });
+
+    // Set up markdown-it with HTML support and other options.
+    const md = markdownIt({
+        html: true,
+        breaks: true,
+        linkify: true
+    });
 
   // Save the default renderer for fallback.
-  const defaultImageRenderer = md.renderer.rules.image;
+    const defaultImageRenderer = md.renderer.rules.image;
 
   // Customize the markdown image renderer to integrate the image optimization.
   md.renderer.rules.image = function(tokens, idx, options, env, self) {
@@ -93,24 +124,6 @@ module.exports = function(eleventyConfig) {
 
   // Set the modified markdown-it instance for Eleventy.
   eleventyConfig.setLibrary("md", md);
-
-  /*Image Optimization Plugin*/
-  // Optimize main website images.
-  eleventyConfig.addPlugin(eleventyPluginSharpImages, {
-      urlPath: "/assets/images",
-      outputDir: "public/assets/images",
-  });
-  
-  // Optimize blog images (this plugin will process images from the src folder).
-  eleventyConfig.addPlugin(eleventyPluginSharpImages, {
-      inputDir: "./src/assets/blog",
-      urlPath: "/assets/blog",
-      outputDir: "public/assets/blog",
-      sharpOptions: {
-          // Create different formats.
-          formats: ["avif", "webp", "jpeg"]
-      }
-  });
 
   /*HTML Minifier Plugin*/
   eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
