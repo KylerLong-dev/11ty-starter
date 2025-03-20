@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main 
+  branch: images  # Replace with your actual testing branch name
 media_folder: "src/assets/blog"
 public_folder: "/assets/blog"
 collections: 
