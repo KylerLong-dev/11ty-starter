@@ -15,3 +15,5 @@ Aut alias cumque in architecto quisquam quo numquam laboriosam et fuga soluta qu
 ![computer](/assets/blog/pexels-expect-best-79873-323780.jpg "Computer Icon")
 
 Et consequatur enim aut internos error hic dignissimos dolorum! Est quia repellendus ut quisquam placeat et omnis earum vel quam libero qui neque repellat et magnam tenetur et numquam reprehenderit.
+
+![](/assets/blog/pexels-davidmcbee-1546166.jpg)
