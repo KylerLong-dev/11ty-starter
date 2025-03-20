@@ -36,6 +36,7 @@ module.exports = function(eleventyConfig) {
       outputDir: "public/assets/images",
   });
 
+  
   /* ---------- Blog Images Processing using Async Shortcode with 11ty Image ---------- */
   // Remove duplicate blog image plugin configuration and use only the async shortcode.
   eleventyConfig.addNunjucksAsyncShortcode("blogImage", async function(src, alt, className = "article-image") {
