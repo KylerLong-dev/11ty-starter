@@ -2,21 +2,21 @@ CMS.registerEditorComponent({
     id: "optimizedImage",
     label: "Optimized Image",
     fields: [
-      { name: "image", label: "Image", widget: "image", media_library: { allow_multiple: false } },
+      { name: "src", label: "Image", widget: "image" },
       { name: "alt", label: "Alt Text", widget: "string" }
     ],
-    pattern: /{%\s*blogImage\s*"([^"]+)",\s*"([^"]+)"\s*%}/,
+    pattern: /{% blogImage "(.*?)", "(.*?)" %}/,
     fromBlock: function(match) {
       return {
-        image: match[1],
+        src: match[1],
         alt: match[2]
       };
     },
     toBlock: function(obj) {
-      return `{% blogImage "${obj.image}", "${obj.alt}" %}`;
+      return `{% blogImage "${obj.src}", "${obj.alt}" %}`;
     },
     toPreview: function(obj) {
-      return `<img src="${obj.image}" alt="${obj.alt}" style="max-width:100%;" />`;
+      return `<img src="${obj.src}" alt="${obj.alt}" style="max-width: 100%;" />`;
     }
   });
   
