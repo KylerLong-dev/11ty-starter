@@ -9,5 +9,3 @@ image: /assets/blog/pexels-davidmcbee-1546166.jpg
 imageAlt: test pic
 ---
 kdanndlsamkdsa
-
-{% blogImage "/assets/blog/programming-background-collage.jpg", "test" %}
