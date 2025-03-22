@@ -38,6 +38,12 @@ module.exports = function(eleventyConfig) {
       webp: { quality: 75 },
       jpeg: { quality: 80, progressive: true },
 
+      createImages: (imageStats) => {
+        console.log(`Generated ${imageStats.length} images`);
+        imageStats.forEach(stat => {
+          console.log(`Created: ${stat.outputPath}`);
+        });
+      }
     },
     
     // Simple filename format without hashing
