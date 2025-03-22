@@ -53,8 +53,9 @@ heroTitle: Blog
                 <div class="underline"></div>
             </div>
             <div class="article-content">
-                {{ content | safe }}
+                {{ content | processImage | safe }}
             </div>
+
         
         </article>
 

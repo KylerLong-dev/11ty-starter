@@ -23,82 +23,42 @@ module.exports = function(eleventyConfig) {
   });
 
   // Configure the Sharp plugin for blog images
-  eleventyConfig.addPlugin(eleventyPluginSharpImages, {
-    // Process all images in the assets/blog directory
-    //inputDir: "./src/assets/blog",
-    //outputDir: "./public/assets/blog",
-    inputDir: path.resolve(__dirname, "src/assets/blog"),
-    outputDir: path.resolve(__dirname, "public/assets/blog"),
-    urlPath: "/assets/blog",
-    // Configure formats and sizes
-    sharpOptions: {
-      formats: ["avif", "webp", "jpeg"],
-      widths: [400, 700, 1200],
-      // Format-specific options
-      avif: { quality: 65 },
-      webp: { quality: 75 },
-      jpeg: { quality: 80, progressive: true }
-    },
-    
-    // Simple filename format without hashing
-    filenameFormat: (id, src, width, format) => {
-      const name = path.basename(src, path.extname(src));
-      return `${name}-${width}.${format}`;
-    }
+  // Add the sharp plugin
+  eleventyConfig.addPlugin(sharpImages, {
+    formats: ['avif', 'webp', 'jpeg'],
+    sizes: [400, 700, 1200],
+    outputDir: 'dist/assets/blog',
+    sourceDir: 'src/assets/blog',
   });
 
-  // Override default image rendering in Markdown
-  const md = markdownIt({
-    html: true,
-    breaks: true,
-    linkify: true
-  });
-  
-  // Store the default image renderer
-  const defaultImageRenderer = md.renderer.rules.image;
-  
-  // Custom image renderer
-  md.renderer.rules.image = function(tokens, idx, options, env, self) {
-    const token = tokens[idx];
-    const srcIndex = token.attrIndex('src');
-    
-    if (srcIndex >= 0) {
-      const src = token.attrs[srcIndex][1];
-      const alt = token.content || '';
-      
-      // Check if this is a blog image path
-      if (src && (src.startsWith('/assets/blog/') || src.includes('/blog/'))) {
-        // Get the base name without extension
-        const baseName = path.basename(src, path.extname(src));
-        const baseDir = path.dirname(src);
+  // Create a custom filter to process images in post content
+  eleventyConfig.addFilter('processImage', function(src) {
+    // Check if the source is a valid image path
+    if (src && (src.includes('assets/blog') || src.includes('blog/'))) {
+      const baseName = path.basename(src, path.extname(src));
+      const baseDir = path.dirname(src);
+
+      return `<picture class="post-image">
+        <!-- Mobile -->
+        <source media="(max-width: 600px)" srcset="${baseDir}/${baseName}-400.avif" type="image/avif">
+        <source media="(max-width: 600px)" srcset="${baseDir}/${baseName}-400.webp" type="image/webp">
+        <source media="(max-width: 600px)" srcset="${baseDir}/${baseName}-400.jpeg" type="image/jpeg">
         
-        // Construct the responsive image paths
-        return `<picture class="article-image">
-          <!-- Mobile -->
-          <source media="(max-width: 600px)" srcset="${baseDir}/${baseName}-400.avif" type="image/avif">
-          <source media="(max-width: 600px)" srcset="${baseDir}/${baseName}-400.webp" type="image/webp">
-          <source media="(max-width: 600px)" srcset="${baseDir}/${baseName}-400.jpeg" type="image/jpeg">
-          
-          <!-- Tablet -->
-          <source media="(max-width: 1024px)" srcset="${baseDir}/${baseName}-700.avif" type="image/avif">
-          <source media="(max-width: 1024px)" srcset="${baseDir}/${baseName}-700.webp" type="image/webp">
-          <source media="(max-width: 1024px)" srcset="${baseDir}/${baseName}-700.jpeg" type="image/jpeg">
-          
-          <!-- Desktop -->
-          <source media="(min-width: 1024px)" srcset="${baseDir}/${baseName}-1200.avif" type="image/avif">
-          <source media="(min-width: 1024px)" srcset="${baseDir}/${baseName}-1200.webp" type="image/webp">
-          
-          <!-- Fallback -->
-          <img src="${baseDir}/${baseName}-1200.jpeg" alt="${alt}" loading="lazy" decoding="async" with="1200">
-        </picture>`;
-      }
+        <!-- Tablet -->
+        <source media="(max-width: 1024px)" srcset="${baseDir}/${baseName}-700.avif" type="image/avif">
+        <source media="(max-width: 1024px)" srcset="${baseDir}/${baseName}-700.webp" type="image/webp">
+        <source media="(max-width: 1024px)" srcset="${baseDir}/${baseName}-700.jpeg" type="image/jpeg">
+        
+        <!-- Desktop -->
+        <source media="(min-width: 1024px)" srcset="${baseDir}/${baseName}-1200.avif" type="image/avif">
+        <source media="(min-width: 1024px)" srcset="${baseDir}/${baseName}-1200.webp" type="image/webp">
+        
+        <!-- Fallback -->
+        <img src="${baseDir}/${baseName}-1200.jpeg" alt="Post image" loading="lazy" decoding="async" width="1200">
+      </picture>`;
     }
-    
-    // Fall back to default renderer for other images
-    return defaultImageRenderer(tokens, idx, options, env, self);
-  };
-  
-  eleventyConfig.setLibrary("md", md);
+    return src; // Return original src if not applicable
+  });
 
   /*HTML Minifier Plugin - MOVED AFTER IMAGE PROCESSING*/
   eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
