@@ -9,8 +9,9 @@ const fs = require("fs");
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/javascript");
-  eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.addPassthroughCopy("./src/admin");
+  eleventyConfig.addPassthroughCopy("src/assets/images");
+  eleventyConfig.addPassthroughCopy("src/assets/blog");
+  eleventyConfig.addPassthroughCopy("src/admin");
 
   /*Fixes the way dates are displayed with blog entries*/
   eleventyConfig.addFilter("postDate", (dateObj) => {
@@ -25,10 +26,8 @@ module.exports = function(eleventyConfig) {
   // Configure the Sharp plugin for blog images
   eleventyConfig.addPlugin(eleventyPluginSharpImages, {
     // Process all images in the assets/blog directory
-    //inputDir: "./src/assets/blog",
-    //outputDir: "./public/assets/blog",
-    inputDir: path.resolve(__dirname, "src/assets/blog"),
-    outputDir: path.resolve(__dirname, "public/assets/blog"),
+    inputDir: "src/assets/blog",
+    outputDir: "public/assets/blog",
     urlPath: "/assets/blog",
     // Configure formats and sizes
     sharpOptions: {
@@ -37,7 +36,8 @@ module.exports = function(eleventyConfig) {
       // Format-specific options
       avif: { quality: 65 },
       webp: { quality: 75 },
-      jpeg: { quality: 80, progressive: true }
+      jpeg: { quality: 80, progressive: true },
+
     },
     
     // Simple filename format without hashing

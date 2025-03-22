@@ -11,35 +11,15 @@
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
       
     <script>
-        /*
-      CMS.registerEventListener({
-        name: 'preSave',
-        handler: function(data) {
-          // Ensure image URLs are properly formatted
-          if (data.entry.get('body')) {
-            let body = data.entry.get('body');
-            // Fix image paths if needed
-            body = body.replace(/!\[(.*?)\]\((.*?)\)/g, function(match, alt, src) {
-              if (!src.startsWith('/assets/blog/')) {
-                // Add proper path prefix
-                src = '/assets/blog/' + src.replace(/^\//, '');
-              }
-              return `![${alt}](${src})`;
-            });
-            data.entry.get('data').set('body', body);
-          }
-          return data;
-        }
-      })
-    */
+
       CMS.registerEventListener({
         name: 'preSave',
         handler: function({ entry }) {
           const body = entry.get('data').get('body'); // Properly access body
           if (body) {
             const updatedBody = body.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => {
-              if (!src.startsWith('/assets/blog/')) {
-                src = '/assets/blog/' + src.replace(/^\//, '');
+              if (!src.startsWith('/assets/blog')) {
+                src = '/assets/blog' + src.replace(/^\//, '');
               }
               return `![${alt}](${src})`;
             });
