@@ -9,8 +9,9 @@
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+      
     <script>
-      /*
+        /*
       CMS.registerEventListener({
         name: 'preSave',
         handler: function(data) {
@@ -29,7 +30,27 @@
           }
           return data;
         }
-      });*/
+      })
+    */
+      CMS.registerEventListener({
+        name: 'preSave',
+        handler: function({ entry }) {
+          const body = entry.get('data').get('body'); // Properly access body
+          if (body) {
+            const updatedBody = body.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => {
+              if (!src.startsWith('/assets/blog/')) {
+                src = '/assets/blog/' + src.replace(/^\//, '');
+              }
+              return `![${alt}](${src})`;
+            });
+
+            // Return new data entry properly
+            return entry.get('data').set('body', updatedBody);
+          }
+          return entry;
+        }
+      });
+
     </script>
   </body>
 </html>
