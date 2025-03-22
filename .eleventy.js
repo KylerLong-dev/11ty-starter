@@ -28,7 +28,7 @@ module.exports = function(eleventyConfig) {
     inputDir: "./src/assets/blog",
     outputDir: "./public/assets/blog",
     urlPath: "/assets/blog",
-    
+    verbose: true, // Add this if the plugin supports it
     // Configure formats and sizes
     sharpOptions: {
       formats: ["avif", "webp", "jpeg"],
