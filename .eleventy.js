@@ -89,7 +89,7 @@ module.exports = function(eleventyConfig) {
           <source media="(min-width: 1024px)" srcset="${baseDir}/${baseName}-1200.webp" type="image/webp">
           
           <!-- Fallback -->
-          <img src="${baseDir}/${baseName}-1200.jpeg" alt="${alt}" loading="lazy" decoding="async">
+          <img src="${baseDir}/${baseName}-1200.jpeg" alt="${alt}" loading="lazy" decoding="async" with="1200">
         </picture>`;
       }
     }
