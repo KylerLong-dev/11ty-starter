@@ -73,7 +73,14 @@ module.exports = function(eleventyConfig) {
       const alt = token.content || '';
       
       // Check if this is a blog image path
-      if (src && (src.startsWith('/assets/blog/') || src.includes('/blog/'))) {
+      if (
+        src &&
+        (
+          src.startsWith('/assets/blog/') ||
+          src.includes('/blog/') ||
+          src.startsWith('/public/assets/blog/')
+        )
+      ) {
         // Get the base name without extension
         const baseName = path.basename(src, path.extname(src));
         const baseDir = path.dirname(src);
