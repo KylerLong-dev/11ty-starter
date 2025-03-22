@@ -26,7 +26,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(eleventyPluginSharpImages, {
     // Process all images in the assets/blog directory
     inputDir: "./src/assets/blog",
-    outputDir: "public/assets/blog",
+    outputDir: "./public/assets/blog",
     urlPath: "/assets/blog",
     
     // Configure formats and sizes
