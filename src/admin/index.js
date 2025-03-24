@@ -25,7 +25,7 @@ if (CMS.getWidget('markdown')) {
           name: 'cloudinary',
           config: {
             cloud_name: 'dvevv6eql', 
-            api_key: '689818348869453',
+            upload_preset: "preset_images",
             default_transformations: [
               [{ quality: 'auto:good' }]
             ]

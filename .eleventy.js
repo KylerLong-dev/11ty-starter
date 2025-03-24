@@ -4,7 +4,6 @@ const eleventyPluginFilesMinifier = require("@codestitchofficial/eleventy-plugin
 const CleanCSS = require("clean-css");
 const markdownIt = require("markdown-it");
 const path = require("path");
-const fs = require("fs");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
