@@ -4,6 +4,11 @@ backend:
 
 media_folder: "src/assets/blog"
 public_folder: "/assets/blog"
+
+# Add this section to enable Cloudinary for markdown editor
+editor:
+  preview: true
+
 collections: 
   - name: "blog"
     label: "Blog"
@@ -16,8 +21,10 @@ collections:
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+      # Featured image still uses the default media folder (processed by SharpImages)
       - { label: "Featured Image", name: "image", widget: "image" }
       - { label: "Image Caption", name: "imageAlt", widget: "string" }
+      # Body uses markdown editor with Cloudinary integration from our custom JS
       - { label: "Body", name: "body", widget: "markdown" }
 
 

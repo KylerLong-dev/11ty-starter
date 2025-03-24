@@ -23,12 +23,12 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getFilteredByTag("post");
   });
 
-  // Configure the Sharp plugin for blog images
+  // Configure the Sharp plugin for all site images including featured blog images
   eleventyConfig.addPlugin(eleventyPluginSharpImages, {
-    // Process all images in the assets/blog directory
-    inputDir: "src/assets/blog",
-    outputDir: "public/assets/blog",
-    urlPath: "/assets/blog",
+    // Process all images in the assets directory
+    inputDir: "src/assets",
+    outputDir: "public/assets",
+    urlPath: "/assets",
     // Configure formats and sizes
     sharpOptions: {
       formats: ["avif", "webp", "jpeg"],
@@ -37,13 +37,6 @@ module.exports = function(eleventyConfig) {
       avif: { quality: 65 },
       webp: { quality: 75 },
       jpeg: { quality: 80, progressive: true },
-
-      createImages: (imageStats) => {
-        console.log(`Generated ${imageStats.length} images`);
-        imageStats.forEach(stat => {
-          console.log(`Created: ${stat.outputPath}`);
-        });
-      }
     },
     
     // Simple filename format without hashing
@@ -72,8 +65,25 @@ module.exports = function(eleventyConfig) {
       const src = token.attrs[srcIndex][1];
       const alt = token.content || '';
       
-      // Check if this is a blog image path
-      if (
+      // Check if it's a Cloudinary URL (from inline markdown content)
+      if (src && src.includes('cloudinary.com')) {
+        return `<picture class="article-image">
+          <!-- Mobile -->
+          <source media="(max-width: 600px)" srcset="${src.split('/upload/')[0]}/upload/c_scale,w_400,q_auto,f_auto/${src.split('/upload/')[1]}" type="image/auto">
+          
+          <!-- Tablet -->
+          <source media="(max-width: 1024px)" srcset="${src.split('/upload/')[0]}/upload/c_scale,w_700,q_auto,f_auto/${src.split('/upload/')[1]}" type="image/auto">
+          
+          <!-- Desktop -->
+          <source media="(min-width: 1024px)" srcset="${src.split('/upload/')[0]}/upload/c_scale,w_1200,q_auto,f_auto/${src.split('/upload/')[1]}" type="image/auto">
+          
+          <!-- Fallback -->
+          <img src="${src.split('/upload/')[0]}/upload/c_scale,w_1200,q_auto,f_auto/${src.split('/upload/')[1]}" alt="${alt}" loading="lazy" decoding="async" width="1200">
+        </picture>`;
+      }
+      
+      // Check if this is a local blog image path (for featured images and existing content)
+      else if (
         src &&
         (
           src.startsWith('/assets/blog/') ||
@@ -102,7 +112,7 @@ module.exports = function(eleventyConfig) {
           <source media="(min-width: 1024px)" srcset="${baseDir}/${baseName}-1200.webp" type="image/webp">
           
           <!-- Fallback -->
-          <img src="${baseDir}/${baseName}-1200.jpeg" alt="${alt}" loading="lazy" decoding="async" with="1200">
+          <img src="${baseDir}/${baseName}-1200.jpeg" alt="${alt}" loading="lazy" decoding="async" width="1200">
         </picture>`;
       }
     }
