@@ -1,26 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-	// Create a CSS rule to style the safe area inset for both light and dark modes
-	const safeAreaStyle = document.createElement('style');
-	safeAreaStyle.innerHTML = `
-		@supports (padding-top: env(safe-area-inset-top)) {
-			body::before {
-				content: '';
-				position: fixed;
-				top: 0;
-				left: 0;
-				right: 0;
-				height: env(safe-area-inset-top);
-				background-color: var(--background-color);
-				z-index: 1001; /* Above the navigation */
-				transition: background-color 0.3s ease;
-			}
-			
-			body.dark-mode::before {
-				background-color: var(--primary-darkmode);
-			}
-		}
-	`;
-	document.head.appendChild(safeAreaStyle);
 
 	// helper functions to toggle dark mode
 	function enableDarkMode() {
