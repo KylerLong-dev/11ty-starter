@@ -36,8 +36,14 @@
     background-color: var(--nav-darkmode);
   }
 
+  /* Ensure body background respects dark mode for safe area */
+  body.dark-mode {
+    background-color: var(--primary-darkmode);
+  }
+
   body.dark-mode .performance,
   body.dark-mode .hero,
+  body.dark-mode .hero::before,
   body.dark-mode .site_footer,
   body.dark-mode .cta_container,
   body.dark-mode .review_item,

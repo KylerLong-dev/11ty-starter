@@ -7,7 +7,6 @@
     height: 100%;
     background-color: var(--primary-dark);
     z-index: -1;
-    padding-top: env(safe-area-inset-top);
 }
 
 .hero {
@@ -17,6 +16,9 @@
     position: relative;
     background-color: var(--primary-dark);
     padding: clamp(11.25rem, 23.82vw, 18.75rem) 1rem clamp(3.75rem, 7.82vw, 6.25rem);
+    /* Ensure hero extends to cover safe area inset */
+    margin-top: calc(-1 * env(safe-area-inset-top));
+    padding-top: calc(clamp(11.25rem, 23.82vw, 18.75rem) + env(safe-area-inset-top));
 }
 
 .hero_cs-button {

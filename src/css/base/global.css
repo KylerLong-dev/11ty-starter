@@ -188,30 +188,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-}
-
-/* Specifically for iOS safe area at top */
-@supports (padding-top: env(safe-area-inset-top)) {
-  html {
-    background-color: var(--primary-dark);
-  }
-  
-  body {
-    /* Ensure body background extends to cover all safe areas */
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
-    /* Adjust position to account for padding */
-    margin-top: calc(-1 * env(safe-area-inset-top));
-    margin-bottom: calc(-1 * env(safe-area-inset-bottom));
-    margin-left: calc(-1 * env(safe-area-inset-left));
-    margin-right: calc(-1 * env(safe-area-inset-right));
-  }
-}
-
-body.dark-mode {
-  background-color: var(--primary-darker);
+  padding-top: env(safe-area-inset-top);
 }
 
 /*** Global CSS Properties Across Site ***/ 
