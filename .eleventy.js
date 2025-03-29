@@ -19,6 +19,14 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
   });
 
+  // Add dateToIso filter for sitemap.xml
+  eleventyConfig.addFilter("dateToIso", (dateObj) => {
+    return DateTime.fromJSDate(dateObj).toISO();
+  });
+
+  // Add passthrough for robots.txt
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
+
   /*Create collection of blog posts*/
   eleventyConfig.addCollection("post", function(collectionApi) {
     return collectionApi.getFilteredByTag("post");

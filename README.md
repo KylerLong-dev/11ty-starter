@@ -26,3 +26,9 @@
 - Nunjucks templating
 - Modular CSS (by component/section)
 - Vanilla JavaScript
+
+## Metadata
+The site domain MUST be entered into the metadata.js file 
+
+## Clientdata
+Specific client information entered within client.js file 
