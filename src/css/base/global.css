@@ -75,7 +75,6 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
-  background-color: var(--background-color);
 }
 
 body,
@@ -184,12 +183,34 @@ textarea:not([rows]) {
 }
 
 /* Target the entire viewport including safe areas */
+/* Default (Light Mode) */
 body {
   background-color: var(--background-color);
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
+  color: var(--bodyTextColor);
+  /* Add safe area padding if using viewport-fit=cover */
+  /* Adjust padding as needed for your layout */
   padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--primary-darkmode); /* Black background (or your dark theme bg) */
+    color: var(--bodyTextColorWhite); /* White text */
+  }
+}
+
+/* Optional: Ensure html also has a background */
+html {
+  background-color: var(--background-color);
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: var(--primary-darkmode); /* Black background (or your dark theme bg) */
+  }
 }
 
 /*** Global CSS Properties Across Site ***/ 
