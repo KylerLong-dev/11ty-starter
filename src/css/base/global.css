@@ -39,7 +39,7 @@ body::before {
   top: 0;
   left: 0;
   right: 0;
-  height: var(--sat);
+  height: env(safe-area-inset-top);
   background-color: white; /* Change to your desired color */
   z-index: 10000;
 }
