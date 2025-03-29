@@ -33,6 +33,17 @@
   --gap-responsive-large: clamp(3rem, 4vw, 5.4rem);
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--sat);
+  background-color: white; /* Change to your desired color */
+  z-index: 10000;
+}
+
 /* roboto-regular - latin */
 @font-face {
   font-display: swap;
