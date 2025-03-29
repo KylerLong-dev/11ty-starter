@@ -15,26 +15,6 @@
     --bodyTextColorWhite: #fafbfc;
   }
 
-  /* Top safe area fix for dark mode */
-@supports (padding-top: env(safe-area-inset-top)) {
-  /* Apply dark mode colors to html element as well */
-  html {
-    background-color: var(--primary-darkmode);
-    transition: background-color 0.3s ease;
-  }
-  
-  /* When body has dark-mode class, update HTML background too */
-  body.dark-mode + html,
-  html:has(body.dark-mode) {  /* :has selector for newer browsers */
-    background-color: var(--primary-darkmode);
-  }
-  
-  /* Light mode default */
-  html {
-    background-color: var(--background-color);
-  }
-}
-
   /*Section background-colors*/
   body.dark-mode .services,
   body.dark-mode .about,
