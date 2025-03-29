@@ -195,23 +195,6 @@ body {
   padding-right: env(safe-area-inset-right);
 }
 
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--primary-darkmode); /* Black background (or your dark theme bg) */
-    color: var(--bodyTextColorWhite); /* White text */
-  }
-}
-
-/* Optional: Ensure html also has a background */
-html {
-  background-color: var(--background-color);
-}
-@media (prefers-color-scheme: dark) {
-  html {
-    background-color: var(--primary-darkmode); /* Black background (or your dark theme bg) */
-  }
-}
 
 /*** Global CSS Properties Across Site ***/ 
 
